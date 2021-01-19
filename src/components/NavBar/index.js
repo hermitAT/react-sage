@@ -1,8 +1,9 @@
 import React from "react";
 
-import "./NavBar.scss";
-
 import logo from "./logo.svg";
+import User from "./User";
+
+import "./index.scss";
 
 export default function NavBar(props) {
 
@@ -13,6 +14,9 @@ export default function NavBar(props) {
         <h1 className="navbar__title">
           CocktailSage
         </h1>
+      </div>
+      <div className="navbar__login">
+        <User user={props.user} />
       </div>
     </nav>
   );

@@ -1,0 +1,44 @@
+
+.user__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #FFE8E5;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+  width: 100%;
+
+  &--info {
+    display: flex;
+    width: 80%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &--name {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+
+  &--avatar {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    border: 0;
+    padding: 0;
+    background-color: #FFE8E5;
+  }
+
+  &--icon {
+    display: flex;
+    width: 90%;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 0.75rem;
+  }
+
+  &--icon:hover {
+    cursor: pointer;
+  }
+}
