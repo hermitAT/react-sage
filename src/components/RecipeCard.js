@@ -8,7 +8,11 @@ export default function RecipeCard(props) {
     <div className='recipe__card'>
       <header>
         <div className='recipe__card--header'></div>
-        <div class='recipe__card--title'>Old Fashioned</div>
+        <div className='recipe__card--title'>Old Fashioned</div>
+        <div className='recipe__card--tags'>
+          <div class='recipe__card--strength'>Strong</div>
+          <div class='recipe__card--flavour'>Bitter, Balanced</div>
+        </div>
       </header>
       <article className='recipe__card--list'>
         <ul className='recipe__card--ingredients'>
