@@ -13,7 +13,7 @@ export default function NavBar(props) {
   const LOGGED_IN = "LOGGED_IN";
   const NO_USER = "NO_USER";
 
-  const { mode, transition, back } = useVisualMode(
+  const { mode, transition } = useVisualMode(
     props.user? LOGGED_IN : NO_USER
   );
 
