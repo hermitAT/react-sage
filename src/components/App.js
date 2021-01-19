@@ -9,6 +9,7 @@ import {
 import './App.scss';
 
 import NavBar from './NavBar';
+import Home from './Home';
 
 export default function App() {
   const [user, setUser] = useState({
@@ -26,6 +27,7 @@ export default function App() {
         <NavBar user={user} onLogout={onLogout} />
         <Switch>
           <Route path="/">
+            <Home />
           </Route>
         </Switch>
       </main>
