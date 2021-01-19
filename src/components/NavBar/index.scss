@@ -6,10 +6,11 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  position: relative;
+  position: absolute;
   min-height: 110px;
   min-width: 100vw;
   margin-bottom: 20px;
+  margin-top: 0;
   padding: 0;
   border: 1px solid transparent;
   color: $color-lightest;
