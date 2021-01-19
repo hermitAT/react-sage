@@ -1,4 +1,10 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom';
 
 import './App.scss';
 
@@ -10,9 +16,19 @@ export default function App() {
     avatar: "https://image.flaticon.com/icons/png/512/188/188987.png"
   });
 
+  const onLogout = () => {
+    setUser(null);
+  };
+
   return (
-    <main className="layout">
-      <NavBar user={user} />
-    </main>
+    <Router>
+      <main className="layout">
+        <NavBar user={user} onLogout={onLogout} />
+      </main>
+      <Switch>
+        <Route path="/">
+        </Route>
+      </Switch>
+    </Router>
   );
 }

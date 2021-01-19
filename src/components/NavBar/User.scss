@@ -1,9 +1,10 @@
+@import "styles/variables.scss";
 
 .user__card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #FFE8E5;
+  color: $color-lightest;
   margin-left: 0.75rem;
   margin-right: 0.75rem;
   width: 100%;
@@ -27,7 +28,7 @@
     border-radius: 50%;
     border: 0;
     padding: 0;
-    background-color: #FFE8E5;
+    background-color: $color-lightest;
   }
 
   &--icon {

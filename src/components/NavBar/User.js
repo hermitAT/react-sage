@@ -14,7 +14,7 @@ export default function User(props) {
         <FontAwesomeIcon icon="thumbs-up" size="lg" />
         <FontAwesomeIcon icon="bookmark" size="lg" />
         <FontAwesomeIcon icon="user" size="lg" />
-        <FontAwesomeIcon icon="sign-out-alt" size="lg" />
+        <FontAwesomeIcon icon="sign-out-alt" size="lg" onClick={props.onLogout} />
       </section>
     </main>
   );

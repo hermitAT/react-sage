@@ -1,11 +1,26 @@
 import React from "react";
 
+import useVisualMode from "hooks/useVisualMode";
+
 import logo from "./logo.svg";
 import User from "./User";
+import NoUser from "./NoUser";
 
 import "./index.scss";
 
 export default function NavBar(props) {
+
+  const LOGGED_IN = "LOGGED_IN";
+  const NO_USER = "NO_USER";
+
+  const { mode, transition, back } = useVisualMode(
+    props.user? LOGGED_IN : NO_USER
+  );
+
+  function logout() {
+    transition(NO_USER, true);
+    props.onLogout();
+  };
 
   return (
     <nav className="navbar">
@@ -16,7 +31,13 @@ export default function NavBar(props) {
         </h1>
       </div>
       <div className="navbar__login">
-        <User user={props.user} />
+        {mode === LOGGED_IN && (
+          <User user={props.user} onLogout={logout} />
+        )}
+        {mode === NO_USER && (
+          <NoUser />
+        )}
+        
       </div>
     </nav>
   );
