@@ -1,6 +1,9 @@
+@import "styles/variables.scss";
+
 #root {
   display: flex;
   justify-content: center;
+  font-family: $main-font;
 }
 
 .layout {

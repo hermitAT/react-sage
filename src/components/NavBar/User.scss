@@ -1,0 +1,42 @@
+@import "styles/variables.scss";
+
+.user__card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: $color-lightest;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+
+  &--info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &--name {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  &--avatar {
+    height: 3.25rem;
+    width: 3.25rem;
+    border-radius: 50%;
+    border: 1px solid;
+    border-color: $color-medium;
+    padding: 0;
+    margin-top: 0.75rem;
+    background-color: $color-lightest;
+  }
+
+  &--icon {
+    margin-bottom: 1.5rem;
+    padding: 0.5rem;
+  }
+
+  &--icon:hover {
+    cursor: pointer;
+  }
+}
