@@ -1,9 +1,11 @@
 
-.user__login {
-  display: inline-flex;
-  justify-content: space-around;
+.login__buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 3.5rem;
   padding: 0;
-  margin-top: 0.75rem;
+  margin-right: 2rem;
   margin-bottom: 0.75rem;
-  width: 90%;
 }

@@ -2,41 +2,38 @@
 
 .user__card {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   color: $color-lightest;
   margin-left: 0.75rem;
   margin-right: 0.75rem;
-  width: 100%;
 
   &--info {
     display: flex;
-    width: 80%;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
   }
 
   &--name {
-    padding-right: 0.5rem;
-    padding-left: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
   }
 
   &--avatar {
-    height: 3rem;
-    width: 3rem;
+    height: 3.25rem;
+    width: 3.25rem;
     border-radius: 50%;
-    border: 0;
+    border: 1px solid;
+    border-color: $color-medium;
     padding: 0;
+    margin-top: 0.75rem;
     background-color: $color-lightest;
   }
 
-  &--links {
-    display: flex;
-    width: 90%;
-    flex-direction: row;
-    justify-content: space-evenly;
-    margin-top: 0.75rem;
+  &--icon {
+    margin-bottom: 1.5rem;
+    padding: 0.5rem;
   }
 
   &--icon:hover {

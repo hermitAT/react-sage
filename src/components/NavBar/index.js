@@ -3,6 +3,7 @@ import React from "react";
 import useVisualMode from "hooks/useVisualMode";
 
 import logo from "./logo.svg";
+import Dropdown from "./Dropdown";
 import User from "./User";
 import NoUser from "./NoUser";
 
@@ -29,6 +30,7 @@ export default function NavBar(props) {
         <h1 className="navbar__title">
           CocktailSage
         </h1>
+        <Dropdown />
       </div>
       <div className="navbar__login">
         {mode === LOGGED_IN && (
