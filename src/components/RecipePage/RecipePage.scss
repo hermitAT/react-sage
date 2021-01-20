@@ -1,0 +1,86 @@
+#root {
+  display: flex;
+  justify-content: center;
+}
+
+#recipe-page {
+  width: 62rem;
+}
+
+h1.text-container {
+  text-align: center;
+  margin: 0;
+  width: 50rem;
+}
+
+img {
+  height: 20rem;
+  width: 20rem;
+  border-radius: 100%;
+  background-color: whitesmoke;
+}
+
+#edit-remix {
+  display: flex;
+  flex-direction: row;
+  
+  button {
+    width: 4rem;
+    height: 3rem;
+    margin: 1rem;
+    text-align: center;
+  }
+}
+
+#flavor-result-str {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+#flavour {
+  width: 9.5rem;
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+
+#result-strength {
+  width: 9.5rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+#common-drink {
+  width: 20rem;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+}
+
+ul {
+  padding-left: 0;
+}
+
+.text-container {
+  background-color: whitesmoke;
+  border: 2px solid grey;
+  border-radius: 4px;
+  width: 35rem;
+  padding: 0 1rem;
+}
+
+.m1rem-tb {
+  margin: 1rem 0;
+}
+
+.row-group {
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 16pt;
+  margin: 1em 0.5em;
+  justify-content: space-between;
+}
