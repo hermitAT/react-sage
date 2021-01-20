@@ -9,6 +9,8 @@ import {
 import './App.scss';
 
 import NavBar from './NavBar';
+import Button from './Button';
+
 
 export default function App() {
   const [user, setUser] = useState({
@@ -23,12 +25,15 @@ export default function App() {
   return (
     <Router>
       <main className="layout">
-        <NavBar user={user} onLogout={onLogout} />
+        <NavBar user={user} onLogout={onLogout} /> 
+        <Button>confirm</Button>       
         <Switch>
           <Route path="/">
           </Route>
         </Switch>
       </main>
     </Router>
+
+
   );
 }
