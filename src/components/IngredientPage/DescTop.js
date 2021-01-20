@@ -9,9 +9,10 @@ export default function DescTop(props) {
         <p>{props.description}</p>
       </div>
       <div id="top5">
-      <div>
-        <h3>Top-5 recipes with {props.name}</h3>
-      </div>
+      <section>
+        <h4>Top-5 recipes with {props.name}</h4>
+        <button>See more...</button>
+      </section>
       <div id="top5-list">
         {props.top5.map(recipe => (
           <mark>

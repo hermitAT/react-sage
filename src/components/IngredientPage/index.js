@@ -17,7 +17,7 @@ const {
 } = props
 
   return (
-    <div>
+    <div id="ingredient-page">
       <div id="name-brief-image">
         <div id="name-brief">
           <h1>{name}</h1>

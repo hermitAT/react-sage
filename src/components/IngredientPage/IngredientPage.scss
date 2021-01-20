@@ -1,3 +1,7 @@
+#ingredient-page {
+  width: 1000px
+}
+
 div#name-brief-image {
   display: flex;
   flex-direction: row;
@@ -8,6 +12,7 @@ div#name-brief-image {
 //  text-align: center;
 //  text-decoration: none;
   font-size: 16pt;
+  margin-bottom: 20px;
 
   h1 {
     text-align: center;
@@ -22,7 +27,7 @@ div#name-brief-image {
     width: 16em;
     border-radius: 100%;
     background-color: whitesmoke;
-    margin: 10px 30px;
+    margin: 0px 0px 0px 50px;
   }
 
 }
