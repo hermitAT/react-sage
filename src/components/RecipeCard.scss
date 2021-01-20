@@ -10,7 +10,6 @@
     width: 100%;
     height: 250px;
     background: center / cover;
-    background-image: url(https://www.simplyrecipes.com/wp-content/uploads/2020/01/Old-Fashioned-Cocktail-LEAD-1.jpg);
   }
 
   &--title {
@@ -35,12 +34,14 @@
     background-color: $color-dark;
     color: $color-light;
     padding: 10px;
+    border-radius: 0.25rem;
   }
 
   &--flavour {
     background-color: $color-dark;
     color: $color-light;
     padding: 10px;
+    border-radius: 0.25rem;
   }
 
   &--list {

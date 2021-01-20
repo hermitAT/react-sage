@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,24 +10,23 @@ import './App.scss';
 
 import NavBar from './NavBar';
 import Home from './Home';
+import useApplicationData from 'hooks/useApplicationData';
 
 export default function App() {
-  const [user, setUser] = useState({
+  const user = {
     name: '@hermitAT',
     avatar: "https://icon-library.com/images/avatars-icon/avatars-icon-16.jpg"
-  });
-
-  const onLogout = () => {
-    setUser(null);
   };
+
+  const { state } = useApplicationData();
 
   return (
     <Router>
       <main className="layout">
-        <NavBar user={user} onLogout={onLogout} />
+        <NavBar user={user} />
         <Switch>
           <Route path="/">
-            <Home />
+            <Home data={state} />
           </Route>
         </Switch>
       </main>
