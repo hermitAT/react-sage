@@ -7,6 +7,8 @@ import {
 } from 'react-router-dom';
 
 import './App.scss';
+import IngredientPage from './IngredientPage';
+import Button from './IngredientPage';
 
 import NavBar from './NavBar';
 
@@ -26,6 +28,11 @@ export default function App() {
         <NavBar user={user} onLogout={onLogout} />
         <Switch>
           <Route path="/">
+          </Route>
+          <Route path="/ingredient/">
+            <IngredientPage>
+              Hello there!
+            </IngredientPage>
           </Route>
         </Switch>
       </main>

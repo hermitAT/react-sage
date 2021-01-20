@@ -1,0 +1,27 @@
+div#name-brief-image {
+  display: flex;
+  flex-direction: row;
+//  background-color: #4CAF50;
+//  border: none;
+//  color: white;
+//  padding: 15px 32px;
+//  text-align: center;
+//  text-decoration: none;
+  font-size: 16pt;
+
+  h1 {
+    text-align: center;
+    background-color: whitesmoke;
+    border: 2px solid grey;
+    border-radius: 4px;
+  }
+
+
+  img {
+    height: 16em;
+    width: 16em;
+    border-radius: 100%;
+    background-color: whitesmoke;
+    margin: 10px 30px;
+  }
+}
