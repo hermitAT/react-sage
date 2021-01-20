@@ -1,0 +1,43 @@
+#desc-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+#description {
+  
+  background-color: whitesmoke;
+  border: 2px solid grey;
+  border-radius: 4px;
+  padding: 0 5px;
+  width: 600px;
+
+  h2 {
+  text-align: center;
+  }
+}
+
+#top5 {
+  
+  background-color: whitesmoke;
+  border: 2px solid grey;
+  border-radius: 4px;
+  padding: 0 5px;
+  width: 20%;
+
+  h3 {
+  text-align: center;
+  }
+
+  mark {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 0.9em;
+    background-color: inherit;
+    margin: 5px;
+
+    p {
+      margin: 0;
+    }
+  }
+}
