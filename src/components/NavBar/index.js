@@ -18,11 +18,6 @@ export default function NavBar(props) {
     props.user? LOGGED_IN : NO_USER
   );
 
-  function logout() {
-    transition(NO_USER, true);
-    props.onLogout();
-  };
-
   return (
     <nav className="navbar">
       <div className="navbar--centered">
@@ -31,10 +26,12 @@ export default function NavBar(props) {
           CocktailSage
         </h1>
         <Dropdown />
+        <button className="dropbtn">Search...</button>
+        <button className="dropbtn">Create</button>
       </div>
       <div className="navbar__login">
         {mode === LOGGED_IN && (
-          <User user={props.user} onLogout={logout} />
+          <User />
         )}
         {mode === NO_USER && (
           <NoUser />

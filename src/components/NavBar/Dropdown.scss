@@ -1,20 +1,9 @@
 @import "styles/variables.scss";
 
-.dropbtn {
-  background-color: $color-light;
-  color: $color-dark;
-  font-size: 1rem;
-  font-weight: 600;
-  padding: 1rem;
-  border: none;
-  border-radius: 0.25rem;
-}
-
 .dropdown {
   position: relative;
   display: inline-block;
   margin-left: 1rem;
-  margin-right: 1rem;
 
   &-content {
     display: none;

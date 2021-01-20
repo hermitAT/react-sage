@@ -1,0 +1,12 @@
+@import "styles/variables.scss";
+
+.home__layout {
+  margin-top: 10rem;
+  margin-bottom: 8rem;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  grid-template-rows: repeat(2, 50%);
+  column-gap: 5rem;
+  row-gap: 5rem;
+  width: 100%;
+}
