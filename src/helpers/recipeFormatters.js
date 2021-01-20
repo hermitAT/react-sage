@@ -63,11 +63,11 @@ export const formatIngredients = function(ingredients) {
   
   for (const ingredient of ingredients) {
     for (const key in ingredient) {
-      let i = {
-        name: ingredient[key],
-        amount: key
+      let r = {
+        name: Object.keys(ingredient[key])[0],
+        amount: Object.values(ingredient[key])[0]
       }
-      result.push(i)
+      result.push(r)
     }
   };
   return result;

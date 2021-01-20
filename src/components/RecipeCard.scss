@@ -3,6 +3,7 @@
 .recipe__card {
   width: 100%;
   max-width: 450px;
+  min-height: 500px;
   background: $color-light;
   box-shadow: 0 1px 3px $black, 0 1px 2px $black;
 
@@ -46,6 +47,7 @@
 
   &--list {
     padding: 25px;
+    min-height: 150px;
     max-height: 400px;
   } 
 
@@ -55,6 +57,7 @@
     margin-bottom: 1rem;
     padding-left: 4px;
     font-size: 1rem;
+    color: $color-dark;
 
     & li {
       list-style-type: none;
@@ -69,7 +72,7 @@
   }
 
   &--summary {
-    margin-top: 0.5rem;
+    margin-top: 2rem;
   }
 
   &--badges {
@@ -80,5 +83,11 @@
     width: 100%;
     padding-top: 1rem;
     margin-bottom: 1rem;
+  }
+
+  &--details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
