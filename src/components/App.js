@@ -8,6 +8,8 @@ import {
 
 import './App.scss';
 
+import IngredientPage from './IngredientPage';
+import Button from './IngredientPage';
 import NavBar from './NavBar';
 import Home from './Home';
 import useApplicationData from 'hooks/useApplicationData';
@@ -23,6 +25,11 @@ export default function App() {
         <Switch>
           <Route path="/">
             <Home data={state} />
+          </Route>
+          <Route path="/ingredient/">
+            <IngredientPage>
+              Hello there!
+            </IngredientPage>
           </Route>
         </Switch>
       </main>
