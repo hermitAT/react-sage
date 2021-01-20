@@ -4,7 +4,7 @@ import "./BriefInfo.scss"
 
 export default function BriefInfo(props) {
    return (
-    <div id="brief-info">
+    <div id="brief-info" class="text-container">
       <h2>What can it bring to your cocktail?</h2>
       <p><strong>Strength:</strong> {props.strength / 10}%</p>
       <p><strong>Flavour:</strong> {props.flavour}</p>

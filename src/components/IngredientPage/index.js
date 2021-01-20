@@ -18,9 +18,9 @@ const {
 
   return (
     <div id="ingredient-page">
-      <div id="name-brief-image">
+      <div id="name-brief-image" class="row-group">
         <div id="name-brief">
-          <h1>{name}</h1>
+          <h1 class="text-container">{name}</h1>
           <BriefInfo
             strength={strength}
             flavour={flavour}

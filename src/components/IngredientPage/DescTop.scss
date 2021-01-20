@@ -1,15 +1,4 @@
-#desc-top {
-  display: flex;
-  justify-content: space-between;
-}
-
 #description {
-  
-  background-color: whitesmoke;
-  border: 2px solid grey;
-  border-radius: 4px;
-  padding: 0 5px;
-  width: 600px;
 
   h2 {
   text-align: center;
@@ -17,38 +6,35 @@
 }
 
 #top5 {
-  
-
-  padding: 0 5px;
-  width: 250px;
+  width: 15em;
 
   section {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    width: 20rem;
   }
 
   h4 {
-    background-color: whitesmoke;
-    border: 2px solid grey;
-    border-radius: 4px;
     text-align: center;
     padding: 5px;
-    width: 150px;
+    width: 10em;
     margin: 30px 10px 10px 0;
 
   }
 
   button {
+    text-align: center;
     height: 5em;
     margin: 30px 0px 10px 10px;
-  }
-
-  #top5-list {    
     background-color: whitesmoke;
     border: 2px solid grey;
     border-radius: 4px;
+  }
+
+  #top5-list {
     text-align: center;
+    width: 17.75rem;
   }
 
   mark {
@@ -58,7 +44,7 @@
     justify-content: space-between;
     font-size: 0.9em;
     background-color: inherit;
-    margin: 5px;
+    margin: 0.5rem 0;
 
     p {
       margin: 0;
