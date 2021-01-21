@@ -9,7 +9,7 @@ import {
 import './App.scss';
 
 import IngredientPage from './IngredientPage';
-import Button from './IngredientPage';
+import Create from './Create';
 import NavBar from './NavBar';
 import Home from './Home';
 
@@ -24,6 +24,9 @@ export default function App() {
             <IngredientPage>
               Hello there!
             </IngredientPage>
+          </Route>
+          <Route path="/create">
+            <Create />
           </Route>
           <Route path="/">
             <Home />
