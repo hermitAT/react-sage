@@ -16,7 +16,8 @@ export default function Create(props) {
 
   const { mode, transition, back } = useVisualMode(EMPTY);
 
-  const { state, onChangeValue, onIngredient } = useCreateForm();
+  const { state, onChangeValue, onIngredient, resetIngredients } = useCreateForm();
+
   const {
     name,
     image_url,
@@ -34,6 +35,12 @@ export default function Create(props) {
     
     onIngredient(recipe_ingredient);
     transition(SHOW);
+  };
+
+  const reset = function() {
+
+    resetIngredients();
+    transition(EMPTY);
   };
 
   return (
@@ -102,7 +109,7 @@ export default function Create(props) {
           <Empty onAdd={() => transition(ADD)} />
         )}
         {mode === SHOW && (
-          <Show ingredients={ingredients} onAdd={() => transition(ADD)} />
+          <Show ingredients={ingredients} onAdd={() => transition(ADD)} onReset={() => reset()} />
         )}
         {mode === ADD && (
           <IngredientForm onCancel={() => back()} onConfirm={newIngredient} />

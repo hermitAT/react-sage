@@ -2,7 +2,8 @@ import { useReducer } from 'react';
 // import axios from 'axios';
 import reducer, {
   ADD_TEXT_FIELD,
-  ADD_INGREDIENT
+  ADD_INGREDIENT,
+  RESET_INGREDIENTS
 } from 'reducers/create';
 
 export default function useCreateForm() {
@@ -23,5 +24,9 @@ export default function useCreateForm() {
     dispatch({ type: ADD_INGREDIENT, ingredient: ingredient });
   }
 
-  return { state, onChangeValue, onIngredient };
+  const resetIngredients = () => {
+    dispatch({ type: RESET_INGREDIENTS });
+  }
+
+  return { state, onChangeValue, onIngredient, resetIngredients };
 };

@@ -21,9 +21,14 @@ export default function Show(props) {
       <ul className="recipe__form--ingredients">
         {ingredient_list}
       </ul>
+      <div className="recipe__form--footer">
       <button type="button" onClick={props.onAdd}>
         <FontAwesomeIcon icon="plus" size="lg" /> Add Ingredient
       </button>
+      <button type="button" onClick={props.onReset}>
+        <FontAwesomeIcon icon="trash-alt" size="lg" /> Reset Ingredients
+      </button>
+      </div>
     </div>
   )
 }
