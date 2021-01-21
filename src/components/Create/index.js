@@ -1,8 +1,13 @@
 import React from "react";
+import useCreateForm from "hooks/useCreateForm";
 
 import "./index.scss";
 
 export default function Create(props) {
+
+  const { state, onChangeValue } = useCreateForm();
+  const { name, image_url, flavour_id, summary, instruction, ingredients } = state;
+
   return (
     <main className="recipe__form">
       <div className="recipe__form--header">
@@ -18,6 +23,8 @@ export default function Create(props) {
               type="text"
               name="name"
               placeholder="..."
+              value={state.name}
+              onChange={onChangeValue}
             />
           </div>
           <div className="recipe__form--header_inputs">
@@ -46,7 +53,7 @@ export default function Create(props) {
             <label for="bitter">Bitter</label>
           </div>
         </div>
-        
+
         <h4>Summary:</h4>
         <textarea
           className="recipe__form--paragraph"
