@@ -1,19 +1,33 @@
 import React from "react";
+
+import Show from "./Show";
+import Confirm from "./Confirm";
+import IngredientForm from "./IngredientForm";
 import useCreateForm from "hooks/useCreateForm";
+import useVisualMode from "hooks/useVisualMode";
 
 import "./index.scss";
 
 export default function Create(props) {
+  const SHOW = "SHOW";
+  const ADD = "ADD";
+  const CONFIRM = "CONFIRM";
+
+  const { mode, transition, back } = useVisualMode(SHOW);
 
   const { state, onChangeValue } = useCreateForm();
-  const { name, image_url, flavour_id, summary, instruction, ingredients } = state;
+  const {
+    name,
+    image_url,
+    flavour_id,
+    summary,
+    instruction,
+    ingredients,
+  } = state;
 
   return (
     <main className="recipe__form">
-      <div className="recipe__form--header">
-        <h2>Create your recipe!</h2>
-        <button type="submit">+ Add Ingredients ...</button>
-      </div>
+      <h2>Create your recipe!</h2>
       <form autoComplete="off" onSubmit={(e) => e.preventDefault()}>
         <div className="recipe__form--header">
           <div className="recipe__form--header_inputs">
@@ -40,9 +54,21 @@ export default function Create(props) {
           </div>
         </div>
 
+        <h4>Summary:</h4>
+        <textarea
+          className="recipe__form--paragraph"
+          name="summary"
+          placeholder="Write something..."
+          value={summary}
+          onChange={onChangeValue}
+        ></textarea>
         <div class="recipe__form--radio">
           <h4>Select Flavour:</h4>
-          <div class="recipe__form--radio-container" value={flavour_id} onChange={onChangeValue}>
+          <div
+            class="recipe__form--radio-container"
+            value={flavour_id}
+            onChange={onChangeValue}
+          >
             <input id="sweet" name="flavour_id" type="radio" value="1" />
             <label for="sweet">Sweet</label>
             <input id="sour" name="flavour_id" type="radio" value="2" />
@@ -55,36 +81,15 @@ export default function Create(props) {
             <label for="bitter">Bitter</label>
           </div>
         </div>
-
-        <h4>Summary:</h4>
-        <textarea
-          className="recipe__form--paragraph"
-          name="summary"
-          placeholder="Write something..."
-          value={summary}
-          onChange={onChangeValue}
-        ></textarea>
-      
-        <div class="recipe__form--radio">
-          <h4>Instructions... how many steps are required?</h4>
-          <div class="recipe__form--radio-container">
-            <input id="one" name="steps" type="radio" value="1" />
-            <label for="one">One</label>
-            <input id="two" name="steps" type="radio" value="2" />
-            <label for="two">Two</label>
-            <input id="three" name="steps" type="radio" value="3" />
-            <label for="three">Three</label>
-            <input id="four" name="steps" type="radio" value="4" />
-            <label for="four">Four</label>
-            <input id="five" name="steps" type="radio" value="5" />
-            <label for="five">Five</label>
-          </div>
-        </div>
-        <textarea
-          className="recipe__form--paragraph"
-          name="instruction"
-          placeholder="Write something..."
-        ></textarea>
+        {mode === SHOW && (
+          <Show add={() => transition(ADD)} />
+        )}
+        {mode === ADD && (
+          <IngredientForm back={back} confirm={() => transition(CONFIRM)} />
+        )}
+        {mode === CONFIRM && (
+          <Confirm back={back} />
+        )}
       </form>
     </main>
   );
