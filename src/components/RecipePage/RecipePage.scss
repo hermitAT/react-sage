@@ -47,14 +47,14 @@ img {
 #result-strength {
   width: 9.5rem;
   padding: 0.5rem;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 #common-drink {
   width: 20rem;
 }
 
-li {
+#ingredients li {
   display: flex;
   justify-content: space-between;
 }
@@ -62,6 +62,11 @@ li {
 ul {
   padding-left: 0;
 }
+
+ol {
+  padding-left: 1.25rem;
+}
+
 
 .text-container {
   background-color: whitesmoke;

@@ -1,6 +1,7 @@
 import React from "react";
 import classnames from "classnames";
 import "./RecipePage.scss";
+import { func } from "prop-types";
 
 export default function RecipePage(props) {
 
@@ -16,8 +17,38 @@ export default function RecipePage(props) {
     name,
     summary,
     instruction,
-    image_url
+    image_url,
+    result_strength,
+    flavour_id
   } = recipe
+
+  const TemporaryHelperForFlavourIDS = function(flavour_id) {
+    const flavours = [
+      {
+          "id": 1,
+          "name": "Sweet"
+      },
+      {
+          "id": 2,
+          "name": "Sour"
+      },
+      {
+          "id": 3,
+          "name": "Salty"
+      },
+      {
+          "id": 4,
+          "name": "Spicy"
+      },
+      {
+          "id": 5,
+          "name": "Bitter"
+      }
+    ];
+    for (const flavour of flavours) {
+      if (flavour.id === flavour_id) return flavour.name
+    }
+  }
 
   const getNamesAndAmounts = function(ingredients) {
     let ing_names_amounts = [];
@@ -30,6 +61,11 @@ export default function RecipePage(props) {
       }
     }
     return ing_names_amounts;
+  }
+
+  const getInstruction = function(str) {
+    //return str.replace(/\[\]/g,'');
+    return str.slice(1, -1).replace(/"/g, '').split(', ');
   }
 
 
@@ -70,16 +106,20 @@ export default function RecipePage(props) {
       <div id="instruct-strength-flavour" className="row-group">
         <div id="strength-flavour">
           <div id="flavor-result-str">
-            <mark id="flavour" className="text-container">Flavour: Sweet</mark>
-            <mark id="result-strength" className="text-container">Result Strength: 18.5%</mark>
+            <mark id="flavour" className="text-container"><strong>Flavour:</strong> {TemporaryHelperForFlavourIDS(flavour_id)}</mark>
+            <mark id="result-strength" className="text-container"><strong>Result Strength: </strong>{result_strength / 10}%</mark>
           </div>
           <div id="common-drink" className="text-container">
-            <p>Strength level:</p>
-            <p>It is like ...</p>
+            <p><strong>Strength level: </strong>Mild</p>
+            <p><strong>It is like: </strong>Red Wine</p>
           </div>
         </div>
         <div id="instruction" className="text-container">
             <h3>How can I make it?</h3>
+            <ol>{getInstruction(instruction).map(line => {
+              return (<li><p>{line}</p></li>)
+            })}
+            </ol>
         </div>
       </div>
 

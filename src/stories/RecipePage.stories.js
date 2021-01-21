@@ -7,7 +7,7 @@ const recipe = {
     "id": 4,
     "name": "Old Ghosty Ray",
     "summary": "Efficiently unleash cross-media information without cross-media value",
-    "instruction": "\n  1. Pharetra convallis posuere morbi leo. Dis parturient montes nascetur ridiculus mus mauris.\n  2. Adipiscing bibendum est ultricies integer quis auctor elit.\n  3. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin gravida.\n  4. Interdum velit laoreet id donec ultrices tincidunt.\n  ",
+    "instruction": "[\"Poke synth literally aesthetic schlitz\", \"Mustache cronut cold-pressed, artisan banh mi\", \"Authentic roof party tacos bushwick\", \"Fashion axe organic vape hella celiac ugh\"]",
     "image_url": "https://www.totalwine.com/dynamic/x490,sq/media/sys_master/twmmedia/hee/ha4/12034965241886.png",
     "parent_id": 37,
     "result_strength": 167,
@@ -74,6 +74,8 @@ const recipe = {
     3
   ]
 }
+
+
 
 
 export default { title: 'RecipePage' };
