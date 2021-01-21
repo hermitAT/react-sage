@@ -2,7 +2,6 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Show from "./Show";
-import Status from "./Status";
 import Empty from "./Empty";
 import IngredientForm from "./IngredientForm";
 import useCreateForm from "hooks/useCreateForm";
@@ -13,7 +12,6 @@ import "./index.scss";
 export default function Create(props) {
   const SHOW = "SHOW";
   const ADD = "ADD";
-  const STATUS = "STATUS";
   const EMPTY = "EMPTY";
 
   const { mode, transition, back } = useVisualMode(EMPTY);
@@ -35,7 +33,7 @@ export default function Create(props) {
     recipe_ingredient.amount = amount;
     
     onIngredient(recipe_ingredient);
-    transition(SHOW)
+    transition(SHOW);
   };
 
   return (
@@ -108,9 +106,6 @@ export default function Create(props) {
         )}
         {mode === ADD && (
           <IngredientForm onCancel={() => back()} onConfirm={newIngredient} />
-        )}
-        {mode === STATUS && (
-          <Status />
         )}
       </form>
     </main>
