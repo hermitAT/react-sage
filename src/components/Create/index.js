@@ -23,7 +23,7 @@ export default function Create(props) {
               type="text"
               name="name"
               placeholder="..."
-              value={state.name}
+              value={name}
               onChange={onChangeValue}
             />
           </div>
@@ -34,22 +34,24 @@ export default function Create(props) {
               type="text"
               name="image_url"
               placeholder="http://..."
+              value={image_url}
+              onChange={onChangeValue}
             />
           </div>
         </div>
 
         <div class="recipe__form--radio">
           <h4>Select Flavour:</h4>
-          <div class="recipe__form--radio-container">
-            <input id="sweet" name="flavour" type="radio" value="1" />
+          <div class="recipe__form--radio-container" value={flavour_id} onChange={onChangeValue}>
+            <input id="sweet" name="flavour_id" type="radio" value="1" />
             <label for="sweet">Sweet</label>
-            <input id="sour" name="flavour" type="radio" value="2" />
+            <input id="sour" name="flavour_id" type="radio" value="2" />
             <label for="sour">Sour</label>
-            <input id="salty" name="flavour" type="radio" value="3" />
+            <input id="salty" name="flavour_id" type="radio" value="3" />
             <label for="salty">Salty</label>
-            <input id="spicy" name="flavour" type="radio" value="4" />
+            <input id="spicy" name="flavour_id" type="radio" value="4" />
             <label for="spicy">Spicy</label>
-            <input id="bitter" name="flavour" type="radio" value="5" />
+            <input id="bitter" name="flavour_id" type="radio" value="5" />
             <label for="bitter">Bitter</label>
           </div>
         </div>
@@ -59,8 +61,9 @@ export default function Create(props) {
           className="recipe__form--paragraph"
           name="summary"
           placeholder="Write something..."
+          value={summary}
+          onChange={onChangeValue}
         ></textarea>
-
       
         <div class="recipe__form--radio">
           <h4>Instructions... how many steps are required?</h4>
