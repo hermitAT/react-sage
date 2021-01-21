@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import SpiritsList from "./SpiritsList";
+import LiqueursList from "./LiqueursList";
+import MixersList from "./MixersList";
+import GroceryList from "./GroceryList";
 
 import "./index.scss";
 
 export default function IngredientForm(props) {
+  const [category, setCategory] = useState("");
+  const [ingredient, setIngredient] = useState("");
+
+
   return (
     <main>
     <div class="recipe__form--radio">
-      <h4>Select Category:</h4>
-      <div class="recipe__form--radio-container">
+      <div class="recipe__form--radio-container" value={category} onChange={e => setCategory(e.target.value)}>
         <input id="Spirits" name="category" type="radio" value="1" />
         <label for="Spirits">Spirits</label>
         <input id="Liqueurs" name="category" type="radio" value="2" />
@@ -19,7 +27,22 @@ export default function IngredientForm(props) {
         <label for="Grocery">Grocery</label>
       </div>
     </div>
-    <div class="recipe__form--header">
+      {category === "" && (
+        <div></div>
+      )}
+      {category === "1" && (
+        <SpiritsList ingredient={ingredient} setIngredient={e => setIngredient(e.target.value)}/>
+      )}
+      {category === "2" && (
+        <LiqueursList ingredient={ingredient} setIngredient={e => setIngredient(e.target.value)} />
+      )}
+      {category === "3" && (
+        <MixersList ingredient={ingredient} setIngredient={e => setIngredient(e.target.value)} />
+      )}
+      {category === "4" && (
+        <GroceryList ingredient={ingredient} setIngredient={e => setIngredient(e.target.value)} />
+      )}
+    <div class="recipe__form--footer">
     <button type="button" onClick={props.back}>
       <FontAwesomeIcon icon="backward" size="lg" /> Cancel
     </button>

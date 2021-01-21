@@ -81,6 +81,7 @@ export default function Create(props) {
             <label for="bitter">Bitter</label>
           </div>
         </div>
+        <h4>Ingredients:</h4>
         {mode === SHOW && (
           <Show add={() => transition(ADD)} />
         )}
