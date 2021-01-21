@@ -12,24 +12,21 @@ import IngredientPage from './IngredientPage';
 import Button from './IngredientPage';
 import NavBar from './NavBar';
 import Home from './Home';
-import useApplicationData from 'hooks/useApplicationData';
 
 export default function App() {
-
-  const { state } = useApplicationData();
 
   return (
     <Router>
       <main className="layout">
         <NavBar />
         <Switch>
-          <Route path="/">
-            <Home data={state} />
-          </Route>
           <Route path="/ingredient/">
             <IngredientPage>
               Hello there!
             </IngredientPage>
+          </Route>
+          <Route path="/">
+            <Home />
           </Route>
         </Switch>
       </main>

@@ -1,0 +1,66 @@
+@import "styles/variables.scss";
+
+.recipe__form {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  background-color: $color-light;
+  padding: 20px;
+  min-width: 80%;
+
+  &--header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &_inputs {
+      width: 100%
+    }
+  }
+
+  &--text {
+  width: 75%;
+  max-height: 2.5rem;
+  padding: 0.75rem;
+  border: 1px solid $color-medium;
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  resize: none;
+  }
+
+  &--paragraph {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid $color-medium;
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  resize: vertical;
+  }
+
+  &--selectors {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &--flavour {
+    width: 5rem;
+  }
+}
+
+button {
+  background-color: $color-dark;
+  color: $white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+h4 {
+  margin: 0;
+  padding: 0.5rem;
+}
