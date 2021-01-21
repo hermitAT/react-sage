@@ -1,27 +1,29 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-import IngredientList from "../IngredientsList";
+import { formatAmount } from "helpers/recipeFormatters";
 
 import "./index.scss";
 
+
 export default function Show(props) {
 
+  const ingredient_list = props.ingredients.map((i) => {
+      return (
+        <li>
+          <div className='amount'>{formatAmount(i.amount)}</div>
+          <div className='ingredient'>{i.name}</div>
+        </li>
+      )
+  });
+
   return (
-    <main>
-      {props.ingredients && (
-        <IngredientList ingredients={props.ingredients} />
-      )}
-      {!props.ingredients && (
-        <div>
-          <h4>...</h4>
-          <h4>Oh, looks like you don't have any ingredients!</h4>
-          <h4>Hit that button below to get started!</h4>
-        </div>
-      )}
-      <button type="button" onClick={props.add}>
+    <div>
+      <ul className="recipe__form--ingredients">
+        {ingredient_list}
+      </ul>
+      <button type="button" onClick={props.onAdd}>
         <FontAwesomeIcon icon="plus" size="lg" /> Add Ingredient
       </button>
-    </main>
-  );
-};
+    </div>
+  )
+}

@@ -65,6 +65,26 @@
     }
   }
 
+  &--ingredients {
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: 1rem;
+    padding-left: 4px;
+    font-size: 1rem;
+    color: $color-dark;
+
+    & li {
+      list-style-type: none;
+      display: flex;
+      margin: 4px 0px;
+    }
+
+    & li .amount {
+      width: 80px;
+      color: $color-dark;
+    }
+  }
+
   &--footer {
     display: flex;
     flex-direction: row;

@@ -11,7 +11,20 @@ import "./index.scss";
 export default function IngredientForm(props) {
   const [category, setCategory] = useState("");
   const [ingredient, setIngredient] = useState("");
+  const [amount, setAmount] = useState("");
+  const [error, setError] = useState("");
 
+  const validate = function() {
+    if (ingredient === "") {
+      setError("You must select an ingredient!");
+      return;
+    } else if (amount === "") {
+      setError("You must confirm an amount of that ingredient!");
+      return;
+    }
+    setError("");
+    props.onConfirm(ingredient, amount);
+  }
 
   return (
     <main>
@@ -42,14 +55,28 @@ export default function IngredientForm(props) {
       {category === "4" && (
         <GroceryList ingredient={ingredient} setIngredient={e => setIngredient(e.target.value)} />
       )}
+      {ingredient && (
+        <div>
+          <h4>Amount in Ounces (ex. 0.75):</h4>
+          <textarea
+            className="recipe__form--text"
+            type="text"
+            name="amount"
+            placeholder="0.75"
+            value={amount}
+            onChange={e => setAmount(e.target.value)}
+          />
+        </div>
+      )}
     <div class="recipe__form--footer">
-    <button type="button" onClick={props.back}>
+    <button type="button" onClick={props.onCancel}>
       <FontAwesomeIcon icon="backward" size="lg" /> Cancel
     </button>
-    <button type="button" onClick={props.confirm}>
+    <button type="button" onClick={() => validate()}>
       <FontAwesomeIcon icon="check-circle" size="lg" /> Confirm
     </button>
     </div>
+    <section>{error}</section>
     </main>
   );
 }

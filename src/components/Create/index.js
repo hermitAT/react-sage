@@ -1,7 +1,9 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Show from "./Show";
-import Confirm from "./Confirm";
+import Status from "./Status";
+import Empty from "./Empty";
 import IngredientForm from "./IngredientForm";
 import useCreateForm from "hooks/useCreateForm";
 import useVisualMode from "hooks/useVisualMode";
@@ -11,11 +13,12 @@ import "./index.scss";
 export default function Create(props) {
   const SHOW = "SHOW";
   const ADD = "ADD";
-  const CONFIRM = "CONFIRM";
+  const STATUS = "STATUS";
+  const EMPTY = "EMPTY";
 
-  const { mode, transition, back } = useVisualMode(SHOW);
+  const { mode, transition, back } = useVisualMode(EMPTY);
 
-  const { state, onChangeValue } = useCreateForm();
+  const { state, onChangeValue, onIngredient } = useCreateForm();
   const {
     name,
     image_url,
@@ -25,10 +28,25 @@ export default function Create(props) {
     ingredients,
   } = state;
 
+  const newIngredient = function(ingredient, amount) {
+    let recipe_ingredient = {};
+
+    recipe_ingredient.name = ingredient;
+    recipe_ingredient.amount = amount;
+    
+    onIngredient(recipe_ingredient);
+    transition(SHOW)
+  };
+
   return (
     <main className="recipe__form">
+      <div className="recipe__form--header">
       <h2>Create your recipe!</h2>
-      <form autoComplete="off" onSubmit={(e) => e.preventDefault()}>
+      <button type="button">
+        <FontAwesomeIcon icon="save" size="lg" /> SAVE
+      </button>
+      </div>
+      <form autoComplete="off">
         <div className="recipe__form--header">
           <div className="recipe__form--header_inputs">
             <h4>Name of Recipe:</h4>
@@ -82,14 +100,17 @@ export default function Create(props) {
           </div>
         </div>
         <h4>Ingredients:</h4>
+        {mode === EMPTY && (
+          <Empty onAdd={() => transition(ADD)} />
+        )}
         {mode === SHOW && (
-          <Show add={() => transition(ADD)} />
+          <Show ingredients={ingredients} onAdd={() => transition(ADD)} />
         )}
         {mode === ADD && (
-          <IngredientForm back={back} confirm={() => transition(CONFIRM)} />
+          <IngredientForm onCancel={() => back()} onConfirm={newIngredient} />
         )}
-        {mode === CONFIRM && (
-          <Confirm back={back} />
+        {mode === STATUS && (
+          <Status />
         )}
       </form>
     </main>
