@@ -38,21 +38,59 @@
   box-sizing: border-box;
   margin-top: 0.5rem;
   margin-bottom: 1rem;
-  resize: vertical;
+  resize: none;
   }
 
-  &--selectors {
+  &--radio {
     display: flex;
-    flex-direction: row;
-  }
+    flex-direction: column;
+    margin-bottom: 0.25rem;
 
-  &--flavour {
-    width: 5rem;
+    &-container {
+    width: 430px;
+    background: $color-lightest;
+    border: 1px solid $color-medium;
+    border-radius: 4px;
+    display: inline-flex;
+    justify-content: space-between;
+    padding: 5px;
+    }
   }
+}
+
+.selectors {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.recipe__form--radio-container label {
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    display: inline-block;
+    height: 26px;
+    line-height: 26px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    transition: .2s all ease-in-out;
+    width: 80px;
+}
+
+.recipe__form--radio-container input[type="radio"] {
+    display: none;
+}
+
+.recipe__form--radio-container input[type="radio"]:checked + label {
+    background: $color-medium;
+    border: 1px solid $color-dark;
 }
 
 button {
   background-color: $color-dark;
+  height: 50px;
   color: $white;
   padding: 12px 20px;
   border: none;

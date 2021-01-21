@@ -104,11 +104,12 @@ export default function Dropdown(props) {
             <li>Very Strong</li>
           </ul>
         </li>
-        <li>Rating
+        <li>Popularity
           <ul className='third-level-menu'>
-            <li>5 Stars</li>
-            <li>Above 4 Stars</li>
-            <li>Below 4 Stars</li>
+            <li>Highest Rating</li>
+            <li>Most Comments</li>
+            <li>Most Favorites</li>
+            <li>Most reMixes</li>
           </ul>
         </li>
       </ul>
