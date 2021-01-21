@@ -29,7 +29,7 @@ export default function App() {
             </IngredientPage>
           </Route>
           <Route path="/create">
-            <Create />
+            <Create user={user} />
           </Route>
           <Route path="/">
             <Home />

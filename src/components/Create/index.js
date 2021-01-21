@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Show from "./Show";
@@ -10,20 +10,23 @@ import useVisualMode from "hooks/useVisualMode";
 import "./index.scss";
 
 export default function Create(props) {
+  const [error, setError] = useState("");
+
   const SHOW = "SHOW";
   const ADD = "ADD";
   const EMPTY = "EMPTY";
 
   const { mode, transition, back } = useVisualMode(EMPTY);
 
-  const { state, onChangeValue, onIngredient, resetIngredients } = useCreateForm();
+  const { state, onChangeValue, onIngredient, resetIngredients, createRecipe } = useCreateForm();
 
   const {
     name,
     image_url,
+    parent_id,
     flavour_id,
     summary,
-    instruction,
+    instructions,
     ingredients,
   } = state;
 
@@ -43,14 +46,41 @@ export default function Create(props) {
     transition(EMPTY);
   };
 
+  const save = function() {
+
+    if (!name || !image_url || !flavour_id || !summary || !instructions || !ingredients ) {
+      setError("Sorry, all fields are required!");
+      return;
+    };
+
+    const recipe = {
+      name,
+      image_url,
+      parent_id,
+      flavour_id,
+      summary,
+      user_id: props.user.user.id,
+      instructions
+    };
+    
+    const ingredient_list = ingredients;
+
+    createRecipe(recipe, ingredient_list)
+      .then(all => {
+        console.log(all);
+      })
+      .catch(e => console.error(e));
+  };
+
   return (
     <main className="recipe__form">
       <div className="recipe__form--header">
       <h2>Create your recipe!</h2>
       <button type="button">
-        <FontAwesomeIcon icon="save" size="lg" /> SAVE
+        <FontAwesomeIcon icon="save" size="lg" onClick={() => save()} /> SAVE
       </button>
       </div>
+      <h4>{error}</h4>
       <form autoComplete="off">
         <div className="recipe__form--header">
           <div className="recipe__form--header_inputs">
@@ -59,6 +89,7 @@ export default function Create(props) {
               className="recipe__form--text"
               type="text"
               name="name"
+              maxlength="20"
               placeholder="..."
               value={name}
               onChange={onChangeValue}
@@ -81,10 +112,12 @@ export default function Create(props) {
         <textarea
           className="recipe__form--paragraph"
           name="summary"
+          maxlength="140"
           placeholder="Write something..."
           value={summary}
           onChange={onChangeValue}
         ></textarea>
+
         <div class="recipe__form--radio">
           <h4>Select Flavour:</h4>
           <div
@@ -104,6 +137,16 @@ export default function Create(props) {
             <label for="bitter">Bitter</label>
           </div>
         </div>
+
+        <h4>Instructions:</h4>
+        <textarea
+          className="recipe__form--paragraph"
+          name="instructions"
+          placeholder="Write something..."
+          value={instructions}
+          onChange={onChangeValue}
+        ></textarea>
+
         <h4>Ingredients:</h4>
         {mode === EMPTY && (
           <Empty onAdd={() => transition(ADD)} />
