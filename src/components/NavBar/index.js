@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 import useVisualMode from "hooks/useVisualMode";
 
@@ -21,13 +22,17 @@ export default function NavBar(props) {
   return (
     <nav className="navbar">
       <div className="navbar--centered">
-        <img className="navbar__logo" src={logo} alt="Logo" />
+        <Link to='/'>
+          <img className="navbar__logo" src={logo} alt="Logo" />
+        </Link>
         <h1 className="navbar__title">
           CocktailSage
         </h1>
         <Dropdown />
         <button className="dropbtn">Search...</button>
-        <button className="dropbtn">Create</button>
+        <Link to='/create'>
+          <button className="dropbtn">Create</button>
+        </Link>
       </div>
       <div className="navbar__login">
         {mode === LOGGED_IN && (
