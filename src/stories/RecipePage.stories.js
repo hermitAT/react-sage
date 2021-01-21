@@ -10,7 +10,7 @@ const recipe = {
     "instruction": "[\"Poke synth literally aesthetic schlitz\", \"Mustache cronut cold-pressed, artisan banh mi\", \"Authentic roof party tacos bushwick\", \"Fashion axe organic vape hella celiac ugh\"]",
     "image_url": "https://www.totalwine.com/dynamic/x490,sq/media/sys_master/twmmedia/hee/ha4/12034965241886.png",
     "parent_id": 37,
-    "result_strength": 167,
+    "result_strength": 950,
     "flavour_id": 3,
     "user_id": 6,
     "created_at": "2020-01-08T07:08:00.000Z",
@@ -36,38 +36,66 @@ const recipe = {
   ],
   comments: [
     {
-      "id": 157,
-      "text": "Efficiently unleash cross-media information without cross-media value",
-      "recipe_id": 4,
-      "user_id": 10,
-      "created_at": "2020-10-18T21:49:00.000Z",
-      "updated_at": "2021-01-18T23:21:50.673Z"
+        "comment": {
+            "id": 71,
+            "text": "Dynamically innovate resource-leveling customer service for state of the art customer service",
+            "recipe_id": 4,
+            "user_id": 2,
+            "created_at": "2020-07-26T10:14:00.000Z",
+            "updated_at": "2021-01-21T00:34:49.460Z"
+        },
+        "user": {
+            "id": 2,
+            "name": "Morgan Maxwell",
+            "user_avatar": "https://avatars.dicebear.com/api/jdenticon/MorganMaxwell.svg"
+        }
     },
     {
-      "id": 213,
-      "text": "Williamsburg gentrify man bun fanny pack yuccie flexitarian master cleanse, keffiyeh iceland sustainable. VHS hammock YOLO health goth",
-      "recipe_id": 4,
-      "user_id": 2,
-      "created_at": "2020-07-10T07:43:00.000Z",
-      "updated_at": "2021-01-18T23:21:50.869Z"
+        "comment": {
+            "id": 135,
+            "text": "Actually helvetica synth sartorial tattooed",
+            "recipe_id": 4,
+            "user_id": 4,
+            "created_at": "2020-08-09T16:22:00.000Z",
+            "updated_at": "2021-01-21T00:34:49.753Z"
+        },
+        "user": {
+            "id": 4,
+            "name": "Jeff Racoon",
+            "user_avatar": "https://avatars.dicebear.com/api/jdenticon/JeffRacoon.svg"
+        }
     },
     {
-      "id": 219,
-      "text": "Dramatically maintain clicks-and-mortar solutions without functional solutions",
-      "recipe_id": 4,
-      "user_id": 10,
-      "created_at": "2020-07-04T14:07:00.000Z",
-      "updated_at": "2021-01-18T23:21:50.896Z"
+        "comment": {
+            "id": 184,
+            "text": "Bitters chia edison bulb disrupt next level flannel",
+            "recipe_id": 4,
+            "user_id": 3,
+            "created_at": "2020-11-18T08:23:00.000Z",
+            "updated_at": "2021-01-21T00:34:49.952Z"
+        },
+        "user": {
+            "id": 3,
+            "name": "Olga Einstein",
+            "user_avatar": "https://avatars.dicebear.com/api/jdenticon/OlgaEinstein.svg"
+        }
     },
     {
-      "id": 237,
-      "text": "Dynamically innovate resource-leveling customer service for state of the art customer service",
-      "recipe_id": 4,
-      "user_id": 4,
-      "created_at": "2020-07-23T07:34:00.000Z",
-      "updated_at": "2021-01-18T23:21:50.953Z"
+        "comment": {
+            "id": 210,
+            "text": "Efficiently unleash cross-media information without cross-media value",
+            "recipe_id": 4,
+            "user_id": 3,
+            "created_at": "2020-11-12T03:58:00.000Z",
+            "updated_at": "2021-01-21T00:34:50.062Z"
+        },
+        "user": {
+            "id": 3,
+            "name": "Olga Einstein",
+            "user_avatar": "https://avatars.dicebear.com/api/jdenticon/OlgaEinstein.svg"
+        }
     }
-  ],
+],
   users_favourited: [
     9,
     7,
