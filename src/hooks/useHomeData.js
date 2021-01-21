@@ -15,7 +15,6 @@ export default function useApplicationData() {
   useEffect(() => {
     axios.get('/api')
       .then(all => {
-        console.log(all);
         const data = all.data;
         dispatch({ type: SET_HOME_DATA, data})
       })

@@ -8,6 +8,7 @@ import {
 
 import './App.scss';
 
+import useUserData from 'hooks/useUserData';
 import IngredientPage from './IngredientPage';
 import Create from './Create';
 import NavBar from './NavBar';
@@ -15,10 +16,12 @@ import Home from './Home';
 
 export default function App() {
 
+  const { user } = useUserData();
+
   return (
     <Router>
       <main className="layout">
-        <NavBar />
+        <NavBar user={user} />
         <Switch>
           <Route path="/ingredient/">
             <IngredientPage>
