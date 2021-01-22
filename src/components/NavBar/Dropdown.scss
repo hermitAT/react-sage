@@ -17,13 +17,14 @@
 .fourth-level-menu > li {
   height: 40px;
   background: $color-light;
+  color: $color-darker;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .fourth-level-menu > li:hover {
-  background: $color-lighter;
-  box-shadow: 0 1px 3px $color-dark, 0 1px 2px $color-dark;
+  background: $color-darker;
+  color: $color-light;
 }
 
 .third-level-menu {
@@ -46,11 +47,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  color: $color-darker;
 }
 
 .third-level-menu > li:hover {
-  background: $color-lighter;
-  box-shadow: 0 1px 3px $color-medium, 0 1px 2px $color-medium;
+  background: $color-darker;
+  color: $color-light;
 }
 
 .second-level-menu {
@@ -76,7 +78,8 @@
   justify-content: center;
 }
 .second-level-menu > li:hover {
-  background: $color-lighter;
+  background: $color-darker;
+  color: $color-light;
 }
 
 .top-level-menu {
