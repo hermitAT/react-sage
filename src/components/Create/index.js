@@ -90,7 +90,7 @@ export default function Create(props) {
           </div>
           <div className="recipe__form--header_inputs">
             <h4>Image URL:</h4>
-            <input
+            <textarea
               className="recipe__form--text"
               type="text"
               name="image_url"

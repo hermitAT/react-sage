@@ -27,11 +27,11 @@ export default function Home(props) {
       </section>
       <section className="home__layout-upper">
       <div className="home__layout-group">
-        <h2 className="home__headings"><FontAwesomeIcon icon="glass-cheers" size="lg" />Best Rated Alcoholic</h2>
+        <h2 className="home__headings"><FontAwesomeIcon icon="glass-cheers" size="lg" />Most Popular Cocktail</h2>
         {most_pop_alc.recipe && <RecipeCard recipe={most_pop_alc} flavours={flavours} />}
       </div>
       <div className="home__layout-group">
-        <h2 className="home__headings"><FontAwesomeIcon icon="lemon" size="lg" />Best Rated Non-Alcoholic</h2>
+        <h2 className="home__headings"><FontAwesomeIcon icon="lemon" size="lg" />Most Popular Non-Alcoholic</h2>
         {most_pop_non.recipe && <RecipeCard recipe={most_pop_non} flavours={flavours} />}
       </div>
       </section>

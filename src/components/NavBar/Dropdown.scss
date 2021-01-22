@@ -3,12 +3,15 @@
 .fourth-level-menu {
   position: absolute;
   top: -50px;
-  right: -120px;
+  right: -122px;
   width: 120px;
   list-style: none;
   padding: 0;
   margin: 0;
   display: none;
+  border-radius: 0.5rem;
+  border: 1px solid $color-lighter;
+  box-shadow: 0 1px 3px $color-medium, 0 1px 2px $color-medium;
 }
 
 .fourth-level-menu > li {
@@ -19,19 +22,22 @@
   justify-content: center;
 }
 .fourth-level-menu > li:hover {
-  background: $color-medium;
+  background: $color-lighter;
   box-shadow: 0 1px 3px $color-dark, 0 1px 2px $color-dark;
 }
 
 .third-level-menu {
   position: absolute;
   top: 0;
-  right: -120px;
+  right: -122px;
   width: 120px;
   list-style: none;
   padding: 0;
   margin: 0;
   display: none;
+  border-radius: 0.5rem;
+  border: 1px solid $color-lighter;
+  box-shadow: 0 1px 3px $color-medium, 0 1px 2px $color-medium;
 }
 
 .third-level-menu > li {
@@ -43,8 +49,8 @@
 }
 
 .third-level-menu > li:hover {
-  background: $color-medium;
-  box-shadow: 0 1px 3px $color-dark, 0 1px 2px $color-dark;
+  background: $color-lighter;
+  box-shadow: 0 1px 3px $color-medium, 0 1px 2px $color-medium;
 }
 
 .second-level-menu {
@@ -56,6 +62,10 @@
   padding: 0;
   margin: 0;
   display: none;
+  border-radius: 0.5rem;
+  border-top: 0;
+  border: 1px solid $color-lighter;
+  box-shadow: 0 1px 3px $color-medium, 0 1px 2px $color-medium;
 }
 
 .second-level-menu > li {
@@ -66,8 +76,7 @@
   justify-content: center;
 }
 .second-level-menu > li:hover {
-  background: $color-medium;
-  box-shadow: 0 1px 3px $color-dark, 0 1px 2px $color-dark;
+  background: $color-lighter;
 }
 
 .top-level-menu {
@@ -81,7 +90,7 @@
   height: 50px;
   width: 120px;
   background: $color-light;
-  color: $color-dark;
+  color: $color-darker;
   min-width: 120px;
   font-size: 1rem;
   border: none;
@@ -92,10 +101,6 @@
   align-items: center;
   display: flex;
   justify-content: center;
-}
-.top-level-menu > li:hover {
-  background: $color-medium;
-  box-shadow: 0 1px 3px $color-dark, 0 1px 2px $color-dark;
 }
 
 .top-level-menu li:hover > ul {

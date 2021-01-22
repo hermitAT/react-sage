@@ -25,7 +25,7 @@
   width: 75%;
   max-height: 2.5rem;
   padding: 0.75rem;
-  border: 1px solid $color-medium;
+  border: 1px solid $color-lighter;
   border-radius: 0.25rem;
   box-sizing: border-box;
   margin-top: 0.5rem;
@@ -36,7 +36,7 @@
   &--paragraph {
   width: 100%;
   padding: 0.75rem;
-  border: 1px solid $color-medium;
+  border: 1px solid $color-lighter;
   border-radius: 0.25rem;
   box-sizing: border-box;
   margin-top: 0.5rem;
@@ -53,7 +53,7 @@
     &-container {
       width: 100%;
       background: $color-lightest;
-      border: 1px solid $color-medium;
+      border: 1px solid $color-lighter;
       border-radius: 4px;
       display: inline-flex;
       justify-content: space-around;
@@ -103,7 +103,7 @@
       width: 200px;
       max-height: 2.5rem;
       padding: 0.75rem;
-      border: 1px solid $color-medium;
+      border: 1px solid $color-lighter;
       border-radius: 0.25rem;
       box-sizing: border-box;
       margin-top: 0.5rem;
@@ -147,7 +147,7 @@
 }
 
 .recipe__form--radio-container input:checked + label {
-    background: $color-medium;
+    background: $color-lighter;
     border: 1px solid $color-dark;
 }
 
@@ -171,4 +171,10 @@ button {
 h4 {
   margin: 0;
   padding: 0.5rem;
+}
+
+textarea:focus {
+  outline: none;
+  border: 1px solid $color-dark;
+  box-shadow: 0 0 10px $color-medium;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { formatStrength, formatFlavour } from 'helpers/recipeFormatters';
+import { formatStrength, formatFlavour, formatRating } from 'helpers/recipeFormatters';
 import IngredientList from "./IngredientsList";
 
 import './RecipeCard.scss';
@@ -51,7 +51,7 @@ export default function RecipeCard(props) {
         </div>
         <div className='recipe__card--details'>
           <FontAwesomeIcon icon={star(rating)} size='lg' />
-          <p>{parseInt(rating).toFixed(2)}</p>
+          <p>{formatRating(rating)}</p>
         </div>
         <div className='recipe__card--details'>
           <FontAwesomeIcon icon='comments' size='lg' />
