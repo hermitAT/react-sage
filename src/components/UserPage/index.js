@@ -18,7 +18,7 @@ export default function User(props) {
           <article class='text-container'>
             <p>joined CocktailSage {timeAgo(created_at)}</p>
             <p>created {recipes_id.length} recipe{recipes_id.length > 1 ? 's' : ''}</p>
-            <p>{favorites_id.length} recipes are favorite</p>
+            <p>{favorites_id.length} recipe{favorites_id.length > 1 ? 's are' : ' is'} favorite</p>
           </article>
         </div>
         <div id="recipe-favorite">
