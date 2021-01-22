@@ -1,16 +1,45 @@
 @import "styles/variables.scss";
 
-.fourth-level-menu {
+.fifth-level-menu {
   position: absolute;
-  top: -60px;
-  right: -122px;
+  top: -65px;
+  right: -240px;
   width: 120px;
   list-style: none;
   padding: 0;
   margin: 0;
   display: none;
-  border-radius: 0.5rem;
-  border: 1px solid $color-lighter;
+  border-radius: 0.25rem;
+  background: $color-light;
+  border: 0.5px solid $color-medium;
+  box-shadow: 0 1px 3px $color-medium, 0 1px 2px $color-medium;
+}
+
+.fifth-level-menu > li {
+  height: 40px;
+  background: $color-light;
+  color: $color-darker;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fifth-level-menu > li:hover {
+  background: $color-darker;
+  color: $color-light;
+}
+
+.fourth-level-menu {
+  position: absolute;
+  top: -60px;
+  right: -120px;
+  width: 120px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+  border-radius: 0.25rem;
+  background: $color-light;
+  border: 0.5px solid $color-medium;
   box-shadow: 0 1px 3px $color-medium, 0 1px 2px $color-medium;
 }
 
@@ -30,14 +59,15 @@
 .third-level-menu {
   position: absolute;
   top: 0;
-  right: -122px;
+  right: -120px;
   width: 120px;
   list-style: none;
   padding: 0;
   margin: 0;
   display: none;
-  border-radius: 0.5rem;
-  border: 1px solid $color-lighter;
+  border-radius: 0.25rem;
+  background: $color-light;
+  border: 0.5px solid $color-medium;
   box-shadow: 0 1px 3px $color-medium, 0 1px 2px $color-medium;
 }
 
@@ -64,18 +94,21 @@
   padding: 0;
   margin: 0;
   display: none;
-  border-radius: 0.5rem;
-  border-top: 0;
-  border: 1px solid $color-lighter;
-  box-shadow: 0 1px 3px $color-medium, 0 1px 2px $color-medium;
+  border-top: none;
+  border-radius: 0.25rem;
+  background: $color-light;
+  border: 0.5px solid $color-medium;
+  box-shadow: 0 2px 4px $color-medium, 0 1px 2px $color-medium;
 }
 
 .second-level-menu > li {
   height: 40px;
+  border-top: none;
   background: $color-light;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 0.25rem;
 }
 .second-level-menu > li:hover {
   background: $color-darker;
@@ -96,7 +129,6 @@
   color: $color-darker;
   min-width: 120px;
   font-size: 1rem;
-  border: none;
   border-radius: 0.25rem;
   margin-right: 0.75rem;
   margin-left: 0.5rem;
@@ -108,5 +140,4 @@
 
 .top-level-menu li:hover > ul {
   display: inline;
-  border-radius: 0.25rem;
 }
