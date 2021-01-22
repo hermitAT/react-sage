@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Show from "./Show";
@@ -10,7 +10,6 @@ import useVisualMode from "hooks/useVisualMode";
 import "./index.scss";
 
 export default function Create(props) {
-  const [error, setError] = useState("");
 
   const SHOW = "SHOW";
   const ADD = "ADD";
@@ -26,7 +25,7 @@ export default function Create(props) {
     parent_id,
     flavour_id,
     summary,
-    instructions,
+    instruction,
     ingredients,
   } = state;
 
@@ -48,11 +47,6 @@ export default function Create(props) {
 
   const save = function() {
 
-    if (!name || !image_url || !flavour_id || !summary || !instructions || !ingredients ) {
-      setError("Sorry, all fields are required!");
-      return;
-    };
-
     const recipe = {
       name,
       image_url,
@@ -60,14 +54,14 @@ export default function Create(props) {
       flavour_id,
       summary,
       user_id: props.user.user.id,
-      instructions
+      instruction
     };
     
     const ingredient_list = ingredients;
 
     createRecipe(recipe, ingredient_list)
-      .then(all => {
-        console.log(all);
+      .then(() => {
+        console.log("Success!");
       })
       .catch(e => console.error(e));
   };
@@ -76,11 +70,10 @@ export default function Create(props) {
     <main className="recipe__form">
       <div className="recipe__form--header">
       <h2>Create your recipe!</h2>
-      <button type="button">
-        <FontAwesomeIcon icon="save" size="lg" onClick={() => save()} /> SAVE
+      <button type="button" onClick={() => save()}>
+        <FontAwesomeIcon icon="save" size="lg" /> SAVE
       </button>
       </div>
-      <h4>{error}</h4>
       <form autoComplete="off">
         <div className="recipe__form--header">
           <div className="recipe__form--header_inputs">
@@ -141,9 +134,9 @@ export default function Create(props) {
         <h4>Instructions:</h4>
         <textarea
           className="recipe__form--paragraph"
-          name="instructions"
+          name="instruction"
           placeholder="Write something..."
-          value={instructions}
+          value={instruction}
           onChange={onChangeValue}
         ></textarea>
 

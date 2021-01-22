@@ -13,7 +13,7 @@ export default function useCreateForm() {
     parent_id: "",
     flavour_id: "",
     summary: "",
-    instructions: "",
+    instruction: "",
     ingredients: ""
   });
 
@@ -33,12 +33,12 @@ export default function useCreateForm() {
 
     const recipe = {
       ...recipe_fields,
-      instructions: [recipe_fields.instructions.split(".")]
+      instruction: recipe_fields.instruction.split(/[\s.!?]+/).map(i => i.trim())
     };
 
     return axios.post("/api/recipes", { recipe, ingredients })
       .then(all => {
-        return all;
+        console.log(all);
       })
       .catch(e => console.error(e));
   };
