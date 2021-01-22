@@ -1,17 +1,5 @@
 import React from "react";
-
-const getNamesAndAmounts = function(ingredients) {
-  let ing_names_amounts = [];
-  for (const ingredient of ingredients) {
-    for (const id in ingredient) {
-      ing_names_amounts.push({ 
-        name: Object.keys(ingredient[id])[0],
-        amount: Object.values(ingredient[id])[0]
-      })
-    }
-  }
-  return ing_names_amounts;
-}
+const { getNamesAndAmounts } = require('helpers/recipeHelpers');
 
 export default function ImgDescrIngr(props) {
   const { name, image_url, summary, ingredients } = props

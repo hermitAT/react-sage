@@ -1,3 +1,10 @@
+/**
+ * Calculate the time difference between the current moment and a given one.
+ * Returns result as n minutes/hours/days/months/years ago,
+ * supports singular form of units.
+ * If difference is less than a minute - returns 'now'
+ * @param {*} date - a Date (in ms) to calculate a difference with
+ */
 const timeAgo = function(date) {
 
   const datemil = new Date(date);
