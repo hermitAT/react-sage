@@ -13,6 +13,7 @@ import IngredientPage from './IngredientPage';
 import Create from './Create';
 import NavBar from './NavBar';
 import Home from './Home';
+import UserPage from './UserPage';
 
 export default function App() {
 
@@ -33,6 +34,9 @@ export default function App() {
           </Route>
           <Route path="/">
             <Home />
+          </Route>
+          <Route path="/UserPage">
+            <UserPage user={user}/>
           </Route>
         </Switch>
       </main>
