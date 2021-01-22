@@ -1,24 +1,25 @@
 export const formatStrength = function(strength) {
   let result = '';
+  const percent = strength / 10;
 
   switch(true) {
     case strength === 0:
       result = 'Non-Alcoholic';
       break;
     case 49 >= strength && strength >= 1:
-      result = 'Weak';
+      result = `Weak (${percent}%)`;
       break;
     case 99 >= strength && strength >= 50:
-      result = 'Mild';
+      result = `Mild (${percent}%)`;
       break;
     case 249 >= strength && strength >= 100:
-      result = 'Medium';
+      result = `Medium (${percent}%)`;
       break;
     case 500 >= strength && strength >= 250:
-      result = 'Strong';
+      result = `Strong (${percent}%)`;
       break;
     case 1001 >= strength && strength >= 500:
-      result = 'Very Strong';
+      result = `Very Strong (${percent}%)`;
       break;
     default:
       result = '';

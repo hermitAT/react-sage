@@ -1,22 +1,14 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { formatStrength, formatIngredients, formatAmount, formatFlavour } from 'helpers/recipeFormatters';
+import { formatStrength, formatFlavour } from 'helpers/recipeFormatters';
+import IngredientList from "./IngredientsList";
 
 import './RecipeCard.scss';
 
 export default function RecipeCard(props) {
 
   const { recipe, ingredients, users_favourited, rating, comments } = props.recipe;
-
-  const ingredient_list = formatIngredients(ingredients).map((i) => {
-    return (
-      <li>
-        <div className='amount'>{formatAmount(i.amount)}</div>
-        <div className='ingredient'>{i.name}</div>
-      </li>
-    )
-  });
 
   const background = {
     backgroundImage: `url(${recipe.image_url})`
@@ -46,7 +38,7 @@ export default function RecipeCard(props) {
       </header>
       <article className='recipe__card--list'>
         <ul className='recipe__card--ingredients'>
-          {ingredient_list}
+          <IngredientList ingredients={ingredients} />
         </ul>
         <div className='recipe__card--summary'>
             <div>{recipe.summary}.</div>
