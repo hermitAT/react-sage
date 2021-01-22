@@ -7,8 +7,8 @@ export default function IngredientList(props) {
   const ingredients = props.ingredient_list.filter(i => i.category_id == props.category).map(item => {
     return (
       <Fragment>
-        <input id={item.name} name={item.name} type="radio" value={item.name} />
-        <label for={item.name}>{item.name}</label>
+        <input id={item.name} name="ingredient" type="radio" value={item.name} />
+        <label for={item.name}>{item.name}</label>3
       </Fragment>
     )
   })
