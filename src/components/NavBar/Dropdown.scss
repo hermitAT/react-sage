@@ -1,51 +1,143 @@
 @import "styles/variables.scss";
 
-.dropbtn {
-  background-color: $color-light;
-  color: $color-dark;
-  font-size: 1rem;
-  font-weight: 600;
-  padding: 1rem;
-  border: none;
+.fifth-level-menu {
+  position: absolute;
+  top: -65px;
+  right: -240px;
+  width: 120px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+  border-radius: 0.25rem;
+  background: $color-light;
+  border: 0.5px solid $color-medium;
+  box-shadow: 0 1px 3px $color-medium, 0 1px 2px $color-medium;
+}
+
+.fifth-level-menu > li {
+  height: 40px;
+  background: $color-light;
+  color: $color-darker;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fifth-level-menu > li:hover {
+  background: $color-darker;
+  color: $color-light;
+}
+
+.fourth-level-menu {
+  position: absolute;
+  top: -60px;
+  right: -120px;
+  width: 120px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+  border-radius: 0.25rem;
+  background: $color-light;
+  border: 0.5px solid $color-medium;
+  box-shadow: 0 1px 3px $color-medium, 0 1px 2px $color-medium;
+}
+
+.fourth-level-menu > li {
+  height: 40px;
+  background: $color-light;
+  color: $color-darker;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fourth-level-menu > li:hover {
+  background: $color-darker;
+  color: $color-light;
+}
+
+.third-level-menu {
+  position: absolute;
+  top: 0;
+  right: -120px;
+  width: 120px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+  border-radius: 0.25rem;
+  background: $color-light;
+  border: 0.5px solid $color-medium;
+  box-shadow: 0 1px 3px $color-medium, 0 1px 2px $color-medium;
+}
+
+.third-level-menu > li {
+  height: 40px;
+  background: $color-light;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-darker;
+}
+
+.third-level-menu > li:hover {
+  background: $color-darker;
+  color: $color-light;
+}
+
+.second-level-menu {
+  position: absolute;
+  top: 45px;
+  left: 0;
+  width: 120px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+  border-top: none;
+  border-radius: 0.25rem;
+  background: $color-light;
+  border: 0.5px solid $color-medium;
+  box-shadow: 0 2px 4px $color-medium, 0 1px 2px $color-medium;
+}
+
+.second-level-menu > li {
+  height: 40px;
+  border-top: none;
+  background: $color-light;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 0.25rem;
 }
+.second-level-menu > li:hover {
+  background: $color-darker;
+  color: $color-light;
+}
 
-.dropdown {
+.top-level-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.top-level-menu > li {
   position: relative;
-  display: inline-block;
-  margin-left: 1rem;
-  margin-right: 1rem;
-
-  &-content {
-    display: none;
-    position: absolute;
-    width: 100%;
-    background-color: $color-light;
-    box-shadow: 0px 4px 8px rgba($color-dark, 0.5);
-    z-index: 1;
-  }
-}
-
-.dropdown:hover .dropdown-content {
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0px 4px 8px rgba($color-dark, 0.5);
-}
-
-.dropdown:hover .dropbtn {
-  box-shadow: 0px 0.25rem 0.75rem rgba($color-dark, 0.5);
-}
-
-a {
-  color: $color-dark;
-  text-decoration: none;
-  display: block;
+  height: 50px;
+  width: 120px;
+  background: $color-light;
+  color: $color-darker;
+  min-width: 120px;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  margin-right: 0.75rem;
+  margin-left: 0.5rem;
   text-align: center;
-  padding: 0.5rem;
-  height: 1.5rem;
-  
-  &:hover {
-    background-color: $color-medium;
-    box-shadow: 0px 0.25rem 0.75rem rgba($color-dark, 0.5);
-  }
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.top-level-menu li:hover > ul {
+  display: inline;
 }

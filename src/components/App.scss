@@ -11,3 +11,9 @@
   flex-direction: column;
   align-items: center;
 }
+
+button:focus {
+  outline: none;
+  border: 1px solid $color-dark;
+  box-shadow: 0 0 10px $color-medium;
+}

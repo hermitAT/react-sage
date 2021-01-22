@@ -1,0 +1,48 @@
+#user-page {
+  width: 62rem;
+
+  #title-page {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+
+    h2 {
+      align-content: center;
+      width: 37rem;
+      padding: 0.5rem 0;
+    }
+  }
+
+  div {
+    align-items: flex-start;
+  }
+}
+
+#recipe-favorite {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 35rem;
+
+  button {
+    margin: 0 1rem;
+  }
+}
+
+#image-description {
+  display: flex;
+  flex-direction: column;
+  margin-right: 2rem;
+
+  article {
+    width: 18rem;
+    margin-top: 2rem;
+    font-size: 1.2rem;
+
+    p {
+      margin: 0.5rem 0.5rem;
+    }
+  }
+
+}

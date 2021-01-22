@@ -1,0 +1,53 @@
+#description {
+
+  h2 {
+  text-align: center;
+  }
+}
+
+#top5 {
+  width: 15em;
+
+  section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 20rem;
+  }
+
+  h4 {
+    text-align: center;
+    padding: 5px;
+    width: 10em;
+    margin: 30px 10px 10px 0;
+
+  }
+
+  button {
+    text-align: center;
+    height: 5em;
+    margin: 30px 0px 10px 10px;
+    background-color: whitesmoke;
+    border: 2px solid grey;
+    border-radius: 4px;
+  }
+
+  #top5-list {
+    text-align: center;
+    width: 17.75rem;
+  }
+
+  mark {
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 0.9em;
+    background-color: inherit;
+    margin: 0.5rem 0;
+
+    p {
+      margin: 0;
+    }
+  }
+}

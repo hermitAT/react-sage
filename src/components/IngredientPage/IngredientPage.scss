@@ -1,0 +1,40 @@
+#root {
+  display: flex;
+  justify-content: center;
+}
+
+#ingredient-page {
+  width: 62rem;
+}
+
+#name-brief h1.text-container {
+  text-align: center;
+  margin: 0;
+  width: 35rem;
+}
+
+#ingredient-page img {
+  height: 15em;
+  width: 15em;
+  border-radius: 100%;
+  background-color: whitesmoke;
+}
+
+
+.text-container {
+  background-color: whitesmoke;
+  border: 2px solid grey;
+  border-radius: 4px;
+  width: 35rem;
+  padding: 0 1rem;
+}
+
+.row-group {
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 16pt;
+  margin: 1em 0.5em;
+  justify-content: space-between;
+}
