@@ -1,0 +1,11 @@
+@import "styles/variables.scss";
+
+.results__layout {
+  margin-top: 10rem;
+  margin-bottom: 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+}
+  

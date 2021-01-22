@@ -64,12 +64,19 @@ export const formatIngredients = function(ingredients) {
   
   for (const ingredient of ingredients) {
     for (const key in ingredient) {
-      let r = {
+      result.push({
         name: Object.keys(ingredient[key])[0],
         amount: Object.values(ingredient[key])[0]
-      }
-      result.push(r)
+      });
     }
   };
   return result;
+};
+
+export const formatRating = function(rating) {
+  if (rating === null) {
+    return 0;
+  } else {
+    return parseInt(rating).toFixed(2)
+  }
 };

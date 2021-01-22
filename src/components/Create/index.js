@@ -10,14 +10,19 @@ import useVisualMode from "hooks/useVisualMode";
 import "./index.scss";
 
 export default function Create(props) {
-
   const SHOW = "SHOW";
   const ADD = "ADD";
   const EMPTY = "EMPTY";
 
   const { mode, transition, back } = useVisualMode(EMPTY);
 
-  const { state, onChangeValue, onIngredient, resetIngredients, createRecipe } = useCreateForm();
+  const {
+    state,
+    onChangeValue,
+    onIngredient,
+    resetIngredients,
+    createRecipe,
+  } = useCreateForm();
 
   const {
     name,
@@ -29,24 +34,22 @@ export default function Create(props) {
     ingredients,
   } = state;
 
-  const newIngredient = function(ingredient, amount) {
+  const newIngredient = function (ingredient, amount) {
     let recipe_ingredient = {};
 
     recipe_ingredient.name = ingredient;
     recipe_ingredient.amount = amount;
-    
+
     onIngredient(recipe_ingredient);
     transition(SHOW);
   };
 
-  const reset = function() {
-
+  const reset = function () {
     resetIngredients();
     transition(EMPTY);
   };
 
-  const save = function() {
-
+  const save = function () {
     const recipe = {
       name,
       image_url,
@@ -54,25 +57,25 @@ export default function Create(props) {
       flavour_id,
       summary,
       user_id: props.user.user.id,
-      instruction
+      instruction,
     };
-    
+
     const ingredient_list = ingredients;
 
     createRecipe(recipe, ingredient_list)
       .then(() => {
         console.log("Success!");
       })
-      .catch(e => console.error(e));
+      .catch((e) => console.error(e));
   };
 
   return (
     <main className="recipe__form">
       <div className="recipe__form--header">
-      <h2>Create your recipe!</h2>
-      <button type="button" onClick={() => save()}>
-        <FontAwesomeIcon icon="save" size="lg" /> SAVE
-      </button>
+        <h2>Create your recipe!</h2>
+        <button type="button" onClick={() => save()}>
+          <FontAwesomeIcon icon="save" size="lg" /> SAVE
+        </button>
       </div>
       <form autoComplete="off">
         <div className="recipe__form--header">
@@ -90,7 +93,7 @@ export default function Create(props) {
           </div>
           <div className="recipe__form--header_inputs">
             <h4>Image URL:</h4>
-            <input
+            <textarea
               className="recipe__form--text"
               type="text"
               name="image_url"
@@ -108,6 +111,15 @@ export default function Create(props) {
           maxlength="140"
           placeholder="Write something..."
           value={summary}
+          onChange={onChangeValue}
+        ></textarea>
+
+        <h4>Instructions:</h4>
+        <textarea
+          className="recipe__form--paragraph"
+          name="instruction"
+          placeholder="Write something..."
+          value={instruction}
           onChange={onChangeValue}
         ></textarea>
 
@@ -131,21 +143,14 @@ export default function Create(props) {
           </div>
         </div>
 
-        <h4>Instructions:</h4>
-        <textarea
-          className="recipe__form--paragraph"
-          name="instruction"
-          placeholder="Write something..."
-          value={instruction}
-          onChange={onChangeValue}
-        ></textarea>
-
         <h4>Ingredients:</h4>
-        {mode === EMPTY && (
-          <Empty onAdd={() => transition(ADD)} />
-        )}
+        {mode === EMPTY && <Empty onAdd={() => transition(ADD)} />}
         {mode === SHOW && (
-          <Show ingredients={ingredients} onAdd={() => transition(ADD)} onReset={() => reset()} />
+          <Show
+            ingredients={ingredients}
+            onAdd={() => transition(ADD)}
+            onReset={() => reset()}
+          />
         )}
         {mode === ADD && (
           <IngredientForm onCancel={() => back()} onConfirm={newIngredient} />

@@ -11,7 +11,7 @@
   min-width: 100vw;
   margin-bottom: 20px;
   padding: 0;
-  border-bottom: 2px solid;
+  border-bottom: 1px solid;
   border-color: $color-light;
   color: $color-lightest;
   background-color: $color-dark;
@@ -32,6 +32,7 @@
   }
 
   &__title {
+    margin-left: 4rem;
     margin-bottom: 0;
     padding-left: 0.25rem;
     padding-right: 0.25rem;
@@ -40,14 +41,13 @@
 
   &__login {
     display: flex;
-    margin-left: 0.75rem;
-    margin-right: 0.75rem;
+    margin-right: 1rem;
   }
 }
 
 .dropbtn {
   background-color: $color-light;
-  color: $color-dark;
+  color: $color-darker;
   min-width: 120px;
   font-size: 1rem;
   font-weight: 600;
