@@ -8,7 +8,7 @@ export default function IngredientList(props) {
     return (
       <Fragment>
         <input id={item.name} name="ingredient" type="radio" value={item.name} />
-        <label for={item.name}>{item.name}</label>3
+        <label for={item.name}>{item.name}</label>
       </Fragment>
     )
   })
