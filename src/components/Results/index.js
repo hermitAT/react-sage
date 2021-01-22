@@ -1,40 +1,14 @@
 import React from 'react';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import './index.scss';
 
 import RecipeCard from '../RecipeCard';
-import useHomeData from 'hooks/useHomeData';
 
 
 export default function Home(props) {
 
-  const { state } = useHomeData();
-
-  const { daily_cocktail, most_pop_alc, most_pop_non, flavours } = state;
-
   return (
-    <main className="home__layout">
-      <section className="home__layout-upper">
-      <div className="home__layout-group">
-        <h2 className="home__headings"><FontAwesomeIcon icon="cocktail" size="lg" />Cocktail of the Day</h2>
-        {daily_cocktail.recipe && <RecipeCard recipe={daily_cocktail} flavours={flavours} />}
-      </div>
-      <div className="home__layout-group">
-        <h2 className="home__headings"><FontAwesomeIcon icon="wine-glass-alt" size="lg" />Cocktail of the Day</h2>
-        {daily_cocktail.recipe && <RecipeCard recipe={daily_cocktail} flavours={flavours} />}
-      </div>
-      </section>
-      <section className="home__layout-upper">
-      <div className="home__layout-group">
-        <h2 className="home__headings"><FontAwesomeIcon icon="glass-cheers" size="lg" />Most Popular Cocktail</h2>
-        {most_pop_alc.recipe && <RecipeCard recipe={most_pop_alc} flavours={flavours} />}
-      </div>
-      <div className="home__layout-group">
-        <h2 className="home__headings"><FontAwesomeIcon icon="lemon" size="lg" />Most Popular Non-Alcoholic</h2>
-        {most_pop_non.recipe && <RecipeCard recipe={most_pop_non} flavours={flavours} />}
-      </div>
-      </section>
+    <main className="results__layout">
     </main>
   )
 };

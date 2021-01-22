@@ -3,10 +3,12 @@
 .recipe__form {
   display: flex;
   flex-direction: column;
-  border-radius: 5px;
+  border-radius: 0.25rem;
   background-color: $color-light;
-  padding: 20px;
-  width: 600px;
+  border: 1px solid $color-lighter;
+  box-shadow: 0 0 10px $color-lighter;
+  padding: 1rem;
+  width: 650px;
   margin-top: 10rem;
   margin-bottom: 6rem;
 

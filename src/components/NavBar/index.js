@@ -15,12 +15,12 @@ export default function NavBar(props) {
   return (
     <nav className="navbar">
       <div className="navbar--centered">
-        <Link to='/'>
-          <img className="navbar__logo" src={logo} alt="Logo" />
-        </Link>
         <h1 className="navbar__title">
           CocktailSage
         </h1>
+        <Link to='/'>
+          <img className="navbar__logo" src={logo} alt="Logo" />
+        </Link>
         <Link to='/create'>
           <button className="dropbtn">Create</button>
         </Link>
