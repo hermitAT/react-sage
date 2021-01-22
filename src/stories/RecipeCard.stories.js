@@ -7,3 +7,4 @@ export default { title: 'Recipe' };
 
 export const Primary = () => <RecipeCard />;
 */
+
