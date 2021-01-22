@@ -21,11 +21,13 @@ export default function NavBar(props) {
         <h1 className="navbar__title">
           CocktailSage
         </h1>
-        <Dropdown />
-        <button className="dropbtn">Search...</button>
         <Link to='/create'>
           <button className="dropbtn">Create</button>
         </Link>
+        <Link to='/search'>
+          <button className="dropbtn">Search...</button>
+        </Link>
+        <Dropdown />
       </div>
       <div className="navbar__login">
         {props.user && (

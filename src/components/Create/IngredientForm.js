@@ -56,13 +56,13 @@ export default function IngredientForm(props) {
         <GroceryList ingredient={ingredient} setIngredient={e => setIngredient(e.target.value)} />
       )}
       {ingredient && (
-        <div>
-          <h4>Amount in Ounces (ex. 0.75):</h4>
+        <div className="recipe__form--amount">
+          <h4>Amount in Ounces (oz):</h4>
           <textarea
-            className="recipe__form--text"
+            className="recipe__form--amount-text"
             type="text"
             name="amount"
-            placeholder="0.75"
+            placeholder="ex. 0.75, 2.0, 2.5"
             value={amount}
             onChange={e => setAmount(e.target.value)}
           />

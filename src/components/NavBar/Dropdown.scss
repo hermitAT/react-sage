@@ -3,7 +3,7 @@
 .fourth-level-menu {
   position: absolute;
   top: -50px;
-  left: -120px;
+  right: -120px;
   width: 120px;
   list-style: none;
   padding: 0;
@@ -20,12 +20,13 @@
 }
 .fourth-level-menu > li:hover {
   background: $color-medium;
+  box-shadow: 0 1px 3px $color-dark, 0 1px 2px $color-dark;
 }
 
 .third-level-menu {
   position: absolute;
   top: 0;
-  left: -120px;
+  right: -120px;
   width: 120px;
   list-style: none;
   padding: 0;
@@ -43,6 +44,7 @@
 
 .third-level-menu > li:hover {
   background: $color-medium;
+  box-shadow: 0 1px 3px $color-dark, 0 1px 2px $color-dark;
 }
 
 .second-level-menu {
@@ -65,6 +67,7 @@
 }
 .second-level-menu > li:hover {
   background: $color-medium;
+  box-shadow: 0 1px 3px $color-dark, 0 1px 2px $color-dark;
 }
 
 .top-level-menu {
@@ -92,8 +95,10 @@
 }
 .top-level-menu > li:hover {
   background: $color-medium;
+  box-shadow: 0 1px 3px $color-dark, 0 1px 2px $color-dark;
 }
 
 .top-level-menu li:hover > ul {
   display: inline;
+  border-radius: 0.25rem;
 }
