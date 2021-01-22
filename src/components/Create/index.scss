@@ -123,6 +123,31 @@
     align-items: center;
     width: 100%;
   }
+
+  & button {
+    background-color: $color-dark;
+    width: 150px;
+    height: 50px;
+    color: $white;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+  
+    & svg {
+      margin-right: 0.25rem;
+    }
+  }
+  
+  & h4 {
+    margin: 0;
+    padding: 0.5rem;
+  }
+  
+  & textarea:focus {
+    outline: none;
+    border: 1px solid $color-dark;
+    box-shadow: 0 0 10px $color-medium;
+  }
 }
 
 .selectors {
@@ -160,29 +185,4 @@
     white-space: nowrap;
     width: auto;
     min-width: 80px;
-}
-
-button {
-  background-color: $color-dark;
-  width: 150px;
-  height: 50px;
-  color: $white;
-  border: none;
-  border-radius: 0.25rem;
-  cursor: pointer;
-
-  & svg {
-    margin-right: 0.25rem;
-  }
-}
-
-h4 {
-  margin: 0;
-  padding: 0.5rem;
-}
-
-textarea:focus {
-  outline: none;
-  border: 1px solid $color-dark;
-  box-shadow: 0 0 10px $color-medium;
 }

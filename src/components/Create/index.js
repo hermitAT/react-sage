@@ -1,5 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useHistory } from "react-router-dom";
 
 import Show from "./Show";
 import Empty from "./Empty";
@@ -10,6 +11,8 @@ import useVisualMode from "hooks/useVisualMode";
 import "./index.scss";
 
 export default function Create(props) {
+
+  let history = useHistory();
 
   const SHOW = "SHOW";
   const ADD = "ADD";
@@ -46,6 +49,7 @@ export default function Create(props) {
     transition(SHOW);
   };
 
+
   const reset = function () {
     resetIngredients();
     transition(EMPTY);
@@ -58,17 +62,17 @@ export default function Create(props) {
       parent_id,
       flavour_id,
       summary,
-      user_id: props.user.user.id,
+      user_id: props.user.id,
       instruction,
     };
 
     const ingredient_list = ingredients;
 
     createRecipe(recipe, ingredient_list)
-      .then(() => {
-        console.log("Success!");
+      .then(data => {
+        history.replace(`/recipes/${data.recipe[0].recipe.id}`);
       })
-      .catch((e) => console.error(e));
+      .catch(e => console.error(e));
   };
 
   return (

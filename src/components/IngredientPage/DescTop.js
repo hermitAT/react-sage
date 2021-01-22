@@ -13,6 +13,7 @@ export default function DescTop(props) {
         <h4 className="text-container">Top-5 recipes with {props.name}</h4>
         <button >See more...</button>
       </section>
+      {props.top5 && (
       <div id="top5-list" className="text-container">
         {props.top5.map(recipe => (
           <mark>
@@ -21,6 +22,7 @@ export default function DescTop(props) {
           </mark>
         ))}
       </div>
+      )}
     </div>
     </div>
   );

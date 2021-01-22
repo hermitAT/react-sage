@@ -5,6 +5,15 @@
 
 #ingredient-page {
   width: 62rem;
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+
+  & img {
+    height: 15em;
+    width: 15em;
+    border-radius: 100%;
+    background-color: whitesmoke;
+  }
 }
 
 #name-brief h1.text-container {
@@ -12,14 +21,6 @@
   margin: 0;
   width: 35rem;
 }
-
-#ingredient-page img {
-  height: 15em;
-  width: 15em;
-  border-radius: 100%;
-  background-color: whitesmoke;
-}
-
 
 .text-container {
   background-color: whitesmoke;
