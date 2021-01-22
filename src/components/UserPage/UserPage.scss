@@ -1,0 +1,60 @@
+#user-page {
+  width: 62rem;
+
+  #title-page {
+    text-align: center;
+   justify-content: space-around;
+
+    h2 {
+      width: 37rem
+    }
+  }
+}
+
+
+.flex-container {
+  display: flex
+}
+.text-container0 {
+  background-color: whitesmoke;
+  border: 2px solid grey;
+  border-radius: 4px;
+
+}
+
+
+.text-container1 {
+  background-color: whitesmoke;
+  border: 2px solid grey;
+  border-radius: 4px;
+  width: 15rem;
+  padding: 0 1rem;
+}
+.text-container2 {
+  background-color: whitesmoke;
+  border: 2px solid grey;
+  border-radius: 4px;
+  width: 10rem;
+  height: 2rem;
+  padding: 0 1rem;
+  margin-right: 1rem;
+  margin-left: 20rem;
+}
+.text-container3 {
+  background-color: whitesmoke;
+  border: 2px solid grey;
+  border-radius: 4px;
+  width: 10rem;
+  height: 2rem;
+  padding: 0 1rem;
+  margin-right: 1rem;
+  margin-left: 5rem;
+}
+#recipe-favorite {
+  display: flex;
+  flex-direction: row,
+}
+#image-description {
+  display: flex;
+  flex-direction: column
+}
