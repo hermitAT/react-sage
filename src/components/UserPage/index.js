@@ -5,20 +5,23 @@ const { timeAgo } = require("helpers/timeAgo")
 
 export default function User(props) {
 
-  const { name, user_avatar, created_at, recipes_id, favorites_id } = props;
+// const { name, user_avatar, created_at, recipes_id, favorites_id } = props;
 
   return (
+
     <div id="user-page">
+      {props.user && (
+      <>
       <div id="title-page" >
-        <h2 class="text-container">Welcome back, {name}!</h2>
+        <h2 class="text-container">Welcome back, {props.user.user.name}!</h2>
       </div>
       <div class="row-group">
         <div id="image-description">
-          <img src={user_avatar} />
+          <img src={props.user.user.user_avatar} />
           <article class='text-container'>
-            <p>joined CocktailSage {timeAgo(created_at)}</p>
-            <p>created {recipes_id.length} recipe{recipes_id.length > 1 ? 's' : ''}</p>
-            <p>{favorites_id.length} recipe{favorites_id.length > 1 ? 's are' : ' is'} favorite</p>
+            <p>joined CocktailSage {timeAgo(props.user.user.created_at)}</p>
+            <p>created {props.user.recipes_id.length} recipe{props.user.recipes_id.length > 1 ? 's' : ''}</p>
+            <p>{props.user.favorites_id.length} recipe{props.user.favorites_id.length > 1 ? 's are' : ' is'} favorite</p>
           </article>
         </div>
         <div id="recipe-favorite">
@@ -34,6 +37,9 @@ export default function User(props) {
           </Button>
         </div>
       </div>
+      </>
+      )}
     </div>
+      
   );
 }

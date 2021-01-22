@@ -1,3 +1,5 @@
+@import "styles/variables.scss";
+
 .button {
   border-radius: 2rem;
   background-color: #4CAF50; 
@@ -13,7 +15,7 @@
 
 .button--confirm {
   color: white;
-  background-color: blue;
+  background-color: grey;
 }
 
 .button--cancel {
@@ -23,11 +25,11 @@
 
 .button--cancel:hover {
   color: white;
-  background-color: red;
+  background-color: rgb(139, 72, 125);
 }
 
 .button--confirm:hover {
   color: white;
-  background-color: blue;
+  background-color: $color-dark;
 }
 

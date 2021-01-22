@@ -32,12 +32,13 @@ export default function App() {
           <Route path="/create">
             <Create user={user} />
           </Route>
+          <Route path="/user">
+            <UserPage user={user}/>
+          </Route>
           <Route path="/">
             <Home />
           </Route>
-          <Route path="/UserPage">
-            <UserPage user={user}/>
-          </Route>
+
         </Switch>
       </main>
     </Router>
