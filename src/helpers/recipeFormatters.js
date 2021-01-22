@@ -33,13 +33,13 @@ export const formatAmount = function(amount) {
 
   switch(true) {
     case 0.25 >= amount && amount >= 0:
-      result = 'dash';
+      result = 'A dash of...';
       break;
     case 0.49 >= amount && amount >= 0.26: 
-      result = 'splash';
+      result = 'A splash of...';
       break;
-    case amount >= 0.50: 
-      result = amount + 'oz';
+    case amount >= 0.5: 
+      result = amount + ' oz of...';
       break;
     default:
       result = '';

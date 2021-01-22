@@ -16,7 +16,7 @@ export default function IngredientForm(props) {
       setError("You must select an ingredient!");
       return;
     } else if (amount === "") {
-      setError("You must confirm an amount of that ingredient!");
+      setError("You must input an amount!");
       return;
     }
     setError("");
@@ -59,7 +59,7 @@ export default function IngredientForm(props) {
             name="amount"
             placeholder="ex. 0.75, 2.0, 2.5"
             value={amount}
-            onChange={(e) => setAmount(e.target.value)}
+            onChange={e => setAmount(e.target.value)}
           />
         </div>
       )}

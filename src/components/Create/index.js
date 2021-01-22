@@ -10,6 +10,7 @@ import useVisualMode from "hooks/useVisualMode";
 import "./index.scss";
 
 export default function Create(props) {
+
   const SHOW = "SHOW";
   const ADD = "ADD";
   const EMPTY = "EMPTY";
@@ -40,7 +41,7 @@ export default function Create(props) {
 
     recipe_ingredient.name = ingredient;
     recipe_ingredient.amount = amount;
-
+  
     onIngredient(recipe_ingredient);
     transition(SHOW);
   };
