@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from 'axios';
 
 export default function useUserData() {
@@ -7,10 +7,7 @@ export default function useUserData() {
   useEffect(() => {
     axios.get('api/users/1')
       .then(all => {
-        setUser(prev => ({
-          ...prev,
-          user: all.data.user
-        }))
+        setUser(prev => all.data.user)
       })
       .catch(e => console.error(e));
   }, []);

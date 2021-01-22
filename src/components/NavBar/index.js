@@ -9,8 +9,6 @@ import "./index.scss";
 
 export default function NavBar(props) {
 
-  console.log(props.user);
-
   return (
     <nav className="navbar">
       <div className="navbar--centered">

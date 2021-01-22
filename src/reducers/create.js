@@ -1,6 +1,7 @@
 export const ADD_TEXT_FIELD = "ADD_TEXT_FIELD";
 export const ADD_INGREDIENT = "ADD_INGREDIENT";
 export const RESET_INGREDIENTS = "RESET_INGREDIENTS";
+export const SET_INGREDIENT_LIST = "SET_INGREDIENT_LIST";
 
 export default function reducer(state, action) {
   switch(action.type) {
@@ -21,6 +22,12 @@ export default function reducer(state, action) {
       return {
         ...state,
         ingredients: ""
+      };
+
+    case SET_INGREDIENT_LIST:
+      return {
+        ...state,
+        ingredient_list: action.ingredient_list
       };
     
     default:

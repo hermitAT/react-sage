@@ -1,9 +1,10 @@
-import { useReducer } from 'react';
+import { useReducer, useEffect } from 'react';
 import axios from 'axios';
 import reducer, {
   ADD_TEXT_FIELD,
   ADD_INGREDIENT,
-  RESET_INGREDIENTS
+  RESET_INGREDIENTS,
+  SET_INGREDIENT_LIST
 } from 'reducers/create';
 
 export default function useCreateForm() {
@@ -14,8 +15,18 @@ export default function useCreateForm() {
     flavour_id: "",
     summary: "",
     instruction: "",
-    ingredients: ""
+    ingredients: "",
+    ingredient_list: ""
   });
+
+  useEffect(() => {
+    return axios.get("/api")
+      .then(all => {
+        dispatch({ type: SET_INGREDIENT_LIST, ingredient_list: all.data.ingredient_list});
+      })
+      .catch(e => console.error(e));
+  }, []);
+
 
   const onChangeValue = (e) => {
     dispatch({ type: ADD_TEXT_FIELD, field: e.target.name, value: e.target.value })

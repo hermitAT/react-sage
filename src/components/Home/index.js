@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "./index.scss";
 
-import straw from "./straw.gif";
 import RecipeCard from "../RecipeCard";
 import useHomeData from "hooks/useHomeData";
 

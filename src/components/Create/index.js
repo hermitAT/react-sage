@@ -32,6 +32,7 @@ export default function Create(props) {
     summary,
     instruction,
     ingredients,
+    ingredient_list
   } = state;
 
   const newIngredient = function (ingredient, amount) {
@@ -153,7 +154,7 @@ export default function Create(props) {
           />
         )}
         {mode === ADD && (
-          <IngredientForm onCancel={() => back()} onConfirm={newIngredient} />
+          <IngredientForm ingredient_list={ingredient_list} onCancel={() => back()} onConfirm={newIngredient} />
         )}
       </form>
     </main>
