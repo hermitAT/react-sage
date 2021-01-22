@@ -8,28 +8,31 @@ import {
 
 import './App.scss';
 
+import useUserData from 'hooks/useUserData';
 import IngredientPage from './IngredientPage';
-import Button from './IngredientPage';
+import Create from './Create';
 import NavBar from './NavBar';
 import Home from './Home';
-import useApplicationData from 'hooks/useApplicationData';
 
 export default function App() {
 
-  const { state } = useApplicationData();
+  const { user } = useUserData();
 
   return (
     <Router>
       <main className="layout">
-        <NavBar />
+        <NavBar user={user} />
         <Switch>
-          <Route path="/">
-            <Home data={state} />
-          </Route>
           <Route path="/ingredient/">
             <IngredientPage>
               Hello there!
             </IngredientPage>
+          </Route>
+          <Route path="/create">
+            <Create user={user} />
+          </Route>
+          <Route path="/">
+            <Home />
           </Route>
         </Switch>
       </main>

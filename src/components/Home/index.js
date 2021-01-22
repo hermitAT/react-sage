@@ -1,13 +1,16 @@
 import React from 'react';
 
-import RecipeCard from '../RecipeCard';
-
 import './index.scss';
+
+import RecipeCard from '../RecipeCard';
+import useHomeData from 'hooks/useHomeData';
+
 
 export default function Home(props) {
 
-  const { daily_cocktail, most_pop_alc, most_pop_non, flavours } = props.data;
-  console.log(props.recipes);
+  const { state } = useHomeData();
+
+  const { daily_cocktail, most_pop_alc, most_pop_non, flavours } = state;
 
   return (
     <main className='home__layout'>

@@ -1,42 +1,104 @@
 @import "styles/variables.scss";
 
-.dropdown {
-  position: relative;
-  display: inline-block;
-  margin-left: 1rem;
-
-  &-content {
-    display: none;
-    position: absolute;
-    width: 100%;
-    border-radius: 0.25rem;
-    background-color: $color-light;
-    box-shadow: 0px 4px 8px rgba($color-dark, 0.5);
-    z-index: 1;
-  }
+.fourth-level-menu {
+  position: absolute;
+  top: -50px;
+  right: -120px;
+  width: 120px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: none;
 }
 
-.dropdown:hover .dropdown-content {
+.fourth-level-menu > li {
+  height: 40px;
+  background: $color-light;
   display: flex;
-  flex-direction: column;
-  box-shadow: 0px 4px 8px rgba($color-dark, 0.5);
+  align-items: center;
+  justify-content: center;
+}
+.fourth-level-menu > li:hover {
+  background: $color-medium;
+  box-shadow: 0 1px 3px $color-dark, 0 1px 2px $color-dark;
 }
 
-.dropdown:hover .dropbtn {
-  box-shadow: 0px 0.25rem 0.75rem rgba($color-dark, 0.5);
+.third-level-menu {
+  position: absolute;
+  top: 0;
+  right: -120px;
+  width: 120px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: none;
 }
 
-a {
+.third-level-menu > li {
+  height: 40px;
+  background: $color-light;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.third-level-menu > li:hover {
+  background: $color-medium;
+  box-shadow: 0 1px 3px $color-dark, 0 1px 2px $color-dark;
+}
+
+.second-level-menu {
+  position: absolute;
+  top: 45px;
+  left: 0;
+  width: 120px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+}
+
+.second-level-menu > li {
+  height: 40px;
+  background: $color-light;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.second-level-menu > li:hover {
+  background: $color-medium;
+  box-shadow: 0 1px 3px $color-dark, 0 1px 2px $color-dark;
+}
+
+.top-level-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.top-level-menu > li {
+  position: relative;
+  height: 50px;
+  width: 120px;
+  background: $color-light;
   color: $color-dark;
-  text-decoration: none;
-  display: block;
-  text-align: center;
-  padding: 0.5rem;
-  height: 1.5rem;
+  min-width: 120px;
+  font-size: 1rem;
+  border: none;
   border-radius: 0.25rem;
-  
-  &:hover {
-    background-color: $color-medium;
-    box-shadow: 0px 0.25rem 0.75rem rgba($color-dark, 0.5);
-  }
+  margin-right: 0.75rem;
+  margin-left: 0.5rem;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.top-level-menu > li:hover {
+  background: $color-medium;
+  box-shadow: 0 1px 3px $color-dark, 0 1px 2px $color-dark;
+}
+
+.top-level-menu li:hover > ul {
+  display: inline;
+  border-radius: 0.25rem;
 }
