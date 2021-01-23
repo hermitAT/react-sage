@@ -1,6 +1,7 @@
 import React from "react";
 import "./UserPage.scss";
 import Button from "components/Button"
+import UserRecipeList from "./UserRecipeList"
 const { timeAgo } = require("helpers/timeAgo")
 
 export default function User(props) {
@@ -10,7 +11,7 @@ export default function User(props) {
   return (
 
     <div id="user-page">
-      {props.user && (
+      {props.user && props.userRecipe && (
       <>
       <div id="title-page" >
         <h2 class="text-container">Welcome back, {props.user.user.name}!</h2>
@@ -35,6 +36,15 @@ export default function User(props) {
             onClick={console.log('MY')}>
             Favorite recipes
           </Button>
+        </div>
+        <div>
+        {/* <ul>
+      {props.recipes.map((recipe,index) => (
+       <UserRecipeList
+          key={index}
+          rating={recipe.rating} 
+        />))}
+      </ul>      */}
         </div>
       </div>
       </>

@@ -9,6 +9,7 @@ import {
 import './App.scss';
 
 import useUserData from 'hooks/useUserData';
+import useUserRecipe from 'hooks/useUserRecipe';
 import IngredientPage from './IngredientPage';
 import Create from './Create';
 import NavBar from './NavBar';
@@ -18,6 +19,7 @@ import UserPage from './UserPage';
 export default function App() {
 
   const { user } = useUserData();
+  const { userRecipe} = useUserRecipe();
 
   return (
     <Router>
@@ -33,7 +35,7 @@ export default function App() {
             <Create user={user} />
           </Route>
           <Route path="/user">
-            <UserPage user={user}/>
+            <UserPage user={user} userRecipe={userRecipe} />
           </Route>
           <Route path="/">
             <Home />

@@ -11,7 +11,6 @@ export default function useUserData() {
       })
       .catch(e => console.error(e));
   }, []);
-  console.log(user)
   return { user };
   
 };
