@@ -1,16 +1,17 @@
-//import Button from 'components/Button';
 import Button from 'components/Button';
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './SearchPage.scss';
 
-//import RecipeCard from '../RecipeCard';
+import useSearchData from "hooks/useSearchData";
 
 
 
 export default function SearchPage(props) {
+  
+  const { state } = useSearchData();
 
-  const { categories } = props
+  const { categories } = state;
 
   const [name, setName] = useState('');
   const [chosenIngredients, setIngredient] = useState({});
@@ -23,8 +24,7 @@ export default function SearchPage(props) {
   }
 
   const DropM = function () {
-    console.log(Object.keys(chosenIngredients))
-    const style = { float: 'left', position: 'absolute', top: 200 + 'px', left: 150 + 'px' }
+    const style = { float: 'left', position: 'absolute', top: 350 + 'px', left: 250 + 'px' }
     const ingredientsStyle = { float: 'left', position: 'absolute', top: 57 + 'px', left: 0 + 'px' }
     return (
       <div id="drop-menu" style={style}>

@@ -14,6 +14,7 @@ import Home from './Home';
 import Edit from './Edit';
 import UserPage from './UserPage';
 import RecipePage from './RecipePage';
+import SearchPage from './SearchPage';
 import IngredientPage from './IngredientPage';
 
 import './App.scss';
@@ -38,6 +39,9 @@ export default function App() {
           </Route>
           <Route path="/create">
             <Create user={user} />
+          </Route>
+          <Route path="/search">
+            <SearchPage />
           </Route>
           <Route path="/user">
             <UserPage user={user}/>
