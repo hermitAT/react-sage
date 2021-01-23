@@ -1,10 +1,11 @@
-// import React from "react";
+import React from "react";
+import RecipeCard from "components/RecipeCard"
 
-// export default function UserRecipeList(props) {
+export default function UserRecipeList(props) {
 
-//   return (
-//     <li>
-//       <h2 >{props.rating}</h2> 
-//     </li>
-//   );
-// }
+  return (
+    <li>
+      <RecipeCard/>
+    </li>
+  );
+}
