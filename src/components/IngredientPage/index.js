@@ -17,39 +17,50 @@ export default function IngredientPage(props) {
     category: "",
     name: "",
     image_url: "",
-    description: ""
+    description: "",
+    top5: "",
+    flavours: "",
+    categories: ""
   })
 
   const { id } = useParams();
 
   useEffect(() => {
-    return axios.get(`/api/ingredients/${id}`)
-      .then(all => {
-        const ingredient = all.data.ingredient;
-        console.log(ingredient);
-        dispatch({ type: SET_INGREDIENT_DATA, ingredient });
+    Promise.all([
+      axios.get(`/api/ingredients/${id}`),
+      axios.get(`/api`)
+    ]).then(all => {
+      console.log(all);
+        dispatch({ type: SET_INGREDIENT_DATA, all });
       })
       .catch((e) => console.error(e));
   }, [id]);
 
   const {
     strength,
-    flavour,
-    category,
+    flavour_id,
+    category_id,
     name,
     image_url,
-    description
+    description,
+    top5,
+    flavours,
+    categories
   } = state;
 
   return (
     <div id="ingredient-page">
+      {top5 && (
+      <>
       <div id="name-brief-image" class="row-group">
         <div id="name-brief">
           <h1 class="text-container">{name}</h1>
           <BriefInfo
             strength={strength}
-            flavour={flavour}
-            category={category}
+            flavour_id={flavour_id}
+            category_id={category_id}
+            flavours={flavours}
+            categories={categories}
           >
           </BriefInfo>
         </div>
@@ -58,7 +69,10 @@ export default function IngredientPage(props) {
       <DescTop
         name={name}
         description={description}
+        top5={top5}
       ></DescTop>
+      </>
+      )}
     </div>
   );
 }
