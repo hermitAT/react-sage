@@ -49,7 +49,7 @@ export default function useCreateForm() {
 
     return axios.post("/api/recipes", { recipe, ingredients })
       .then(all => {
-        console.log(all);
+        return all.data;
       })
       .catch(e => console.error(e));
   };

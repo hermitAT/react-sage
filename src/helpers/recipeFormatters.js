@@ -57,7 +57,18 @@ export const formatFlavour = function(id, array) {
     }
   }
   return result;
-}
+};
+
+export const formatCategory = function(id, array) {
+  let result = '';
+
+  for (const i of array) {
+    if (i.id === id) {
+      result += i.name;
+    }
+  }
+  return result;
+};
 
 export const formatIngredients = function(ingredients) {
   let result = [];
