@@ -21,9 +21,10 @@ import './App.scss';
 
 export default function App() {
 
-  const { user } = useUserData();
+const { user, userRecipe } = useUserData();
 
   return (
+    
     <Router>
       <main className="layout">
         <NavBar user={user} />
@@ -44,7 +45,7 @@ export default function App() {
             <SearchPage />
           </Route>
           <Route path="/user">
-            <UserPage user={user}/>
+            <UserPage user={user} userRecipe={userRecipe}/>
           </Route>
           <Route path="/">
             <Home />

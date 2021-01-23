@@ -3,6 +3,7 @@ import axios from 'axios';
 
 export default function useUserData() {
   const [user, setUser] = useState("");
+  const [recipes, setRecipes] = useState("");
 
   useEffect(() => {
     axios.get('/api/users/1')
@@ -11,7 +12,16 @@ export default function useUserData() {
       })
       .catch(e => console.error(e));
   }, []);
-  console.log(user)
-  return { user };
+
+  const getUserRecipe = function(arr) {
+    axios.get('api/recipes/fetch', { 'headers': { 'ids': arr } })
+      .then(all => {
+      setRecipes(prev => all.data.recipes)
+      console.log("all", all.data)
+    })
+    .catch(e => console.error(e));
+  }
+
+  return { user, recipes, getUserRecipe };
   
 };
