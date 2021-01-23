@@ -21,7 +21,7 @@ import './App.scss';
 
 export default function App() {
 
-const { user, userRecipe } = useUserData();
+const { user } = useUserData();
 
   return (
     
@@ -45,7 +45,7 @@ const { user, userRecipe } = useUserData();
             <SearchPage />
           </Route>
           <Route path="/user">
-            <UserPage user={user} userRecipe={userRecipe}/>
+            <UserPage user={user} />
           </Route>
           <Route path="/">
             <Home />

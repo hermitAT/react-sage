@@ -37,10 +37,8 @@ export default function RecipeList(props) {
     });
 
     return (
-        <>
-        <ul className="recipe_list">
+        <ul className="recipe__list">
             {recipe_list}
         </ul>
-        </>
     );
 }
