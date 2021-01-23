@@ -22,41 +22,49 @@ export default function Home(props) {
       </div>
         <section className="home__layout-upper">
           <div className="home__layout-group">
-            <h2 className="home__headings">
-              <FontAwesomeIcon icon="cocktail" size="lg" />
-              Cocktail of the Day
-            </h2>
             {daily_cocktail.recipe && (
+              <>
+              <h2 className="home__headings">
+                <FontAwesomeIcon icon="cocktail" size="lg" />
+                Cocktail of the Day
+              </h2>
               <RecipeCard recipe={daily_cocktail} flavours={flavours} />
+              </>
             )}
           </div>
           <div className="home__layout-group">
-            <h2 className="home__headings">
-              <FontAwesomeIcon icon="wine-glass-alt" size="lg" />
-              Cocktail of the Day
-            </h2>
             {daily_cocktail.recipe && (
+            <>
+              <h2 className="home__headings">
+                <FontAwesomeIcon icon="wine-glass-alt" size="lg" />
+                Cocktail of the Day
+              </h2>
               <RecipeCard recipe={daily_cocktail} flavours={flavours} />
+            </>
             )}
           </div>
         </section>
         <section className="home__layout-upper">
           <div className="home__layout-group">
-            <h2 className="home__headings">
-              <FontAwesomeIcon icon="glass-cheers" size="lg" />
-              Best Rated Alcoholic
-            </h2>
             {most_pop_alc.recipe && (
+            <>
+              <h2 className="home__headings">
+                <FontAwesomeIcon icon="glass-cheers" size="lg" />
+                Best Rated Alcoholic
+              </h2>
               <RecipeCard recipe={most_pop_alc} flavours={flavours} />
+            </>
             )}
           </div>
           <div className="home__layout-group">
-            <h2 className="home__headings">
-              <FontAwesomeIcon icon="lemon" size="lg" />
-              Best Rated Non-Alcoholic
-            </h2>
             {most_pop_non.recipe && (
+              <>
+              <h2 className="home__headings">
+                <FontAwesomeIcon icon="lemon" size="lg" />
+                Best Rated Non-Alcoholic
+              </h2>
               <RecipeCard recipe={most_pop_non} flavours={flavours} />
+              </>
             )}
           </div>
         </section>

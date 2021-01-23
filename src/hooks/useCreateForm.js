@@ -43,8 +43,7 @@ export default function useCreateForm() {
   const createRecipe = (recipe_fields, ingredients) => {
 
     const recipe = {
-      ...recipe_fields,
-      instruction: recipe_fields.instruction.split(/[\s.!?]+/).map(i => i.trim())
+      ...recipe_fields
     };
 
     return axios.post("/api/recipes", { recipe, ingredients })

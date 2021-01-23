@@ -22,9 +22,11 @@ export default function Edit(props) {
 
   const { parent_id, recipe, ingredients } = location.state;
 
+  const recipe_name = parent_id ? recipe.name + " reMix" : `${recipe.name}`
+
   const [state, dispatch] = useReducer(reducer, {
     ingredient_list: "",
-    name: ((recipe.name + " reMix") || ""),
+    name: (recipe_name || ""),
     image_url: (`${recipe.image_url}` || ""),
     parent_id: (parent_id || ""),
     flavour_id: (`${recipe.flavour_id}` || ""),
@@ -138,9 +140,7 @@ export default function Edit(props) {
       instruction,
     };
 
-    const ingredient_list = ingredients_new;
-
-    recipeForked(recipe, ingredient_list)
+    recipeForked(recipe, ingredients_new)
       .then(data => {
         history.replace(`/recipes/${data.recipe[0].recipe.id}`);
       })
@@ -154,7 +154,7 @@ export default function Edit(props) {
       <div className="recipe__form--header">
         {parent_id && (
         <>
-          <h2>reMixed from {name}!</h2>
+          <h2>reMixed from {recipe.name}!</h2>
           <button type="button" onClick={() => saveFork()}>
             <FontAwesomeIcon icon="save" size="lg" /> SAVE
           </button>
