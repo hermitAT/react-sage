@@ -14,7 +14,7 @@ export default function CommentsFeed(props) {
           <div key={index} id="comment" className="row-group">
             <div id="name-avatar">
               <mark id="username">{name}</mark>
-              <img src={user_avatar} alt={name}></img>
+              <img id="avatar" src={user_avatar} alt={name}></img>
             </div>
             <div id="comment-container" className="text-container">
               <div id="comment-text">{text}</div>

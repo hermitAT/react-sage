@@ -22,12 +22,12 @@ export default function Dropdown(props) {
           <ul className='third-level-menu'>
             <li>Spirits
               <ul className='fourth-level-menu'>
-                <li>Vodka</li>
-                <li>Gin</li>
-                <li>Light Rum</li>
-                <li>Gold Rum</li>
-                <li>Dark Rum</li>
-                <li>Spiced Rum</li>
+                <li><Link to="/ingredients/9">Vodka</Link></li>
+                <li><Link to="/ingredients/2">Gin</Link></li>
+                <li><Link to="/ingredients/3">Light Rum</Link></li>
+                <li><Link to="/ingredients/4">Gold Rum</Link></li>
+                <li><Link to="/ingredients/5">Dark Rum</Link></li>
+                <li><Link to="/ingredients/6">Spiced Rum</Link></li>
               </ul>
               <ul className="fifth-level-menu">
                 <li>Flavoured Rum</li>
