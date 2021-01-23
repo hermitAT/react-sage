@@ -1,0 +1,188 @@
+@import "styles/variables.scss";
+
+.recipe__form {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.25rem;
+  background-color: $color-light;
+  border: 1px solid $color-lighter;
+  box-shadow: 0 0 10px $color-lighter;
+  padding: 1rem;
+  width: 650px;
+  margin-top: 10rem;
+  margin-bottom: 6rem;
+
+  &--header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+
+    &_inputs {
+      width: 100%
+    }
+  }
+
+  &--text {
+  width: 75%;
+  max-height: 2.5rem;
+  padding: 0.75rem;
+  border: 1px solid $color-lighter;
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  resize: none;
+  }
+
+  &--paragraph {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid $color-lighter;
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  resize: none;
+  }
+
+  &--radio {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+
+    &-container {
+      width: 100%;
+      background: $color-lightest;
+      border: 1px solid $color-lighter;
+      border-radius: 4px;
+      display: inline-flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-bottom: 15px;
+      padding-bottom: 5px;
+      padding-top: 5px;
+      flex-wrap: wrap;
+      flex-grow: 2;
+    }
+  }
+
+  &--ingredients {
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    color: $black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: $color-lightest;
+    min-height: 75px;
+    border-radius: 0.25rem;
+
+    & li {
+      list-style-type: none;
+      display: inline-flex;
+    }
+
+    & li .amount {
+      width: 100px;
+      margin-right: 1.5rem;
+    }
+  }
+
+  &--amount {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &-text {
+      width: 200px;
+      max-height: 2.5rem;
+      padding: 0.75rem;
+      border: 1px solid $color-lighter;
+      border-radius: 0.25rem;
+      box-sizing: border-box;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      resize: none;
+      text-align: center;
+      }
+  }
+
+  &--footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  & button {
+    background-color: $color-dark;
+    width: 150px;
+    height: 50px;
+    color: $white;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+  
+    & svg {
+      margin-right: 0.25rem;
+    }
+  }
+  
+  & h4 {
+    margin: 0;
+    padding: 0.5rem;
+  }
+  
+  & textarea:focus {
+    outline: none;
+    border: 1px solid $color-dark;
+    box-shadow: 0 0 10px $color-medium;
+  }
+}
+
+.selectors {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.recipe__form--radio-container label {
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    display: inline-block;
+    height: 26px;
+    line-height: 26px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    transition: .2s all ease-in-out;
+    width: 80px;
+}
+
+.recipe__form--radio-container input {
+    display: none;
+}
+
+.recipe__form--radio-container input:checked + label {
+    background: $color-lighter;
+    border: 1px solid $color-dark;
+}
+
+.recipe__form--radio-container label {
+    padding: 5px;
+    white-space: nowrap;
+    width: auto;
+    min-width: 80px;
+}

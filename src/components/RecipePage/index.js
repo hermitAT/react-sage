@@ -3,6 +3,9 @@ import axios from "axios";
 import reducer, { SET_RECIPE_DATA } from "reducers/recipe";
 import { useParams } from "react-router-dom";
 
+import useVisualMode from "hooks/useVisualMode";
+import Edit from "components/Edit";
+
 import NameAndControls from "./NameAndConrols";
 import ImgDescrIngr from "./ImgDescrIngr";
 import StatsInstruction from "./StatsInstruction";
@@ -30,13 +33,19 @@ export default function RecipePage(props) {
       .catch((e) => console.error(e));
   }, [id]);
 
+  const EDIT = "EDIT";
+  const FORK = "FORK";
+  const SHOW = "SHOW";
+
+  const { mode, transition, back } = useVisualMode(SHOW);
+
   const { recipe, rating, ingredients, comments, users_favourited } = state;
 
   return (
     <div id="recipe-page">
-      {recipe && (
+      {recipe && mode === SHOW && (
         <div>
-          <NameAndControls name={recipe.name} />
+          <NameAndControls name={recipe.name} onEdit={() => transition(EDIT)} onFork={() => transition(FORK)} />
 
           <ImgDescrIngr
             name={recipe.name}
@@ -53,6 +62,12 @@ export default function RecipePage(props) {
 
           {comments[0] && <CommentsFeed comments={comments} />}
         </div>
+      )}
+      {mode === EDIT && (
+        <Edit recipe={recipe} ingredients={ingredients} />
+      )}
+      {mode === FORK && (
+        <Edit recipe={recipe} ingredients={ingredients} parent_id={recipe.id} />
       )}
     </div>
   );
