@@ -15,6 +15,7 @@ import NavBar from './NavBar';
 import Home from './Home';
 import UserPage from './UserPage';
 import RecipePage from './RecipePage';
+import SearchPage from './SearchPage';
 
 
 export default function App() {
@@ -34,6 +35,9 @@ export default function App() {
           </Route>
           <Route path="/create">
             <Create user={user} />
+          </Route>
+          <Route path="/search">
+            <SearchPage />
           </Route>
           <Route path="/user">
             <UserPage user={user}/>
