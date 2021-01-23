@@ -1,0 +1,103 @@
+#barthender {
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  #named-with {
+  
+    width: 62rem;
+    justify-content: space-around;
+    align-items: flex-start;
+  
+    h3 {
+      width: 15rem;
+      text-align: center;
+    }
+
+    .search-name-input {
+      width: 16.7rem;
+      height: 1.1em;
+      font-size: 1.6rem;
+    }
+  }
+
+  button {
+    width: 10rem;
+    height: 5rem;
+    padding: 1rem 0;
+  }
+
+  #ingredients-list {
+    width: 20rem;
+
+    button {
+      width: 10rem;
+      height: 3rem;
+      text-align: center;
+      margin: 1rem 0;
+    }
+  }
+
+}
+
+#drop-menu {
+  display: flex;
+  flex-direction: row;
+  width: 35rem;
+
+  
+  .category-element {
+    padding: 1rem 0;
+    background-color: salmon;
+    color: white;
+    width: 7rem;
+    text-align: center;
+    
+    mark.category {
+      background-color: salmon;
+      color: white;
+      width: inherit;
+
+    }
+    
+    &:hover {
+  
+      background-color: antiquewhite;
+      color: darkred;
+      
+
+      #ingredients button.ingredient-element {
+          display: flex;    
+      }
+    }
+
+    #ingredients button.ingredient-element {
+      font-size: 1.2rem;
+      margin: 0;
+      padding: 1rem 0;
+      width: 28rem;
+      height: 2.1rem;
+      border-radius: 0;
+      padding: 0;
+      display: none;
+  
+      &:hover {
+        background-color: white;
+        color: black;
+      }
+  }
+    
+    
+  }
+}
+
+#selected-name-remove {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .button {
+    width: 3rem;
+  }
+}
