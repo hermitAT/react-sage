@@ -71,28 +71,27 @@
 
   &--ingredients {
     margin: 0px;
-    padding: 0px;
-    margin-bottom: 1rem;
     padding: 0.5rem;
+    margin-bottom: 1rem;
+    padding-left: 4px;
     font-size: 1rem;
-    color: $black;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-color: $color-lightest;
-    min-height: 75px;
+    color: $color-darker;
+    background-color: $white;
     border-radius: 0.25rem;
+    display: flex;
+    justify-content: center;
 
     & li {
       list-style-type: none;
-      display: inline-flex;
+      display: flex;
+      margin: 4px 0px;
     }
 
     & li .amount {
-      width: 100px;
+      margin-left: 1rem;
       margin-right: 1.5rem;
+      width: auto;
+      color: $black;
     }
   }
 

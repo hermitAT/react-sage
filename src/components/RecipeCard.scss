@@ -77,6 +77,8 @@
     color: $black;
     background-color: $white;
     border-radius: 0.25rem;
+    display: flex;
+    justify-content: center;
 
     & li {
       list-style-type: none;
@@ -86,7 +88,8 @@
 
     & li .amount {
       margin-left: 1rem;
-      width: 80px;
+      margin-right: 1.5rem;
+      width: auto;
       color: $black;
     }
   }

@@ -1,12 +1,12 @@
 import React, { useEffect, useReducer } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import axios from "axios";
 import reducer, {
   EDIT_TEXT_FIELD,
   ADD_INGREDIENT,
   RESET_INGREDIENTS,
-  SET_INGREDIENT_LIST
+  SET_STATIC_DATA
 } from "reducers/edit";
 
 import Show from "./Show";
@@ -17,21 +17,28 @@ import useVisualMode from "hooks/useVisualMode";
 import "./index.scss";
 
 export default function Edit(props) {
+
+  let location = useLocation();
+
+  const { parent_id, recipe, ingredients } = location.state;
+
   const [state, dispatch] = useReducer(reducer, {
-    name: (props.recipe.name || ""),
-    image_url: (props.recipe.image_url || ""),
-    parent_id: (props.parent_id || ""),
-    flavour_id: (String(props.recipe.flavour_id) || ""),
-    summary: (props.recipe.summary || ""),
-    instruction: (props.recipe.instruction || ""),
-    ingredients: (props.ingredients || ""),
     ingredient_list: "",
+    name: ((recipe.name + " reMix") || ""),
+    image_url: (`${recipe.image_url}` || ""),
+    parent_id: (parent_id || ""),
+    flavour_id: (`${recipe.flavour_id}` || ""),
+    summary: (`${recipe.summary}` || ""),
+    instruction: (`${recipe.instruction}` || ""),
+    ingredients_new: (ingredients || "")
   });
+
+  const { ingredient_list, name, image_url, flavour_id, summary, instruction, ingredients_new } = state;
 
   useEffect(() => {
     return axios.get("/api")
       .then(all => {
-        dispatch({ type: SET_INGREDIENT_LIST, ingredient_list: all.data.ingredient_list});
+        dispatch({ type: SET_STATIC_DATA, data: all.data});
       })
       .catch(e => console.error(e));
   }, []);
@@ -52,8 +59,7 @@ export default function Edit(props) {
   const recipeForked = (recipe_fields, ingredients) => {
 
     const recipe = {
-      ...recipe_fields,
-      instruction: recipe_fields.instruction.split(/[\s.!?]+/).map(i => i.trim())
+      ...recipe_fields
     };
 
     return axios.post("/api/recipes", { recipe, ingredients })
@@ -66,11 +72,10 @@ export default function Edit(props) {
   const recipeEdited = (recipe_fields, ingredients) => {
 
     const recipe = {
-      ...recipe_fields,
-      instruction: recipe_fields.instruction.split(/[\s.!?]+/).map(i => i.trim())
+      ...recipe_fields
     };
 
-    return axios.put(`/api/recipes/${props.recipe.id}`, { recipe, ingredients })
+    return axios.put(`/api/recipes/${location.state.recipe.id}`, { recipe, ingredients })
       .then(all => {
         return all.data;
       })
@@ -85,18 +90,7 @@ export default function Edit(props) {
   const ADD = "ADD";
   const EMPTY = "EMPTY";
 
-  const { mode, transition, back } = useVisualMode(EMPTY);
-
-  const {
-    name,
-    image_url,
-    parent_id,
-    flavour_id,
-    summary,
-    instruction,
-    ingredients,
-    ingredient_list
-  } = state;
+  const { mode, transition, back } = useVisualMode(SHOW);
 
   const newIngredient = function (ingredient, amount) {
     let recipe_ingredient = {};
@@ -121,7 +115,6 @@ export default function Edit(props) {
       parent_id,
       flavour_id,
       summary,
-      user_id: props.user.id,
       instruction,
     };
 
@@ -145,7 +138,7 @@ export default function Edit(props) {
       instruction,
     };
 
-    const ingredient_list = ingredients;
+    const ingredient_list = ingredients_new;
 
     recipeForked(recipe, ingredient_list)
       .then(data => {
@@ -161,10 +154,9 @@ export default function Edit(props) {
       <div className="recipe__form--header">
         {parent_id && (
         <>
-          <h2>reMixed from {props.recipe.name}!</h2>
-          <h2>How about giving it a new name...</h2>
+          <h2>reMixed from {name}!</h2>
           <button type="button" onClick={() => saveFork()}>
-            <FontAwesomeIcon icon="save" size="lg" /> reMIX
+            <FontAwesomeIcon icon="save" size="lg" /> SAVE
           </button>
         </>
         )}
@@ -223,6 +215,7 @@ export default function Edit(props) {
           onChange={onChangeValue}
         ></textarea>
 
+        {flavour_id && (
         <div class="recipe__form--radio">
           <h4>Select Flavour:</h4>
           <div
@@ -230,28 +223,29 @@ export default function Edit(props) {
             value={flavour_id}
             onChange={onChangeValue}
           >
-            <input id="sweet" name="flavour_id" type="radio" value="1" />
+            <input checked={"1" === flavour_id} id="sweet" name="flavour_id" type="radio" value="1" />
             <label for="sweet">Sweet</label>
-            <input id="sour" name="flavour_id" type="radio" value="2" />
+            <input checked={"2" === flavour_id} id="sour" name="flavour_id" type="radio" value="2" />
             <label for="sour">Sour</label>
-            <input id="salty" name="flavour_id" type="radio" value="3" />
+            <input checked={"3" === flavour_id} id="salty" name="flavour_id" type="radio" value="3" />
             <label for="salty">Salty</label>
-            <input id="spicy" name="flavour_id" type="radio" value="4" />
+            <input checked={"4" === flavour_id} id="spicy" name="flavour_id" type="radio" value="4" />
             <label for="spicy">Spicy</label>
-            <input id="bitter" name="flavour_id" type="radio" value="5" />
+            <input checked={"5" === flavour_id} id="bitter" name="flavour_id" type="radio" value="5" />
             <label for="bitter">Bitter</label>
           </div>
         </div>
+        )}
 
         <h4>Ingredients:</h4>
-        {mode === EMPTY && <Empty onAdd={() => transition(ADD)} />}
         {mode === SHOW && (
           <Show
-            ingredients={ingredients}
+            ingredients={ingredients_new}
             onAdd={() => transition(ADD)}
             onReset={() => reset()}
           />
         )}
+        {mode === EMPTY && <Empty onAdd={() => transition(ADD)} />}
         {mode === ADD && (
           <IngredientForm ingredient_list={ingredient_list} onCancel={() => back()} onConfirm={newIngredient} />
         )}
