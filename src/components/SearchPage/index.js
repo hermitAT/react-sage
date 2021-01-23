@@ -1,4 +1,5 @@
 import Button from 'components/Button';
+import axios from 'axios';
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './SearchPage.scss';
@@ -15,6 +16,26 @@ export default function SearchPage(props) {
 
   const [name, setName] = useState('');
   const [chosenIngredients, setIngredient] = useState({});
+  const [searchResults, setSearchResults] = useState({});
+
+  const getSearchResults = function(name, ingredients) {
+    if (ingredients.length === 0 && name === '') return false
+    if (ingredients.length !== 0) ingredients = ingredients.map(el => Number(el));
+    
+    console.log(name, ingredients);
+
+    const query = `name=${name}&ingredient_id=[${ingredients.join(',')}]`
+    console.log(query);
+
+    setSearchResults(
+      axios.get(`/api/recipes/search?${query}`)
+      .then(all => {
+        const result = all.data.result;
+        console.log(result)
+      })
+      .catch(e => console.error(e))
+    )
+  }
 
   const onRemove = function(id){
     console.log(id)
@@ -24,7 +45,7 @@ export default function SearchPage(props) {
   }
 
   const DropM = function () {
-    const style = { float: 'left', position: 'absolute', top: 350 + 'px', left: 250 + 'px' }
+    const style = { float: 'left', position: 'absolute', top: 370 + 'px', left: 250 + 'px' }
     const ingredientsStyle = { float: 'left', position: 'absolute', top: 57 + 'px', left: 0 + 'px' }
     return (
       <div id="drop-menu" style={style}>
@@ -96,7 +117,9 @@ export default function SearchPage(props) {
           </div>
         </div>
 
-        <Button onClick={() => console.log(name, Object.keys(chosenIngredients).map(key => Number(key)))}>You know what I'm talking about, eh?</Button>
+        <Button onClick={() => getSearchResults(name, Object.keys(chosenIngredients))}>
+          You know what I'm talking about, eh?
+        </Button>
       </form>
       <section id="results">
         <h2 className="text-container">Here go results!</h2>
