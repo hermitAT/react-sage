@@ -5,6 +5,23 @@
 
 #recipe-page {
   width: 62rem;
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+
+  & img {
+    height: 20rem;
+    width: 20rem;
+    border-radius: 100%;
+    background-color: whitesmoke;
+  }
+
+  & ul {
+    padding-left: 0;
+  }
+  
+  & ol {
+    padding-left: 1.25rem;
+  }
 }
 
 
@@ -12,13 +29,6 @@ h1.text-container {
   text-align: center;
   margin: 0;
   width: 60rem;
-}
-
-img {
-  height: 20rem;
-  width: 20rem;
-  border-radius: 100%;
-  background-color: whitesmoke;
 }
 
 #edit-remix {
@@ -58,14 +68,6 @@ img {
 #ingredients li {
   display: flex;
   justify-content: space-between;
-}
-
-ul {
-  padding-left: 0;
-}
-
-ol {
-  padding-left: 1.25rem;
 }
 
 .m1rem-tb {

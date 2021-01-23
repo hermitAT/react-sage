@@ -14,6 +14,8 @@ import Create from './Create';
 import NavBar from './NavBar';
 import Home from './Home';
 import UserPage from './UserPage';
+import RecipePage from './RecipePage';
+
 
 export default function App() {
 
@@ -24,10 +26,11 @@ export default function App() {
       <main className="layout">
         <NavBar user={user} />
         <Switch>
-          <Route path="/ingredient/">
-            <IngredientPage>
-              Hello there!
-            </IngredientPage>
+          <Route path="/ingredients/:id">
+            <IngredientPage />
+          </Route>
+          <Route path="/recipes/:id">
+            <RecipePage user={user} />
           </Route>
           <Route path="/create">
             <Create user={user} />

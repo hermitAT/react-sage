@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { formatStrength, formatFlavour, formatRating } from 'helpers/recipeFormatters';
@@ -7,6 +8,7 @@ import IngredientList from "./IngredientsList";
 import './RecipeCard.scss';
 
 export default function RecipeCard(props) {
+  const history = useHistory();
 
   const { recipe, ingredients, users_favourited, rating, comments } = props.recipe;
 
@@ -25,11 +27,15 @@ export default function RecipeCard(props) {
     return result;
   };
 
+  const handleClick = function(id) {
+    history.push(`/recipes/${id}`);
+  };
+
 
   return (
     <div className='recipe__card'>
       <header>
-        <div className='recipe__card--header' style={background}></div>
+        <div className='recipe__card--header' style={background} onClick={() => handleClick(recipe.id)} ></div>
         <div className='recipe__card--title'><h1 className='recipe__card--title-h2'>{recipe.name}</h1></div>
         <div className='recipe__card--tags'>
           <div class='recipe__card--strength'>{formatStrength(recipe.result_strength)}</div>
