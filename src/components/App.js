@@ -13,7 +13,9 @@ import IngredientPage from './IngredientPage';
 import Create from './Create';
 import NavBar from './NavBar';
 import Home from './Home';
+import UserPage from './UserPage';
 import RecipePage from './RecipePage';
+
 
 export default function App() {
 
@@ -33,9 +35,13 @@ export default function App() {
           <Route path="/create">
             <Create user={user} />
           </Route>
+          <Route path="/user">
+            <UserPage user={user}/>
+          </Route>
           <Route path="/">
             <Home />
           </Route>
+
         </Switch>
       </main>
     </Router>

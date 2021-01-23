@@ -7,10 +7,11 @@ export default function useUserData() {
   useEffect(() => {
     axios.get('/api/users/1')
       .then(all => {
-        setUser(prev => all.data.user)
+        setUser(prev => all.data)
       })
       .catch(e => console.error(e));
   }, []);
-
+  console.log(user)
   return { user };
+  
 };
