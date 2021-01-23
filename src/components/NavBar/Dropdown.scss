@@ -2,7 +2,7 @@
 
 .fifth-level-menu {
   position: absolute;
-  top: -45px;
+  top: -50px;
   right: -240px;
   width: 120px;
   list-style: none;
@@ -22,15 +22,20 @@
   align-items: center;
   justify-content: center;
   border-radius: 0.5rem;
+  text-decoration: none;
 }
 .fifth-level-menu > li:hover {
   background: $color-darker;
   color: $color-light;
+
+  & li:hover > a {
+    color: $color-light;
+  }
 }
 
 .fourth-level-menu {
   position: absolute;
-  top: -35px;
+  top: -40px;
   right: -120px;
   width: 120px;
   list-style: none;
@@ -50,10 +55,15 @@
   align-items: center;
   justify-content: center;
   border-radius: 0.5rem;
+  text-decoration: none;
 }
 .fourth-level-menu > li:hover {
   background: $color-darker;
   color: $color-light;
+
+  & li:hover > a {
+    color: $color-light;
+  }
 }
 
 .third-level-menu {
@@ -78,11 +88,16 @@
   justify-content: center;
   color: $color-darker;
   border-radius: 0.5rem;
+  text-decoration: none;
 }
 
 .third-level-menu > li:hover {
   background: $color-darker;
   color: $color-light;
+
+  & li:hover > a {
+    color: $color-light;
+  }
 }
 
 .second-level-menu {
@@ -98,6 +113,7 @@
   border-radius: 0.5rem;
   background: $color-light;
   box-shadow: 0 2px 4px $color-dark, 0 1px 2px $color-dark;
+  text-decoration: none;
 }
 
 .second-level-menu > li {
@@ -108,10 +124,15 @@
   align-items: center;
   justify-content: center;
   border-radius: 0.5rem;
+  text-decoration: none;
 }
 .second-level-menu > li:hover {
   background: $color-darker;
   color: $color-light;
+
+  & li:hover > a {
+    color: $color-light;
+  }
 }
 
 .top-level-menu {
@@ -135,8 +156,19 @@
   align-items: center;
   display: flex;
   justify-content: center;
+  text-decoration: none;
 }
 
 .top-level-menu li:hover > ul {
   display: inline;
+}
+
+a {
+  text-decoration: none;
+  color: $color-darker;
+
+  &:hover {
+    text-decoration: none;
+    color: $color-light;
+  }
 }

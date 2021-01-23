@@ -1,7 +1,21 @@
 import React from "react";
-import "./DescTop.scss"
+import { Link } from "react-router-dom";
+
+import "./DescTop.scss";
 
 export default function DescTop(props) {
+
+  const recipe_list = props.top5.map(recipe => {
+    const URL = `/recipes/${recipe.id}`;
+
+    return (
+      <mark>
+        <Link to={URL}>{recipe.name}</Link>
+        <p>{recipe.rating}</p>
+      </mark>
+    )
+  })
+
   return (
     <div id="desc-top" class="row-group">
       <div id="description" class="text-container">
@@ -15,12 +29,7 @@ export default function DescTop(props) {
       </section>
       {props.top5 && (
       <div id="top5-list" className="text-container">
-        {props.top5.map(recipe => (
-          <mark>
-            <a>{recipe.name}</a>
-            <p>{recipe.rating}</p>
-          </mark>
-        ))}
+        {recipe_list}
       </div>
       )}
     </div>

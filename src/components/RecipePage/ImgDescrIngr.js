@@ -5,7 +5,7 @@ export default function ImgDescrIngr(props) {
   const { name, image_url, summary, ingredients } = props
   return (
     <div id="img-desc-ingred" className="row-group">
-      <img src={image_url} alt={name}></img>
+      <img id="img" src={image_url} alt={name}></img>
       <div id="description-ingredients">
         <div id="description" className="text-container m1rem-tb">
           <h3>What is it like?</h3>

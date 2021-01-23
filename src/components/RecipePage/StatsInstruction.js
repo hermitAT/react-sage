@@ -21,11 +21,12 @@ export default function StatsInstruction(props) {
       </div>
       <div id="instruction" className="text-container">
         <h3>How can I make it?</h3>
-        <ol>{getInstruction(instruction).map(line => {
-          return (<li><p>{line}</p></li>)
-        })}
+        <ol>
         </ol>
       </div>
     </div>
   )
 }
+        /*{getInstruction(instruction).map(line => {
+          return (<li><p>{line}</p></li>)
+        })}*/

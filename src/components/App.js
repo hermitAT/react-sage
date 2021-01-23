@@ -6,17 +6,18 @@ import {
   // Link
 } from 'react-router-dom';
 
-import './App.scss';
-
 import useUserData from 'hooks/useUserData';
-import IngredientPage from './IngredientPage';
+
 import Create from './Create';
 import NavBar from './NavBar';
 import Home from './Home';
+import Edit from './Edit';
 import UserPage from './UserPage';
 import RecipePage from './RecipePage';
 import SearchPage from './SearchPage';
+import IngredientPage from './IngredientPage';
 
+import './App.scss';
 
 export default function App() {
 
@@ -29,6 +30,9 @@ export default function App() {
         <Switch>
           <Route path="/ingredients/:id">
             <IngredientPage />
+          </Route>
+          <Route path="/recipes/edit">
+            <Edit user={user} />
           </Route>
           <Route path="/recipes/:id">
             <RecipePage user={user} />
@@ -45,7 +49,6 @@ export default function App() {
           <Route path="/">
             <Home />
           </Route>
-
         </Switch>
       </main>
     </Router>
