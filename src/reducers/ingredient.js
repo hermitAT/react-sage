@@ -5,7 +5,6 @@ export default function reducer(state, action) {
     case SET_INGREDIENT_DATA:
 
       const top5 = action.all[0].data.ingredient[0].recipes.sort((a, b) => b.rating - a.rating).slice(0, 5);
-      console.log(action.all);
 
       return {
         ...state,
