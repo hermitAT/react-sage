@@ -25,7 +25,7 @@ export default function StatsInstruction(props) {
         <h3>How can I make it?</h3>
         <ol>
           {instructionSet.map((el, index) => 
-            (<li key={index} className="instruction__line">{el}.</li>))}
+            (<li key={index} className="instruction__line">{el}</li>))}
         </ol>
       </div>
     </div>

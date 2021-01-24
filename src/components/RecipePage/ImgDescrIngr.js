@@ -9,7 +9,7 @@ export default function ImgDescrIngr(props) {
       <div id="description-ingredients">
         <div id="description" className="text-container m1rem-tb">
           <h3>Describe it to me . . .</h3>
-          <p>{summary}.</p>
+          <p>{summary}</p>
         </div>
         <div id="ingredients" className="text-container m1rem-tb" >
           <h3>So, what's in it?</h3>

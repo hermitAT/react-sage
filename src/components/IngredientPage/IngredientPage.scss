@@ -1,17 +1,24 @@
+@import "styles/variables.scss";
+
 #root {
   display: flex;
   justify-content: center;
 }
 
 #ingredient-page {
-  width: 62rem;
+  width: 66rem;
   margin-top: 8rem;
   margin-bottom: 8rem;
+  background-color: $color-light;
+  padding: 1rem;
+  border-radius: 0.5rem;
 
   & img {
-    height: 15em;
-    width: 15em;
+    height: 18em;
+    width: 18em;
     border-radius: 100%;
+    margin: 1rem;
+    padding: 1rem;
     background-color: whitesmoke;
   }
 }
