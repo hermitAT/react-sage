@@ -48,7 +48,7 @@ const { user } = useUserData();
             <UserPage user={user} />
           </Route>
           <Route path="/">
-            <Home />
+            <Home user={user} />
           </Route>
         </Switch>
       </main>

@@ -28,7 +28,7 @@ export default function Home(props) {
                 <FontAwesomeIcon icon="cocktail" size="lg" />
                 Cocktail of the Day
               </h2>
-              <RecipeCard recipe={daily_cocktail} flavours={flavours} />
+              <RecipeCard user={props.user} recipe={daily_cocktail} flavours={flavours} />
               </>
             )}
           </div>
@@ -39,7 +39,7 @@ export default function Home(props) {
                 <FontAwesomeIcon icon="wine-glass-alt" size="lg" />
                 Cocktail of the Day
               </h2>
-              <RecipeCard recipe={daily_cocktail} flavours={flavours} />
+              <RecipeCard user={props.user} recipe={daily_cocktail} flavours={flavours} />
             </>
             )}
           </div>
@@ -52,7 +52,7 @@ export default function Home(props) {
                 <FontAwesomeIcon icon="glass-cheers" size="lg" />
                 Best Rated Alcoholic
               </h2>
-              <RecipeCard recipe={most_pop_alc} flavours={flavours} />
+              <RecipeCard user={props.user} recipe={most_pop_alc} flavours={flavours} />
             </>
             )}
           </div>
@@ -63,7 +63,7 @@ export default function Home(props) {
                 <FontAwesomeIcon icon="lemon" size="lg" />
                 Best Rated Non-Alcoholic
               </h2>
-              <RecipeCard recipe={most_pop_non} flavours={flavours} />
+              <RecipeCard user={props.user} recipe={most_pop_non} flavours={flavours} />
               </>
             )}
           </div>
