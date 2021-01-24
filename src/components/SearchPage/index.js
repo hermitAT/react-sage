@@ -1,6 +1,7 @@
 import Button from 'components/Button';
+import RecipeList from 'components/RecipeList';
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './SearchPage.scss';
 
@@ -9,33 +10,33 @@ import useSearchData from "hooks/useSearchData";
 
 
 export default function SearchPage(props) {
-  
   const { state } = useSearchData();
 
   const { categories } = state;
 
   const [name, setName] = useState('');
   const [chosenIngredients, setIngredient] = useState({});
-  const [searchResults, setSearchResults] = useState({});
+  const [searchResults, setSearchResults] = useState('');
 
   const getSearchResults = function(name, ingredients) {
     if (ingredients.length === 0 && name === '') return false
     if (ingredients.length !== 0) ingredients = ingredients.map(el => Number(el));
     
-    console.log(name, ingredients);
+    //console.log(name, ingredients);
 
     const query = `name=${name}&ingredient_id=[${ingredients.join(',')}]`
-    console.log(query);
-
-    setSearchResults(
-      axios.get(`/api/recipes/search?${query}`)
-      .then(all => {
-        const result = all.data.result;
-        console.log(result)
-      })
+    axios.get(`/api/recipes/search?${query}`)
+    .then(all => {
+      setSearchResults(prev => all.data.result)
+    })
       .catch(e => console.error(e))
-    )
-  }
+  };
+
+  //const [pages, setPages] = useState({});
+//
+  //useEffect(() => {
+  //  setPages(searchResults.relevance)
+  //}, [searchResults])
 
   const onRemove = function(id){
     console.log(id)
@@ -122,7 +123,9 @@ export default function SearchPage(props) {
         </Button>
       </form>
       <section id="results">
-        <h2 className="text-container">Here go results!</h2>
+        <h2 className="text-container">Results!</h2>
+        { searchResults && (<RecipeList pages={searchResults.relevance} />) }
+
       </section>
     </div>
   )

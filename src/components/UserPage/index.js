@@ -3,7 +3,7 @@ import "./UserPage.scss";
 import Button from "components/Button";
 import  { timeAgo } from "helpers/timeAgo";
 import useUserData from "hooks/useUserData";
-import RecipeList from "components/RecipeList";
+import UserRecipeList from "./UserRecipeList";
 
 export default function User(props) {
 
@@ -39,7 +39,7 @@ const { getUserRecipe, recipes } = useUserData();
           </div>
         </div>
         { recipes && (
-          <RecipeList recipes={recipes} />
+          <UserRecipeList recipes={recipes} />
         )}
       </div>
        )}
