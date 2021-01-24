@@ -3,7 +3,7 @@ import "./UserPage.scss";
 import Button from "components/Button";
 import  { timeAgo } from "helpers/timeAgo";
 import useUserData from "hooks/useUserData";
-import RecipeList from "components/RecipeList";
+import UserRecipeList from "./UserRecipeList";
 
 export default function User(props) {
 
@@ -40,7 +40,7 @@ const { getUserRecipe, recipes } = useUserData();
           <p>{props.user.favorites_id.length} favourite recipe{props.user.favorites_id.length > 1 ? 's' : ''}!</p>
         </article>
         { recipes && (
-          <RecipeList recipes={recipes} />
+          <UserRecipeList recipes={recipes} />
         )}
         </div>
       </div>
