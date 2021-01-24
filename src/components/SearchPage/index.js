@@ -22,21 +22,18 @@ export default function SearchPage(props) {
     if (ingredients.length === 0 && name === '') return false
     if (ingredients.length !== 0) ingredients = ingredients.map(el => Number(el));
     
-    //console.log(name, ingredients);
+    const nameQuery = name && `name=${name}`
+    const ingredientsQuery = ingredients && `ingredient_id=[${ingredients.join(',')}]`
+    let query = ''
+    if (name && ingredients) query = nameQuery + '&' + ingredientsQuery
+    else query = nameQuery + ingredientsQuery
 
-    const query = `name=${name}&ingredient_id=[${ingredients.join(',')}]`
     axios.get(`/api/recipes/search?${query}`)
     .then(all => {
       setSearchResults(prev => all.data.result)
     })
       .catch(e => console.error(e))
   };
-
-  //const [pages, setPages] = useState({});
-//
-  //useEffect(() => {
-  //  setPages(searchResults.relevance)
-  //}, [searchResults])
 
   const onRemove = function(id){
     console.log(id)
@@ -79,24 +76,24 @@ export default function SearchPage(props) {
       <form id="barthender" autoComplete="off" onSubmit={event => {
         event.preventDefault()
       }}>
-        <h1 className="text-container">Hey Barthender! Pour me something...</h1>
+        <h1 className="text-container">Hey Bartender! Pour me something . . .</h1>
 
         <div id="named-with" className="row-group">
 
           <div id="named">
-            <h3 className="text-container">...named like...</h3>
+            <h3 className="text-container">. . . named like . . .</h3>
             <input
               className="search-name-input"
               name="name"
               value={name}
               type="text"
-              placeholder="mary"
+              placeholder="Bloody Mary"
               onChange={(e) => setName(e.target.value)}
             />
           </div>
 
           <div id="with-ingredients">
-            <h3 className="text-container">...with...</h3>
+            <h3 className="text-container">. . . with . . .</h3>
             <div id="ingredients-list" className="text-container">
               <div id="add-button-container">
                 <Button id="add-ingredient" onClick={(e) => showMenu(e)}>+ Add ingredient</Button>
@@ -118,14 +115,19 @@ export default function SearchPage(props) {
           </div>
         </div>
 
-        <Button onClick={() => getSearchResults(name, Object.keys(chosenIngredients))}>
-          You know what I'm talking about, eh?
-        </Button>
+        <button className="search__button" onClick={() => getSearchResults(name, Object.keys(chosenIngredients))}>
+          You know what I mean?
+        </button>
       </form>
       <section id="results">
-        <h2 className="text-container">Results!</h2>
-        { searchResults && (<RecipeList pages={searchResults.relevance} />) }
-
+        
+        { searchResults && (searchResults !== "No results found") && (
+          <>
+            <h2 className="search__results__header">Yes, try this...</h2>
+            <RecipeList pages={searchResults.relevance} />
+          </>
+        ) }
+        {searchResults === "No results found" && <h2 className="search__results__header">. . . I have no idea what you're talkin' about!</h2>}
       </section>
     </div>
   )
