@@ -30,7 +30,7 @@ export default function RecipeList(props) {
 
     const recipe_list = props.recipes.map(recipe => {
         return (
-            <li>
+            <li className="recipe__list-item">
                 <RecipeCard recipe={recipe} flavours={flavours} />
             </li>
         );
@@ -38,7 +38,7 @@ export default function RecipeList(props) {
 
     return (
         <ul className="recipe__list">
-            {recipe_list}
+          {recipe_list}
         </ul>
     );
 }

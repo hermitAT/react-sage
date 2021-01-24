@@ -1,14 +1,17 @@
 @import "styles/variables.scss";
 
 .recipe__list {
-    display: flex;
-    flex-direction: row;
-    height: 100%;
-    
-    & li {
-        height: 735px;
-        width: 500px;
-        font-size: inherit;
-        margin-bottom: 1rem;
-    }
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  &-item {
+    list-style-type: none;
+    width: 900px;
+    height: 800px;
+    font-size: inherit;
+    margin-bottom: 2rem;
+  }
 }
