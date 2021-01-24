@@ -28,12 +28,24 @@ export default function RecipePage(props) {
       .get(`/api/recipes/${id}`)
       .then((all) => {
         const recipe = all.data.recipe;
+    console.log(recipe)
+
         dispatch({ type: SET_RECIPE_DATA, recipe });
       })
       .catch((e) => console.error(e));
   }, [id]);
 
+  
   const { recipe, rating, ingredients, comments, users_favourited } = state;
+  
+  const updateComments = function(comment) {
+    const newComments = [comment, ...comments]
+    const newState = { 
+      ...state, comments: newComments 
+    }
+    console.log(newState)
+    dispatch({ type: SET_RECIPE_DATA, recipe: [newState] });
+  }
 
   return (
     <div id="recipe-page">
@@ -57,8 +69,12 @@ export default function RecipePage(props) {
           result_strength={recipe.result_strength}
           instruction={recipe.instruction}
         />
-        
-        {comments[0] && <CommentsFeed comments={comments} />}
+        {comments[0] && <CommentsFeed
+          comments={comments}
+          user={props.user}
+          recipe_id={id}
+          updateComments={updateComments}
+        />}
       </div>
       )}
     </div>
