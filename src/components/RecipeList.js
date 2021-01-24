@@ -42,7 +42,7 @@ export default function RecipeList(props) {
     //const recipes = currentPage //|| props.pages.current_page
     const recipe_list = currentPage.map(recipe => {
         return (
-            <li>
+            <li className="recipe__list-item">
                 <RecipeCard recipe={recipe} flavours={flavours} />
             </li>
         );
@@ -50,7 +50,7 @@ export default function RecipeList(props) {
     return (
       <section>
         <ul className="recipe__list">
-            {recipe_list}
+          {recipe_list}
         </ul>
         {props.pages['2'] && (<mark className="pagination__buttons">
           {Object.keys(props.pages).map(key => 

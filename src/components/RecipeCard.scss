@@ -2,8 +2,8 @@
 
 .recipe__card {
   
-  width: 500px;
-  height: 735px;
+  width: 550px;
+  height: 775px;
   margin-left: 3rem;
   margin-right: 3rem;
   margin-bottom: 3rem;
@@ -25,7 +25,7 @@
 
   &--title {
     width: 100%;
-    margin: 0.5rem;
+    margin-top: 0.25rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,7 +35,7 @@
       background: $white;
       border-radius: 0.25rem;
       padding: 1.5rem;
-      width: 45%;
+      width: 60%;
     }
   }
 
@@ -64,26 +64,30 @@
 
   &--list {
     padding: 25px;
-    min-height: 150px;
+    min-height: 200px;
     max-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   } 
 
   &--ingredients {
     margin: 0px;
     padding: 0.5rem;
     margin-bottom: 1rem;
-    padding-left: 4px;
     font-size: 1rem;
     color: $black;
     background-color: $white;
     border-radius: 0.25rem;
     display: flex;
     justify-content: center;
+    width: 100%;
 
     & li {
       list-style-type: none;
       display: flex;
-      margin: 4px 0px;
+      padding: 0.25rem;
     }
 
     & li .amount {
@@ -97,8 +101,9 @@
   &--summary {
     color: $color-darker;
     background: $white;
-    padding: 1rem;
+    padding: 0.5rem;
     border-radius: 0.25rem;
+    width: 100%;
   }
 
   &--badges {
