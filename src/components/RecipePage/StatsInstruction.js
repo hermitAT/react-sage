@@ -18,14 +18,14 @@ export default function StatsInstruction(props) {
         </div>
         <div id="common-drink" className="text-container">
           <p><strong>Strength level: </strong>{strengthWordize(result_strength)}</p>
-          <p><strong>It is like: </strong>{likeness(result_strength)}</p>
+          <p><strong>It's like drinking </strong>{likeness(result_strength)}!</p>
         </div>
       </div>
       <div id="instruction" className="text-container">
         <h3>How can I make it?</h3>
         <ol>
           {instructionSet.map((el, index) => 
-            (<li key={index} className="instruction__line">{el}</li>))}
+            (<li key={index} className="instruction__line">{el}.</li>))}
         </ol>
       </div>
     </div>

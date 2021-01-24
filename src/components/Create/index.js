@@ -2,6 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useHistory } from "react-router-dom";
 
+import Button from "components/Button";
 import Show from "./Show";
 import Empty from "./Empty";
 import IngredientForm from "./IngredientForm";
@@ -79,9 +80,9 @@ export default function Create(props) {
     <main className="recipe__form">
       <div className="recipe__form--header">
         <h2>Create your recipe!</h2>
-        <button type="button" onClick={() => save()}>
+        <Button type="button" onClick={() => save()}>
           <FontAwesomeIcon icon="save" size="lg" /> SAVE
-        </button>
+        </Button>
       </div>
       <form autoComplete="off">
         <div className="recipe__form--header">

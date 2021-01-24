@@ -23,9 +23,20 @@
     }
 
     .search-name-input {
-      width: 16.7rem;
-      height: 1.1em;
+      width: 17rem;
+      height: 1.5em;
+      padding: 0.5rem;
       font-size: 1.6rem;
+      border: 1px solid $color-lighter;
+      border-radius: 0.25rem;
+      box-sizing: border-box;
+      resize: none;
+
+      &:focus {
+        outline: none;
+        border: 1px solid $color-dark;
+        box-shadow: 0 0 10px $color-medium;
+      } 
     }
   }
 

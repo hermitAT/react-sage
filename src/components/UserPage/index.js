@@ -21,12 +21,12 @@ const { getUserRecipe, recipes } = useUserData();
             </div>
             <div className="user__page-buttons">
               <Button
-                confirm
+                className="user__page-button"
                 onClick={() => getUserRecipe(props.user.recipes_id)}>
                 My Recipes
               </Button>
               <Button
-                confirm
+                className="user__page-button"
                 onClick={() => getUserRecipe(props.user.favorites_id)}>
                 My Favorite Recipes
               </Button>   

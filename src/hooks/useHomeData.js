@@ -4,7 +4,7 @@ import reducer, {
   SET_HOME_DATA
 } from 'reducers/home';
 
-export default function useApplicationData() {
+export default function useHomeData() {
   const [state, dispatch] = useReducer(reducer, {
     daily_cocktail: {},
     most_pop_alc: {},

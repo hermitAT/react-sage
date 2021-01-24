@@ -24,19 +24,20 @@
 
 #name-avatar {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   text-align: end;
 
   mark {
     background-color: inherit;
     font-size: 1rem;
   }
-}
-
-img {
-  height: 3rem;
-  width: 3rem;
-  margin: 0 1rem;
+  
+  img {
+    height: 3rem;
+    width: 3rem;
+    margin: 0 1rem;
+    border-radius: 100%;
+  }
 }
 
 .comments-feed {
@@ -83,5 +84,11 @@ img {
       //word-wrap: break-word;
       //word-break: break-all;
     }
+  }
+  img {
+    height: 3rem;
+    width: 3rem;
+    margin: 0 1rem;
+    border-radius: 100%;
   }
 }

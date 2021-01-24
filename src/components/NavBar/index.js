@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 
 import logo from "./logo.svg";
+import Button from "components/Button";
 import Dropdown from "./Dropdown";
 import User from "./User";
 
@@ -19,10 +20,10 @@ export default function NavBar(props) {
           <img className="navbar__logo" src={logo} alt="Logo" />
         </Link>
         <Link to='/create'>
-          <button className="dropbtn">Create</button>
+          <Button className="navbar-button">Create</Button>
         </Link>
         <Link to='/search'>
-          <button className="dropbtn">Search...</button>
+          <Button className="navbar-button">Search...</Button>
         </Link>
         <Dropdown />
       </div>

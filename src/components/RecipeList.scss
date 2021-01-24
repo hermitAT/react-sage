@@ -2,15 +2,17 @@
 
 .recipe__list {
     display: flex;
-    flex-direction: column;
+    width: 100%;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
     list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 .pagination__buttons {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     width: 100%;
     background-color: $color-lightest;
@@ -19,6 +21,7 @@
     &-single {
         height: 50px;
         width: 50px;
+        margin: 2rem;
         border-radius: 0.5rem;
         background-color: $color-darker;
         color: $color-lightest;

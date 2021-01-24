@@ -63,11 +63,12 @@ const strengthWordize = function(strength) {
 
 const likeness = function(strength) {
   const map = [
-  ['Water', 0],
-  ['Diluted beer', 10],
-  ['Light beer', 45],
-  ['Wine', 175],
-  ['Vodka', 400],
+  ['water', 0],
+  ['diluted beer', 10],
+  ['light beer', 45],
+  ['beer', 60],
+  ['wine', 175],
+  ['vodka', 400],
   ['Pure alcohol', 1000]
   ];
 

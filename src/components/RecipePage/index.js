@@ -4,7 +4,7 @@ import reducer, { SET_RECIPE_DATA } from "reducers/recipe";
 import { useParams, useHistory } from "react-router-dom";
 
 import { formatIngredients } from "helpers/recipeFormatters";
-import NameAndControls from "./NameAndConrols";
+import NameAndControls from "./NameAndControls";
 import ImgDescrIngr from "./ImgDescrIngr";
 import StatsInstruction from "./StatsInstruction";
 import CommentsFeed from "./CommentsFeed";
