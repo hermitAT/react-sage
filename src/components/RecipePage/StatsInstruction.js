@@ -6,6 +6,8 @@ const { getInstruction, strengthWordize, likeness, TemporaryHelperForFlavourIDS 
 export default function StatsInstruction(props) {
 
   const { flavour_id, result_strength, instruction } = props;
+  
+  const instructionSet = instruction.split(". ")
 
   return (
     <div id="instruct-strength-flavour" className="row-group">
@@ -22,6 +24,8 @@ export default function StatsInstruction(props) {
       <div id="instruction" className="text-container">
         <h3>How can I make it?</h3>
         <ol>
+          {instructionSet.map((el, index) => 
+            (<li key={index} className="instruction__line">{el}</li>))}
         </ol>
       </div>
     </div>
