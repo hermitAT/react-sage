@@ -30,7 +30,6 @@ export default function IngredientPage(props) {
       axios.get(`/api/ingredients/${id}`),
       axios.get(`/api`)
     ]).then(all => {
-      console.log(all);
         dispatch({ type: SET_INGREDIENT_DATA, all });
       })
       .catch((e) => console.error(e));

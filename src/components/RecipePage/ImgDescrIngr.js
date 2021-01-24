@@ -8,11 +8,11 @@ export default function ImgDescrIngr(props) {
       <img id="img" src={image_url} alt={name}></img>
       <div id="description-ingredients">
         <div id="description" className="text-container m1rem-tb">
-          <h3>What is it like?</h3>
-          <p>{summary}</p>
+          <h3>Describe it to me . . .</h3>
+          <p>{summary}.</p>
         </div>
         <div id="ingredients" className="text-container m1rem-tb" >
-          <h3>What is inside?</h3>
+          <h3>So, what's in it?</h3>
           <ul>{getNamesAndAmounts(ingredients).map((ingredient, index) => {
             return (
               <li key={index} className="recipe__ingredient__line">

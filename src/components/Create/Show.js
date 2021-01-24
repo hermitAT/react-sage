@@ -2,6 +2,8 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { formatAmount } from "helpers/recipeFormatters";
 
+import Button from "components/Button";
+
 import "./index.scss";
 
 
@@ -22,12 +24,12 @@ export default function Show(props) {
         {ingredient_list}
       </ul>
       <div className="recipe__form--footer">
-      <button type="button" onClick={props.onAdd}>
+      <Button onClick={props.onAdd}>
         <FontAwesomeIcon icon="plus" size="lg" /> Add Ingredient
-      </button>
-      <button type="button" onClick={props.onReset}>
+      </Button>
+      <Button onClick={props.onReset}>
         <FontAwesomeIcon icon="trash-alt" size="lg" /> Reset Ingredients
-      </button>
+      </Button>
       </div>
     </div>
   )
