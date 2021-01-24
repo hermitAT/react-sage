@@ -15,8 +15,8 @@ export default function ImgDescrIngr(props) {
           <h3>What is inside?</h3>
           <ul>{getNamesAndAmounts(ingredients).map((ingredient, index) => {
             return (
-              <li key={index}>
-                <span>{ingredient.name}</span>
+              <li key={index} className="recipe__ingredient__line">
+                <a href={`/ingredients/${ingredient.id}`}>{ingredient.name}</a>
                 <span>{ingredient.amount}oz</span>
               </li>)
           })}

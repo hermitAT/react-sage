@@ -2,7 +2,8 @@ const getNamesAndAmounts = function(ingredients) {
   let ing_names_amounts = [];
   for (const ingredient of ingredients) {
     for (const id in ingredient) {
-      ing_names_amounts.push({ 
+      ing_names_amounts.push({
+        id: id, 
         name: Object.keys(ingredient[id])[0],
         amount: Object.values(ingredient[id])[0]
       })
