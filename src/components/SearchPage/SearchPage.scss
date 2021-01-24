@@ -1,3 +1,5 @@
+@import "styles/variables.scss";
+
 #search-page {
   margin-top: 150px;
 }
@@ -25,12 +27,6 @@
       height: 1.1em;
       font-size: 1.6rem;
     }
-  }
-
-  button {
-    width: 10rem;
-    height: 5rem;
-    padding: 1rem 0;
   }
 
   #ingredients-list {
@@ -98,6 +94,7 @@
   }
 }
 
+
 #selected-name-remove {
   display: flex;
   flex-direction: row;
@@ -106,4 +103,24 @@
   .button {
     width: 3rem;
   }
+}
+
+.search__button {
+  font-size: 1.5rem;
+  width: 20rem;
+  height: 5rem;
+  border: $color-darker 2px outline;
+  border-radius: 0.25rem;
+  background-color: $color-dark;
+  color: $color-lightest;
+  box-shadow: 0px 4px 8px rgba($color-dark, 0.5);
+
+  &:hover {
+    box-shadow: 2px 6px 12px rgba($color-dark, 0.5);
+  }
+}
+
+.search__results__header {
+  text-align: center;
+  margin: 4rem 0;
 }
