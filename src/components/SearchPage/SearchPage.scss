@@ -135,3 +135,17 @@
   text-align: center;
   margin: 4rem 0;
 }
+
+.search__ingredient__menu {
+  float: left;
+  position: absolute;
+  top: 370px;
+  left: 450px;
+
+  &__section {
+    float: left;
+    position: absolute;
+    top: 57px;
+    left: 0px
+  }
+}
