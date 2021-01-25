@@ -172,3 +172,73 @@ a {
     color: $color-light;
   }
 }
+
+.dropmenu__ingredients-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropmenu__ingredients{
+  position: absolute;
+  float: left;
+  top: 0px;
+  left: 113px;
+  display: flex;
+  flex-direction: column;
+
+  background: $color-light;
+  color: $color-darker;
+  min-width: 120px;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  margin-right: 0.75rem;
+  margin-left: 0.5rem;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 2px 4px $color-dark, 0 1px 2px $color-dark;
+  display: none;
+
+
+
+  &__list {
+    background: $color-light;
+    color: $color-darker; 
+    height: 40px;
+    border-radius: 0.5rem;
+
+
+    
+    &__name {
+      background: $color-light;
+      color: $color-darker; 
+      padding: 0.75rem 0;
+      width: 120px;
+
+      border-radius: 0.5rem;
+
+      &:hover {
+        color: $color-light;
+        background-color: $color-darker;
+      }
+
+    }
+  }
+
+}
+
+.dropmenu__ingredients_li {
+
+  &:hover {
+
+    .dropmenu__ingredients {
+
+    display: flex;
+
+    }
+  }
+}

@@ -1,10 +1,36 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ReactDOM from 'react-dom';
 
 import './Dropdown.scss';
 
+import useHomeData from "hooks/useHomeData";
+
 
 export default function Dropdown(props) {
+
+  const { state } = useHomeData();
+  const { categories } = state;
+
+  const MenuIngredients = function(props) {
+    console.log(props)
+    return (
+      <div>
+    {props.ingredients.map(ingredient => (
+      <mark key={ingredient.id}>
+        <a href={`/ingredients/${ingredient.id}`}>{ingredient.name}</a>
+      </mark>)
+    )}</div>
+  )
+  }
+  //<section onMouseEnter={(() => showIngredients(categories[1]))}  id="dropmenu__liqueurs" className='dropmenu__ingredients-container'></section>
+
+  const showIngredients = function(category) {
+    {console.log(category.ingredients)}
+    ReactDOM.render(<MenuIngredients ingredients={category.ingredients}></MenuIngredients>, document.getElementById('dropmenu__liqueurs'))
+    //ReactDOM.render(<DropM           x={pageX} y={pageY}               ></DropM>,           document.getElementById('drop-menu-container'))
+  }
+
   return (
   <ul className='top-level-menu'>
     <li>Browse by...
@@ -18,89 +44,14 @@ export default function Dropdown(props) {
             <li>Bitter</li>
           </ul>
         </li>
-        <li>Ingredients
-          <ul className='third-level-menu'>
-            <li>Spirits
-              <ul className='fourth-level-menu'>
-                <li><Link to="/ingredients/9">Vodka</Link></li>
-                <li><Link to="/ingredients/2">Gin</Link></li>
-                <li><Link to="/ingredients/3">Light Rum</Link></li>
-                <li><Link to="/ingredients/4">Gold Rum</Link></li>
-                <li><Link to="/ingredients/5">Dark Rum</Link></li>
-                <li><Link to="/ingredients/6">Spiced Rum</Link></li>
-              </ul>
-              <ul className="fifth-level-menu">
-                <li>Flavoured Rum</li>
-                <li>Whiskey</li>
-                <li>Scotch</li>
-                <li>Bourbon</li>
-                <li>Rye</li>
-                <li>Brandy</li>
-                <li>Tequila</li>
-              </ul>
-            </li>
-            <li>Liqueurs
-              <ul className='fourth-level-menu'>
-                <li>Amaretto</li>
-                <li>Aperol</li>
-                <li>Benedictine</li>
-                <li>Campari</li>
-                <li>Chambord</li>
-                <li>Chartreuse</li>
-                <li>Cointreau</li>
-                <li>Creme de Cacao</li>
-                <li>Creme de Menthe</li>
-              </ul>
-              <ul className="fifth-level-menu">
-                <li>Cynar</li>
-                <li>Frangelico</li>
-                <li>Galliano</li>
-                <li>Goldschlager</li>
-                <li>Grand Marnier</li>
-                <li>Jagermeister</li>
-                <li>Kahlua</li>
-                <li>Limoncello</li>
-                <li>Southern Comfort</li>
-                <li>Triple Sec</li>
-              </ul>
-            </li>
-            <li>Mixers
-              <ul className='fourth-level-menu'>
-                <li>Ginger Beer</li>
-                <li>Ginger Ale</li>
-                <li>Lemonade</li>
-                <li>Cola</li>
-                <li>7UP</li>
-                <li>Tonic Water</li>
-              </ul>
-              <ul className="fifth-level-menu">
-                <li>Soda Water</li>
-                <li>Lemon Juice</li>
-                <li>Lime Juice</li>
-                <li>Cranberry Juice</li>
-                <li>Orange Juice</li>
-                <li>Pineapple Juice</li>
-                <li>Grapefruit Juice</li>
-              </ul>
-            </li>
-            <li>Grocery
-              <ul className='fourth-level-menu'>
-                <li>Milk</li>
-                <li>Chocolate Sauce</li>
-                <li>Olives</li>
-                <li>Grenadine</li>
-                <li>Egg Whites</li>
-              </ul>
-              <ul className="fifth-level-menu">
-                <li>Clamato Juice</li>
-                <li>Tomato Juice</li>
-                <li>Whipped Cream</li>
-                <li>Hot Sauce</li>
-                <li>Worchestershire</li>
-                <li>Bitters</li>
-              </ul>
-            </li>
-          </ul>
+        <li className="dropmenu__ingredients_li">Ingredients
+          <section className="dropmenu__ingredients">
+          {categories.map(category => (
+            <div key={category.id} id={`dropmenu-category-${category.id}`} className="dropmenu__ingredients__list">
+              <div className="dropmenu__ingredients__list__name">{category.name}</div>
+            </div>
+          ))}
+          </section>
         </li>
         <li>Strength
           <ul className='third-level-menu'>
