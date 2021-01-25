@@ -40,7 +40,7 @@ export default function RecipeCard(props) {
   };
 
   const handleClick = function(id) {
-    history.push(`/recipes/${id}`);
+    history.push(`/recipes/${id}#comments-feed`);
   };
 
   const sendRating = function(user, recipe_id, newRating) {

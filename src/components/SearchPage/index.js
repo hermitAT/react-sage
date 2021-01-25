@@ -28,6 +28,7 @@ export default function SearchPage(props) {
     if (name && ingredients) query = nameQuery + '&' + ingredientsQuery
     else query = nameQuery + ingredientsQuery
 
+    setSearchResults(prev => null)
     axios.get(`/api/recipes/search?${query}`)
     .then(all => {
       setSearchResults(prev => all.data.result)

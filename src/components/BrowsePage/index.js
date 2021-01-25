@@ -13,14 +13,13 @@ import useSearchData from "hooks/useSearchData";
 export default function BrowsePage(props) {
   const { state } = useSearchData();
 
-  //const { categories } = state;
+  const { categories } = state;
 
   const history = useHistory();
   const { cat, val } = useParams();
   const [searchResults, setSearchResults] = useState('');
 
   useEffect(() => {
-    
     let query = '';
     switch (cat) {
       case 'flavour':
@@ -39,21 +38,23 @@ export default function BrowsePage(props) {
       default:
         history.replace('/')
     }
+    setSearchResults(prev => null)
     return axios.get(`/api/recipes/search?${query}`)
     .then(all => {
       setSearchResults(prev => all.data.result)
     })
       .catch(e => console.error(e))
-  }, []);
+  }, [val]);
 
   return (
     <div className="browse__page">
-    {searchResults && (
-      <>
       <h1 className="text-container" id="browse__page-head">Browse by {`${cat.slice(0, 1).toUpperCase()}${cat.slice(1)}`}</h1>
+    {searchResults && (searchResults !== "No results found") && (
+      <>
       <RecipeList user={props.user} pages={searchResults.relevance}/>
       </>
     )}
+    {searchResults === "No results found" && <h2 className="search__results__header">There are no recipes of this type to browse</h2>}
     </div>
   )
 }
