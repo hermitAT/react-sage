@@ -16,6 +16,7 @@ import UserPage from './UserPage';
 import RecipePage from './RecipePage';
 import SearchPage from './SearchPage';
 import IngredientPage from './IngredientPage';
+import BrowsePage from './BrowsePage';
 
 import './App.scss';
 
@@ -46,6 +47,9 @@ const { user } = useUserData();
           </Route>
           <Route path="/search">
             <SearchPage user={user} />
+          </Route>
+          <Route path="/browse/:cat/:val">
+            <BrowsePage user={user} />
           </Route>
           <Route path="/">
             <Home user={user} />
