@@ -52,7 +52,7 @@ export default function SearchPage(props) {
             {category.name}
             <div id="ingredients" style={ingredientsStyle}>{category.ingredients.map((ingredient, index) =>
               (!Object.keys(chosenIngredients).map(key => Number(key)).includes(ingredient.id)) && (
-                <button key={index} className="ingredient-element" key={index} onClick={() =>
+                <button key={index} className="ingredient-element" onClick={() =>
                   clickIngredient(ingredient.id, ingredient.name)}>{ingredient.name}</button>
               ))}</div>
           </div>))}
@@ -124,7 +124,7 @@ export default function SearchPage(props) {
         { searchResults && (searchResults !== "No results found") && (
           <>
             <h2 className="search__results__header">Yes, try this...</h2>
-            <RecipeList pages={searchResults.relevance} />
+            <RecipeList pages={searchResults.relevance} user={props.user.user} />
           </>
         ) }
         {searchResults === "No results found" && <h2 className="search__results__header">. . . I have no idea what you're talkin' about!</h2>}

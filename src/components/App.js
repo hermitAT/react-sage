@@ -30,7 +30,7 @@ const { user } = useUserData();
         <NavBar user={user} />
         <Switch>
           <Route path="/ingredients/:id">
-            <IngredientPage />
+            <IngredientPage user={user} />
           </Route>
           <Route path="/recipes/edit">
             <Edit user={user} />
@@ -39,13 +39,13 @@ const { user } = useUserData();
             <RecipePage user={user} />
           </Route>
           <Route path="/users/:id">
-            <UserPage />
+            <UserPage user={user} />
           </Route>
           <Route path="/create">
             <Create user={user} />
           </Route>
           <Route path="/search">
-            <SearchPage />
+            <SearchPage user={user} />
           </Route>
           <Route path="/">
             <Home user={user} />

@@ -16,19 +16,15 @@
   }
 
   &--name {
-    padding-top: 0.5rem;
+    padding-top: 0.25rem;
     padding-bottom: 0.5rem;
   }
 
   &--avatar {
-    height: 3.25rem;
-    width: 3.25rem;
-    border-radius: 50%;
-    border: 1px solid;
-    border-color: $color-medium;
+    height: 4rem;
+    width: 4rem;
     padding: 0;
     margin-top: 0.75rem;
-    background-color: $color-lightest;
   }
 
   &--icon {
