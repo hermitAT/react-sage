@@ -4,7 +4,7 @@ import "./index.scss";
 
 export default function IngredientList(props) {
 
-  const ingredients = props.ingredient_list.filter(i => i.category_id == props.category).map(item => {
+  const ingredients = props.ingredient_list.filter(i => i.category_id === props.category).map(item => {
     return (
       <>
         <input id={item.name} name="ingredient" type="radio" value={item.name} />

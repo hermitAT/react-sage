@@ -1,7 +1,7 @@
 import Button from 'components/Button';
 import RecipeList from 'components/RecipeList';
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './SearchPage.scss';
 
