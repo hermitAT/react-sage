@@ -5,12 +5,13 @@ import "./index.scss";
 
 import straw from "./straw.gif";
 import RecipeCard from "../RecipeCard";
+import FunFactCard from "../FunFactCard";
 import useHomeData from "hooks/useHomeData";
 
 export default function Home(props) {
   const { state } = useHomeData();
 
-  const { daily_cocktail, most_pop_alc, most_pop_non, flavours } = state;
+  const { daily_cocktail, most_pop_alc, most_pop_non, flavours, funfact } = state;
 
   return (
     <main className="home__layout">
@@ -33,13 +34,13 @@ export default function Home(props) {
             )}
           </div>
           <div className="home__layout-group">
-            {daily_cocktail.recipe && (
+            {funfact && (
             <>
               <h2 className="home__headings">
                 <FontAwesomeIcon icon="wine-glass-alt" size="lg" />
-                Cocktail of the Day
+                Fun Fact
               </h2>
-              <RecipeCard user={props.user.user} recipe={daily_cocktail} flavours={flavours} />
+              <FunFactCard text={funfact.text} image_url={funfact.image_url} />
             </>
             )}
           </div>

@@ -10,7 +10,8 @@ export default function useHomeData() {
     most_pop_alc: {},
     most_pop_non: {},
     flavours: [],
-    categories: []
+    categories: [],
+    funfact: {}
   });
 
   useEffect(() => {
