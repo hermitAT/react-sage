@@ -1,32 +1,33 @@
 @import "styles/variables.scss";
 
 .user__page {
-  margin-top: 10rem;
-  width: 100vw;
+  margin-top: 7rem;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   &-top {
     display: flex;
     flex-direction: row;
-    width: 80vw;
-    justify-content: space-between;
+    width: 80%;
+    justify-content: center;
     align-items: center;
-    margin-left: 4rem;
   }
 
   &-title {
-    margin-left: 5rem;
-    margin-bottom: 5rem;
     display: flex;
     text-align: center;
     justify-content: center;
-    width: 70%;
-    height: 45%;
+    align-items: center;
+    width: 600px;
+    height: 100px;
     background-color: $white;
     border: 1px solid $color-dark;
     border-radius: 0.5rem;
     box-shadow: 0 2px 4px $color-dark, 0 1px 2px $color-dark;
+    margin-bottom: 1rem;
   }
 
   &-h2 {
@@ -36,25 +37,28 @@
   }
 
   &-controls {
-    width: 80vw;
+    width: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-top: 2rem;
     margin-bottom: 2rem;
+    margin-right: 4rem;
   }
 
   &-avatar {
-    height: 250px;
-    width: 250px;
+    height: 300px;
+    width: 300px;
+    margin-left: 3rem;
   }
 
   &-details {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 1rem;
     text-align: center;
-    width: 400px;
+    width: 500px;
     height: 120px;
     font-size: 1.2rem;
     background-color: $white;
@@ -71,11 +75,20 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    width: 100%;
+
+    button {
+      width: 225px;
+      height: 60px;
+      font-size: 1.2rem;
+    }
   }
 
-  &-footer {
+  &--content {
     display: flex;
-    width: 100%;
-    justify-content: space-between;
+    width: 60%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }

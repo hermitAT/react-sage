@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import axios from 'axios';
-import "./CommentsFeed.scss"
-import reducer, { SET_RECIPE_DATA } from "reducers/recipe";
+import { Link } from "react-router-dom";
+import { timeAgo } from "helpers/timeAgo";
 
-const { timeAgo } = require('helpers/timeAgo');
+import "./CommentsFeed.scss"
+
 
 export default function CommentsFeed(props) {
 
@@ -60,7 +61,7 @@ export default function CommentsFeed(props) {
           <div key={index} id="comment" className="row-group">
             <div id="name-avatar">
               <mark id="username">{name}</mark>
-              <a href={`/user`}><img id="avatar" src={user_avatar} alt={name}></img></a>
+              <Link to={`/users/${id}`}><img id="avatar" src={user_avatar} alt={name}></img></Link>
             </div>
             <div id="comment-container" className="text-container">
               <div id="comment-text">{text}</div>

@@ -81,9 +81,8 @@ export default function RecipeCard(props) {
             <div>{recipe.summary}.</div>
         </div>
       </article>
-      <div className='recipe__card--badges'>
         {mode === NORMAL && (
-          <>
+      <div className='recipe__card--badges'>
         <div className='recipe__card--details' onClick={() => sendFavourite(props.user.user.id, recipe.id)}>
           <FontAwesomeIcon icon='bookmark' size='lg' />
           <p>{favorites}</p>
@@ -96,10 +95,11 @@ export default function RecipeCard(props) {
           <FontAwesomeIcon icon='comments' size='lg' />
           <p>{comments.length}</p>
         </div>
-        </>
+        </div>
         )}
         {mode === RATING && (
-          <div class="recipe__form--radio">
+          <div className="rating">
+          <div class="recipe__form--radio rating__radio">
           <div
             class="recipe__form--radio-container"
             value={newRating}
@@ -116,10 +116,14 @@ export default function RecipeCard(props) {
             <input id="5" name="newRating" type="radio" value="5" />
             <label for="5">5</label>
           </div>
-          <Button onClick={() => sendRating(props.user.user.id, recipe.id, newRating)} className="rating__submit" />
+        </div>
+            <Button
+              onClick={() => sendRating(props.user.id, recipe.id, newRating)}
+              className="rating__submit"
+            >Submit
+            </Button>
         </div>
         )}
-      </div>
     </div>
   )
 }

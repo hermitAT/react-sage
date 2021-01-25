@@ -60,12 +60,15 @@ export default function RecipePage(props) {
           image_url={recipe.image_url}
           summary={recipe.summary}
           ingredients={ingredients}
+          parent_id={recipe.parent_id}
         />
 
         <StatsInstruction
           flavour_id={recipe.flavour_id}
           result_strength={recipe.result_strength}
           instruction={recipe.instruction}
+          rating={rating}
+          favorites={users_favourited.length}
         />
         {comments[0] && <CommentsFeed
           comments={comments}
