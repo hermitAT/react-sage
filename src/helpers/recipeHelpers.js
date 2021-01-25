@@ -45,7 +45,7 @@ const getInstruction = function(str) {
   return str.slice(1, -1).replace(/"/g, '').split(', ');
 }
 
-const strengthWordize = function(strength) {
+const strengthWordize = function(strength, reverse = false) {
   const map = {
     "Weak": [0, 100],
     "Mild": [100, 200],
@@ -53,6 +53,13 @@ const strengthWordize = function(strength) {
     "Strong": [350, 500],
     "Very strong!": [500, 1000]
   };
+
+  if (reverse) {
+    for (const key in map) {
+      if (strength.toLowerCase() === key.toLowerCase()) return map[key];
+      return 0;
+    }
+  }
 
   for (const type in map) {
     if (strength === 0) return "Non-alcohol";

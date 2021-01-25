@@ -1,0 +1,17 @@
+@import "styles/variables.scss";
+
+.browse__page {
+    margin-top: 10rem;
+    margin-bottom: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+
+}
+
+#browse__page-head {
+  margin-bottom: 3rem;
+
+}

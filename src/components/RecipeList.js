@@ -44,7 +44,7 @@ export default function RecipeList(props) {
     const recipe_list = currentPage.map(recipe => {
         return (
             <li className="recipe__list-item">
-                <RecipeCard recipe={recipe} flavours={flavours} />
+                <RecipeCard user={props.user} recipe={recipe} flavours={flavours} />
             </li>
         );
     });

@@ -28,8 +28,6 @@ export default function RecipePage(props) {
       .get(`/api/recipes/${id}`)
       .then((all) => {
         const recipe = all.data.recipe;
-    console.log(recipe)
-
         dispatch({ type: SET_RECIPE_DATA, recipe });
       })
       .catch((e) => console.error(e));
