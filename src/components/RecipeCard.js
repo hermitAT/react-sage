@@ -78,9 +78,9 @@ export default function RecipeCard(props) {
         )}
         {mode === RATING && (
           <div className="rating">
-          <div class="recipe__form--radio rating__radio">
+          <div class="recipe__card--radio">
           <div
-            class="recipe__form--radio-container"
+            class="recipe__card--radio-container"
             value={newRating}
             onChange={(e) => setNewRating(e.target.value)}
           >
