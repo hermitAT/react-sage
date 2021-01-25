@@ -1,3 +1,5 @@
+@import "styles/variables.scss";
+
 #description {
 
   h2 {
@@ -16,7 +18,7 @@
 
   h4 {
     text-align: center;
-    padding: 5px;
+    padding: 20px;
     width: 12em;
     margin: 30px 10px 10px 0;
 
@@ -26,6 +28,15 @@
     height: 5em;
     margin: 30px 0px 10px 10px;
     border-radius: 5px;
+
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 0.25rem;
+    border: $color-darker 2px outline;
+    background-color: $color-dark;
+    color: $color-lightest;
+    box-shadow: 0px 4px 8px rgba($color-dark, 0.5);
+  
   }
 
   #top5-list {

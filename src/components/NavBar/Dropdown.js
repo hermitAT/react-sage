@@ -1,9 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ReactDOM from 'react-dom';
-
 import './Dropdown.scss';
-
 import useHomeData from "hooks/useHomeData";
 
 
@@ -12,36 +9,17 @@ export default function Dropdown(props) {
   const { state } = useHomeData();
   const { categories } = state;
 
-  const MenuIngredients = function (props) {
-    console.log(props)
-    return (
-      <div>
-        {props.ingredients.map(ingredient => (
-          <mark key={ingredient.id}>
-            <a href={`/ingredients/${ingredient.id}`}>{ingredient.name}</a>
-          </mark>)
-        )}</div>
-    )
-  }
-  //<section onMouseEnter={(() => showIngredients(categories[1]))}  id="dropmenu__liqueurs" className='dropmenu__ingredients-container'></section>
-
-  const showIngredients = function (category) {
-    { console.log(category.ingredients) }
-    ReactDOM.render(<MenuIngredients ingredients={category.ingredients}></MenuIngredients>, document.getElementById('dropmenu__liqueurs'))
-    //ReactDOM.render(<DropM           x={pageX} y={pageY}               ></DropM>,           document.getElementById('drop-menu-container'))
-  }
-
   return (
     <ul className='top-level-menu'>
       <li>Browse by...
       <ul className='second-level-menu'>
           <li>Flavour
           <ul className='third-level-menu'>
-              <li>Sweet</li>
-              <li>Sour</li>
-              <li>Salty</li>
-              <li>Spicy</li>
-              <li>Bitter</li>
+              <li><Link className="dropmenu__ingredients__list" to={`/browse/flavour/1`}>Sweet</Link></li>
+              <li><Link className="dropmenu__ingredients__list" to={`/browse/flavour/2`}>Sour</Link></li>
+              <li><Link className="dropmenu__ingredients__list" to={`/browse/flavour/3`}>Salty</Link></li>
+              <li><Link className="dropmenu__ingredients__list" to={`/browse/flavour/4`}>Spicy</Link></li>
+              <li><Link className="dropmenu__ingredients__list" to={`/browse/flavour/5`}>Bitter</Link></li>
             </ul>
           </li>
           <li className="dropmenu__ingredients_li">Ingredients
@@ -63,20 +41,12 @@ export default function Dropdown(props) {
           </li>
           <li>Strength
           <ul className='third-level-menu'>
-              <li>Non-Alcoholic</li>
-              <li>Weak</li>
-              <li>Mild</li>
-              <li>Medium</li>
-              <li>Strong</li>
-              <li>Very Strong</li>
-            </ul>
-          </li>
-          <li>Popularity
-          <ul className='third-level-menu'>
-              <li>Highest Rating</li>
-              <li>Most Comments</li>
-              <li>Most Favorites</li>
-              <li>Most reMixes</li>
+              <li><Link className="dropmenu__ingredients__list" to={`/browse/strength/non`}>Non-Alcoholic</Link></li>
+              <li><Link className="dropmenu__ingredients__list" to={`/browse/strength/weak`}>Weak</Link></li>
+              <li><Link className="dropmenu__ingredients__list" to={`/browse/strength/mild`}>Mild</Link></li>
+              <li><Link className="dropmenu__ingredients__list" to={`/browse/strength/medium`}>Medium</Link></li>
+              <li><Link className="dropmenu__ingredients__list" to={`/browse/strength/strong`}>Strong</Link></li>
+              <li><Link className="dropmenu__ingredients__list" to={`/browse/strength/very_strong`}>Very Strong</Link></li>
             </ul>
           </li>
         </ul>

@@ -37,7 +37,7 @@
   }
 
   &-controls {
-    width: 100%;
+    width: 70%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -48,9 +48,12 @@
   }
 
   &-avatar {
-    height: 300px;
-    width: 300px;
+    height: 200px;
+    width: 200px;
     margin-left: 3rem;
+    border-radius: 100%;
+    background-color: whitesmoke;
+    padding: 1rem;
   }
 
   &-details {
@@ -78,7 +81,7 @@
     width: 100%;
 
     button {
-      width: 225px;
+      width: 240px;
       height: 60px;
       font-size: 1.2rem;
     }
@@ -86,7 +89,7 @@
 
   &--content {
     display: flex;
-    width: 60%;
+    width: 100%;
     flex-direction: column;
     justify-content: center;
     align-items: center;

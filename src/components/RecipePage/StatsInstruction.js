@@ -36,6 +36,3 @@ export default function StatsInstruction(props) {
     </div>
   )
 }
-        /*{getInstruction(instruction).map(line => {
-          return (<li><p>{line}</p></li>)
-        })}*/

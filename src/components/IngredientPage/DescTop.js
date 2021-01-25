@@ -1,9 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import "./DescTop.scss";
 
 export default function DescTop(props) {
+
+  let history = useHistory();
+
+  const seeMore = function() {
+    history.push(`/browse/ingredient/${props.id}`)
+  }
 
   const recipe_list = props.top5.map(recipe => {
     const URL = `/recipes/${recipe.id}`;
@@ -25,7 +32,7 @@ export default function DescTop(props) {
       <div id="top5">
       <section>
         <h4 className="text-container">Top-5 recipes with {props.name}</h4>
-        <button >See more...</button>
+        <button onClick={() => seeMore()}>See more...</button>
       </section>
       {props.top5 && (
       <div id="top5-list" className="text-container">

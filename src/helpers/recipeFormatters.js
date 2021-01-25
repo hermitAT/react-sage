@@ -9,17 +9,17 @@ export const formatStrength = function(strength) {
     case 49 >= strength && strength >= 1:
       result = `Weak (${percent}%)`;
       break;
-    case 99 >= strength && strength >= 50:
+    case 124 >= strength && strength >= 50:
       result = `Mild (${percent}%)`;
       break;
-    case 249 >= strength && strength >= 100:
+    case 249 >= strength && strength >= 125:
       result = `Medium (${percent}%)`;
       break;
-    case 500 >= strength && strength >= 250:
+    case 399 >= strength && strength >= 250:
       result = `Strong (${percent}%)`;
       break;
-    case 1001 >= strength && strength >= 500:
-      result = `Very Strong (${percent}%)`;
+    case 1000 >= strength && strength >= 400:
+      result = `Very Strong! (${percent}%)`;
       break;
     default:
       result = '';

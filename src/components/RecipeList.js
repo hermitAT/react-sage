@@ -5,7 +5,6 @@ import RecipeCard from "components/RecipeCard";
 import "./RecipeList.scss";
 
 export default function RecipeList(props) {
-  console.log("RecipeList", props)
     const [currentPage, setCurrentPage] = useState(props.pages.current_page || "");
 
     const getRecipes = function(arr) {

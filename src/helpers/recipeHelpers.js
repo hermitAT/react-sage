@@ -47,23 +47,24 @@ const getInstruction = function(str) {
 
 const strengthWordize = function(strength, reverse = false) {
   const map = {
-    "Weak": [0, 100],
-    "Mild": [100, 200],
-    "Medium": [200, 350],
-    "Strong": [350, 500],
-    "Very strong!": [500, 1000]
+    "Weak": [0, 50],
+    "Mild": [50, 125],
+    "Medium": [125, 250],
+    "Strong": [250, 400],
+    "Very strong!": [400, 1000]
   };
 
   if (reverse) {
     for (const key in map) {
-      if (strength.toLowerCase() === key.toLowerCase()) return map[key];
-      return 0;
+      console.log(key, strength)
+      if (strength.replace(/_/,'').toLowerCase() === key.replace(/!| /g,'').toLowerCase()) return map[key];
     }
+    return 0;
   }
 
   for (const type in map) {
     if (strength === 0) return "Non-alcohol";
-    if ((strength > map[type][0]) && (strength <= map[type][1])) return type;
+    if ((strength => map[type][0]) && (strength < map[type][1])) return type;
   }
   return 'Out of range!'
 }
