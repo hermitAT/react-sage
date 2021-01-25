@@ -10,7 +10,8 @@ export default function reducer(state, action) {
         most_pop_non: action.data.max_rating_non_alcohol,
         daily_cocktail: action.data.recipe_of_the_day,
         flavours: action.data.flavours,
-        categories: action.data.categories
+        categories: action.data.categories,
+        funfact: action.data.funfact
       };
     
     default:

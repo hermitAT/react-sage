@@ -1,0 +1,22 @@
+@import "styles/variables.scss";
+
+.button-know-more {
+  width: 20rem;
+  margin-top: 1rem;
+}
+
+.did-you-know {
+
+  padding-bottom: 8px;
+  border-bottom: 3px solid $color-dark;
+
+  &__h2 {
+    //height: 5rem;
+    padding: 2rem 0;
+    font-size: 24pt;
+  }
+}
+
+.funfact-text {
+  font-size: 18pt;
+}
