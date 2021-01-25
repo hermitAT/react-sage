@@ -14,7 +14,7 @@ export default function useHomeData() {
   });
 
   useEffect(() => {
-    axios.get('/api')
+    return axios.get('/api')
       .then(all => {
         const data = all.data;
         dispatch({ type: SET_HOME_DATA, data})

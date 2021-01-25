@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import axios from "axios";
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import useRatingFav from "hooks/useRatingFav";
 import useVisualMode from "hooks/useVisualMode";
-import { formatStrength, formatFlavour, formatRating } from 'helpers/recipeFormatters';
+import { formatStrength, formatFlavour } from 'helpers/recipeFormatters';
 import IngredientList from "./IngredientsList";
 import Button from "components/Button";
 
@@ -12,9 +12,9 @@ import './RecipeCard.scss';
 import 'components/Create/index.scss';
 
 export default function RecipeCard(props) {
-  const [rating, setRating] = useState(props.recipe.rating || "");
-  const [favorites, setFavorites] = useState(props.recipe.users_favourited.length || "")
-  const [newRating, setNewRating] = useState("");
+  const [ newRating, setNewRating ] = useState("");
+
+  const { state, sendRating, sendFavorite, updateInitial } = useRatingFav();
 
   const history = useHistory();
 
@@ -22,46 +22,25 @@ export default function RecipeCard(props) {
   const RATING = "RATING";
   const { mode, transition } = useVisualMode(NORMAL);
 
-  const { recipe, ingredients, comments } = props.recipe;
+  const { recipe, ingredients, comments, users_favourited, rating } = props.recipe;
+
+  useEffect(() => {
+    updateInitial(rating, users_favourited.length);
+  }, []);
 
   const background = {
     backgroundImage: `url(${recipe.image_url})`
-  };
-
-  const star = function(rating) {
-    let result = '';
-
-    if (rating === '5.0') {
-      result = 'star';
-    } else {
-      result = 'star-half-alt';
-    }
-    return result;
   };
 
   const handleClick = function(id) {
     history.push(`/recipes/${id}`);
   };
 
-  const sendRating = function(user, recipe_id, newRating) {
-    return axios.post(`/api/recipes/${recipe_id}/ratings`, { user_id: user, value: newRating })
-      .then(all => {
-        console.log(all.data.avg_rating);
-        setRating(prev => all.data.avg_rating);
-        transition(NORMAL);
-      })
+  const createRating = function(user_id, recipe_id, value) {
+    sendRating(props.user.id, recipe.id, newRating)
+      .then(() => transition(NORMAL))
       .catch(e => console.error(e));
   }
-
-  const sendFavourite = function(user, recipe_id) {
-    return axios.post(`/api/recipes/${recipe_id}/favorites`, { user_id: user})
-      .then(all => {
-        console.log(all.data.num_of_favs);
-        setFavorites(prev => all.data.num_of_favs);
-      })
-      .catch(e => console.error(e));
-  }
-
 
   return (
     <div className='recipe__card'>
@@ -83,13 +62,13 @@ export default function RecipeCard(props) {
       </article>
         {mode === NORMAL && (
       <div className='recipe__card--badges'>
-        <div className='recipe__card--details' onClick={() => sendFavourite(props.user.user.id, recipe.id)}>
+        <div className='recipe__card--details' onClick={() => sendFavorite(props.user.id, recipe.id)}>
           <FontAwesomeIcon icon='bookmark' size='lg' />
-          <p>{favorites}</p>
+          <p>{state.favorites}</p>
         </div>
         <div className='recipe__card--details' onClick={() => transition(RATING)}>
-          <FontAwesomeIcon icon={star(rating)} size='lg' />
-          <p>{formatRating(rating)}</p>
+          <FontAwesomeIcon icon="star-half-alt" size='lg' />
+          <p>{parseFloat(state.avg_rating).toFixed(2)}</p>
         </div>
         <div className='recipe__card--details' onClick={() => handleClick(recipe.id)}>
           <FontAwesomeIcon icon='comments' size='lg' />
@@ -118,7 +97,7 @@ export default function RecipeCard(props) {
           </div>
         </div>
             <Button
-              onClick={() => sendRating(props.user.id, recipe.id, newRating)}
+              onClick={() => createRating(props.user.id, recipe.id, newRating)}
               className="rating__submit"
             >Submit
             </Button>
