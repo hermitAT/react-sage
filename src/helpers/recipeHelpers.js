@@ -48,10 +48,10 @@ const getInstruction = function(str) {
 const strengthWordize = function(strength, reverse = false) {
   const map = {
     "Weak": [0, 50],
-    "Mild": [50, 100],
-    "Medium": [100, 200],
-    "Strong": [200, 350],
-    "Very strong!": [350, 1000]
+    "Mild": [50, 125],
+    "Medium": [125, 250],
+    "Strong": [250, 400],
+    "Very strong!": [400, 1000]
   };
 
   if (reverse) {
@@ -64,7 +64,7 @@ const strengthWordize = function(strength, reverse = false) {
 
   for (const type in map) {
     if (strength === 0) return "Non-alcohol";
-    if ((strength > map[type][0]) && (strength <= map[type][1])) return type;
+    if ((strength => map[type][0]) && (strength < map[type][1])) return type;
   }
   return 'Out of range!'
 }
