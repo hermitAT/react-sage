@@ -2,11 +2,16 @@ import React from "react";
 const { getNamesAndAmounts } = require('helpers/recipeHelpers');
 
 export default function ImgDescrIngr(props) {
-  const { name, image_url, summary, ingredients } = props
+  const { name, image_url, summary, ingredients, parent_id } = props
   return (
     <div id="img-desc-ingred" className="row-group">
       <img id="img" src={image_url} alt={name}></img>
       <div id="description-ingredients">
+        {parent_id && (
+        <div id="description" className="text-container m1rem-tb">
+          <h3>ReMixed from recipe #{parent_id}</h3>
+        </div>
+        )}
         <div id="description" className="text-container m1rem-tb">
           <h3>Describe it to me . . .</h3>
           <p>{summary}</p>
