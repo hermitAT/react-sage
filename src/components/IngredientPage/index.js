@@ -66,6 +66,7 @@ export default function IngredientPage(props) {
         <img src={image_url} alt={name}></img>
       </div>
       <DescTop
+        id={id}
         name={name}
         description={description}
         top5={top5}

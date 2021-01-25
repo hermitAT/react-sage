@@ -25,7 +25,9 @@ export default function BrowsePage(props) {
       case 'flavour':
         query += `flavour_id=${val}`;
       break;
-
+      case 'ingredient':
+        query += `ingredient_id=${val}`;
+      break;
       case 'strength':
         const strengthRange = strengthWordize(val, true)
         if (!Array.isArray(strengthRange)) {
@@ -38,9 +40,9 @@ export default function BrowsePage(props) {
       default:
         history.replace('/')
     }
-    setSearchResults(prev => null)
     return axios.get(`/api/recipes/search?${query}`)
     .then(all => {
+      setSearchResults(prev => null)
       setSearchResults(prev => all.data.result)
     })
       .catch(e => console.error(e))

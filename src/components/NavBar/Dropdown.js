@@ -52,14 +52,6 @@ export default function Dropdown(props) {
               <li><Link className="dropmenu__ingredients__list" to={`/browse/strength/very_strong`}>Very Strong</Link></li>
             </ul>
           </li>
-          <li>Popularity
-          <ul className='third-level-menu'>
-              <li>Highest Rating</li>
-              <li>Most Comments</li>
-              <li>Most Favorites</li>
-              <li>Most reMixes</li>
-            </ul>
-          </li>
         </ul>
       </li>
     </ul>
