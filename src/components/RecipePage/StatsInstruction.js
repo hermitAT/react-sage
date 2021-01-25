@@ -1,6 +1,5 @@
 import React from "react";
 
-import { formatRating } from "helpers/recipeFormatters";
 import { strengthWordize, likeness, TemporaryHelperForFlavourIDS } from 'helpers/recipeHelpers';
 
 
@@ -14,7 +13,7 @@ export default function StatsInstruction(props) {
     <div id="instruct-strength-flavour" className="row-group">
       <div id="strength-flavour">
         <div id="flavor-result-str">
-          <mark id="flavour" className="text-container"><strong>Rating: {formatRating(rating)}</strong></mark>
+          <mark id="flavour" className="text-container"><strong>Rating: {parseFloat(rating).toFixed(2)}</strong></mark>
           <mark id="result-strength" className="text-container"><strong>Favorited {favorites} times!</strong></mark>
         </div>
         <div id="flavor-result-str">

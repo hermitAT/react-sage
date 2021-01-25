@@ -83,11 +83,3 @@ export const formatIngredients = function(ingredients) {
   };
   return result;
 };
-
-export const formatRating = function(rating) {
-  if (rating === null) {
-    return 0;
-  } else {
-    return parseInt(rating).toFixed(2)
-  }
-};

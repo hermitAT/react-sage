@@ -6,7 +6,7 @@ export default function useUserData() {
   const [recipes, setRecipes] = useState("");
 
   useEffect(() => {
-    axios.get('/api/users/1')
+    return axios.get('/api/users/1')
       .then(all => {
         setUser(prev => all.data)
       })

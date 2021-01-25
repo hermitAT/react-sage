@@ -45,7 +45,7 @@
     flex-direction: row;
     justify-content: space-around;
     border-bottom: 3px solid $color-dark;
-    padding-bottom: 10px;
+    padding-bottom: 1.25rem;
   }
 
   &--strength {
@@ -63,7 +63,9 @@
   }
 
   &--list {
-    padding: 20px;
+    padding: 10px;
+    padding-left: 2rem;
+    padding-right: 2rem;
     min-height: 200px;
     max-height: 400px;
     display: flex;
@@ -139,6 +141,27 @@
       margin-left: 0.75rem;
     }
   }
+
+  &--radio {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.25rem;
+    margin-top: 1rem;
+
+    &-container {
+      width: 100%;
+      background: $color-lightest;
+      border: 1px solid $color-lighter;
+      border-radius: 4px;
+      display: inline-flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-bottom: 15px;
+      padding: 5px;
+      flex-wrap: wrap;
+      flex-grow: 2;
+    }
+  }
 }
 
 .rating {
@@ -159,4 +182,34 @@
     width: 100px;
     height: 40px;
   }
+}
+
+.recipe__card--radio-container label {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  display: inline-block;
+  height: 26px;
+  line-height: 26px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  transition: .2s all ease-in-out;
+  width: 80px;
+}
+
+.recipe__card--radio-container input {
+  display: none;
+}
+
+.recipe__card--radio-container input:checked + label {
+  background: $color-lighter;
+  border: 1px solid $color-dark;
+}
+
+.recipe__form--radio-container label {
+  padding: 5px;
+  white-space: nowrap;
+  width: auto;
+  min-width: 80px;
 }
