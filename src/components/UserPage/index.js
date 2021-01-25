@@ -21,10 +21,19 @@ export default function User(props) {
     ])
       .then((all) => {
         setUser(prev => all[0].data);
-        setPages(prev => all[1].data.result.relevance);
+        setPages(prev => all[0].data.my_recipes);
+        console.log('---')
         })
         .catch((e) => console.error(e));
     }, [id]);
+
+  const emptyPages = function() {
+    return setPages(prev => null)
+  }
+
+  const switchRecipes = function(recipesSet) {
+    setPages(prev => (recipesSet === 'favorites') ? user.my_favorites : user.my_recipes)
+  }
  
   return (
     <>
@@ -43,10 +52,10 @@ export default function User(props) {
               <p>{user.favorites_id.length} favourite recipe{user.favorites_id.length > 1 ? 's' : ''}!</p>
             </article>
             <div className="user__page-buttons">
-              <Button className="user__page-button" onClick={console.log("hi")}>
+              <Button className="user__page-button" onClick={() => switchRecipes('my')}>
                 My Recipes
               </Button>
-              <Button className="user__page-button" onClick={console.log("hi")}>
+              <Button className="user__page-button" onClick={() => switchRecipes('favorites')}>
                 My Favorite Recipes
               </Button>
               </div>
