@@ -38,14 +38,14 @@ const { user } = useUserData();
           <Route path="/recipes/:id">
             <RecipePage user={user} />
           </Route>
+          <Route path="/users/:id">
+            <UserPage />
+          </Route>
           <Route path="/create">
             <Create user={user} />
           </Route>
           <Route path="/search">
             <SearchPage />
-          </Route>
-          <Route path="/user">
-            <UserPage user={user} />
           </Route>
           <Route path="/">
             <Home user={user} />
