@@ -12,14 +12,21 @@ import './FunFactCard.scss';
 import 'components/Create/index.scss';
 
 export default function FunFactCard(props) {
+  
+  const [funfact, setFunFact] = useState(props.funfact || '');
 
   const background = {
-    backgroundImage: `url(${props.image_url})`
+    backgroundImage: `url(${funfact.image_url || props.image_url})`
   };
 
-  const handleClick = function(id) {
-    //history.push(`/recipes/${id}`);
+  const getNewFact = function() {
+    axios.get('/api')
+      .then(all => {
+      setFunFact(prev => all.data.funfact)
+    })
+    .catch(e => console.error(e));
   };
+  console.log(funfact)
 
   return (
     <div className='recipe__card'>
@@ -32,12 +39,12 @@ export default function FunFactCard(props) {
       </header>
       <article className='recipe__card--list'>
         <div className='recipe__card--summary funfact-text' >
-            <div>. . . that {props.text}.</div>
+            <div>. . . that {funfact.text || props.text}</div>
         </div>
       </article>
         
       <div className='recipe__card--badges'>
-        <div className='recipe__card--details button-know-more' onClick={() => console.log('zzz')}>
+        <div className='recipe__card--details button-know-more' onClick={() => getNewFact()}>
           <FontAwesomeIcon icon='book-open' size='lg' />
           <p>What to know more?</p>
         </div>
