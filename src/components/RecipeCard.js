@@ -24,7 +24,9 @@ export default function RecipeCard(props) {
 
   const { recipe, ingredients, comments, users_favourited, rating } = props.recipe;
 
-  const [favorited, setFavorited] = useState(users_favourited.includes(props.user.id) || '')
+  const [favorited, setFavorited] = useState(users_favourited.includes(props.user && props.user.id) || '')
+
+  //useEffect
 
   useEffect(() => {
     updateInitial(rating, users_favourited.length);
