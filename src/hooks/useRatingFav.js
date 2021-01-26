@@ -29,12 +29,23 @@ export default function useRatingFav() {
       .catch(e => console.error(e));
   }
 
+  const sendUnFavorite = function(user, recipe_id) {
+    console.log(user, recipe_id)
+
+    return axios.delete(`/api/recipes/${recipe_id}/favorites`, { data: { user_id: user} })
+      .then(all => {
+        const favorites = all.data.num_of_favs;
+        dispatch({ type: SET_FAVORITES, favorites})
+      })
+      .catch(e => console.error(e));
+  }
+
   const updateInitial = function(avg_rating, favorites) {
     dispatch({ type: SET_RATING, avg_rating });
     dispatch({ type: SET_FAVORITES, favorites });
   }
 
-  return { state, sendRating, sendFavorite, updateInitial };
+  return { state, sendRating, sendFavorite, sendUnFavorite, updateInitial };
 
 
 }
