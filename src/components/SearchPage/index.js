@@ -1,13 +1,13 @@
+import axios from 'axios';
+import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import Button from 'components/Button';
 import SearchDropMenu from './SearchDropMenu';
 import RecipeList from 'components/RecipeList';
-import axios from 'axios';
-import React, { useState } from 'react';
-import './SearchPage.scss';
-
 import useSearchData from "hooks/useSearchData";
 
-
+import './SearchPage.scss';
 
 export default function SearchPage(props) {
   const { state } = useSearchData();
@@ -86,9 +86,10 @@ export default function SearchPage(props) {
                   categories={categories}
                   chosenIngredients={chosenIngredients}
                 />}
-                {<Button className="search__button__reset"
-                onClick={() => clearIngredients()}>
-                  Reset
+                {<Button
+                  className="search__button__reset"
+                  onClick={() => clearIngredients()}>
+                  <FontAwesomeIcon icon="trash-alt" size="lg" /> Reset
                 </Button>}
               </div>
               <div id="selected-ingredients">

@@ -77,12 +77,20 @@
     &__input {
       background-color: $color-light;
       border-width: 0 0 2px 0;
+      border-radius: 0.25rem;
       margin-right: 0rem;
       width: 30rem;
       height: 2.5em;
       font-size: 1.2rem;
+      border-color: $color-dark;
       //word-wrap: break-word;
       //word-break: break-all;
+
+      &:focus {
+        outline: none;
+        border: 1px solid $color-dark;
+        box-shadow: 0 0 10px $color-medium;
+      }
     }
   }
   img {

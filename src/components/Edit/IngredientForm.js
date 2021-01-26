@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import IngredientList from "./IngredientList";
+import Button from "components/Button";
 
 import "./index.scss";
 
@@ -64,13 +65,13 @@ export default function IngredientForm(props) {
         </div>
       )}
       <div class="recipe__form--footer">
-        <button type="button" onClick={props.onCancel}>
+        <Button type="button" onClick={props.onCancel}>
           <FontAwesomeIcon icon="backward" size="lg" /> Cancel
-        </button>
+        </Button>
         <section>{error}</section>
-        <button type="button" onClick={() => validate()}>
+        <Button type="button" onClick={() => validate()}>
           <FontAwesomeIcon icon="check-circle" size="lg" /> Confirm
-        </button>
+        </Button>
       </div>
     </main>
   );

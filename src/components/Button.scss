@@ -5,7 +5,7 @@
     background-color: $color-dark;
     height: 50px;
     color: $white;
-    border: none;
+    border: $color-darker 2px outline;
     border-radius: 0.25rem;
     font-size: 1rem;
     width: 6rem;

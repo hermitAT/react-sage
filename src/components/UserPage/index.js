@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from 'react-dom';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import RecipeList from "components/RecipeList";
 import Button from "components/Button";
@@ -39,15 +39,26 @@ export default function User(props) {
             </article>
             <div className="user__page-buttons">
               <Button className="user__page-button" onClick={() => getMyRecipes()}>
-                My Recipes
+                <FontAwesomeIcon icon="user" size="lg" /> My Recipes
               </Button>
               <Button className="user__page-button" onClick={() => getMyFavorites()}>
-                My Favorite Recipes
+              <FontAwesomeIcon icon="bookmark" size="lg" /> My Favorite Recipes
               </Button>
               </div>
             </div>  
           </div>
         </div>
+        {state.pages && state.pages === state.created_recipes && (
+          <div className="user__page-title head">
+            <h2 className="user__page-h2">Recipes created by {state.user.user.name}!</h2>
+          </div>
+        )}
+        {state.pages && state.pages === state.favorite_recipes && (
+          <div className="user__page-title head">
+            <h2 className="user__page-h2">{state.user.user.name}'s Favorite Recipes</h2>
+          </div>
+        )}
+
         {state.pages && (
           <RecipeList pages={state.pages} user={user.user} />
         )}

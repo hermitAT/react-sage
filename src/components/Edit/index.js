@@ -9,6 +9,7 @@ import reducer, {
   SET_STATIC_DATA
 } from "reducers/edit";
 
+import Button from "components/Button";
 import Show from "./Show";
 import Empty from "./Empty";
 import IngredientForm from "./IngredientForm";
@@ -155,17 +156,17 @@ export default function Edit(props) {
         {parent_id && (
         <>
           <h2>reMixed from {recipe.name}!</h2>
-          <button type="button" onClick={() => saveFork()}>
+          <Button type="button" onClick={() => saveFork()}>
             <FontAwesomeIcon icon="save" size="lg" /> SAVE
-          </button>
+          </Button>
         </>
         )}
         {!parent_id && (
           <>
           <h2>Edit your recipe!</h2>
-          <button type="button" onClick={() => saveEdit()}>
+          <Button type="button" onClick={() => saveEdit()}>
             <FontAwesomeIcon icon="save" size="lg" /> SAVE EDIT
-          </button>
+          </Button>
           </>
         )}
       </div>
