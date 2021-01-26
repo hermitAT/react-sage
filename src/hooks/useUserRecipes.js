@@ -12,7 +12,7 @@ export default function useUserData() {
     user: "",
     created_recipes: "",
     favorite_recipes: "",
-    pages: "",
+    pages: ""
   });
 
   const { id } = useParams();

@@ -11,7 +11,7 @@ export default function useHomeData() {
     most_pop_non: {},
     flavours: [],
     categories: [],
-    funfact: {}
+    funfact: ""
   });
 
   useEffect(() => {
