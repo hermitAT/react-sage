@@ -14,7 +14,7 @@ import 'components/Create/index.scss';
 export default function RecipeCard(props) {
   const [ newRating, setNewRating ] = useState("");
 
-  const { state, sendRating, sendFavorite, updateInitial } = useRatingFav();
+  const { state, sendRating, sendFavorite, sendUnFavorite, updateInitial } = useRatingFav();
 
   const history = useHistory();
 
@@ -24,9 +24,11 @@ export default function RecipeCard(props) {
 
   const { recipe, ingredients, comments, users_favourited, rating } = props.recipe;
 
+  const [favorited, setFavorited] = useState(users_favourited.includes(props.user.id) || '')
+
   useEffect(() => {
     updateInitial(rating, users_favourited.length);
-  }, []);
+  }, [props]);
 
   const background = {
     backgroundImage: `url(${recipe.image_url})`
@@ -40,6 +42,11 @@ export default function RecipeCard(props) {
     sendRating(props.user.id, recipe.id, newRating)
       .then(() => transition(NORMAL))
       .catch(e => console.error(e));
+  }
+
+  const handleFavoriteClick = function(user_id, recipe_id) {
+    favorited ? sendUnFavorite(user_id, recipe_id) : sendFavorite(user_id, recipe_id);
+    setFavorited(prev => !favorited);
   }
 
   return (
@@ -62,10 +69,16 @@ export default function RecipeCard(props) {
       </article>
         {mode === NORMAL && (
       <div className='recipe__card--badges'>
-        <div className='recipe__card--details' onClick={() => sendFavorite(props.user.id, recipe.id)}>
-          <FontAwesomeIcon icon='bookmark' size='lg' />
+
+        {(<div className='recipe__card--details' onClick={() => handleFavoriteClick(props.user.id, recipe.id)}>
+          <FontAwesomeIcon icon={favorited ? 'bookmark': ['far', 'bookmark']} size='lg' />
           <p>{state.favorites}</p>
-        </div>
+        </div>)}
+        {/*!favorited && (<div className='recipe__card--details' onClick={() => clickFavorite(props.user.id, recipe.id)}>
+          <FontAwesomeIcon icon={['far', 'bookmark']} size='lg' />
+          <p>{state.favorites}</p>
+        </div>)*/}
+
         <div className='recipe__card--details' onClick={() => transition(RATING)}>
           <FontAwesomeIcon icon="star-half-alt" size='lg' />
           <p>{parseFloat(state.avg_rating).toFixed(2)}</p>
