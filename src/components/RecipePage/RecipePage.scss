@@ -14,9 +14,9 @@
   border-radius: 0.25rem;
 
   & #img {
-    height: 27rem;
+    height: 22rem;
     width: 27rem;
-    border-radius: 100%;
+    border-radius: 1rem;
     margin: 1rem;
     padding: 1rem;
     background-color: whitesmoke;
@@ -46,8 +46,9 @@ h1.text-container {
   width: 20rem;
   
   button {
-    width: 6rem;
+    width: 7rem;
     font-size: 1rem;
+    border: $color-darker 2px outline;
   }
 
   svg {
@@ -78,6 +79,7 @@ h1.text-container {
 
 #strength-flavour {
   margin-left: 4rem;
+  margin-bottom: 3rem;
 }
 
 #result-strength {

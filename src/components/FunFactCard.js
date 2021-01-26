@@ -1,12 +1,6 @@
 import React, { useState } from 'react';
 import axios from "axios";
-import { useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-import useVisualMode from "hooks/useVisualMode";
-import { formatStrength, formatFlavour, formatRating } from 'helpers/recipeFormatters';
-import IngredientList from "./IngredientsList";
-import Button from "components/Button";
 
 import './FunFactCard.scss';
 import 'components/Create/index.scss';
@@ -46,7 +40,7 @@ export default function FunFactCard(props) {
       <div className='recipe__card--badges'>
         <div className='recipe__card--details button-know-more' onClick={() => getNewFact()}>
           <FontAwesomeIcon icon='book-open' size='lg' />
-          <p>What to know more?</p>
+          <p>Want to know more?</p>
         </div>
         </div>
         

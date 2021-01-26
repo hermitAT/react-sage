@@ -48,6 +48,10 @@
       height: 3rem;
       text-align: center;
       margin: 2rem 0;
+
+      svg {
+        margin-right: 0.75rem;
+      }
     }
   }
 
@@ -126,7 +130,7 @@
   font-size: 1.5rem;
   width: 20rem;
   height: 5rem;
-  border: $color-darker 2px outline;
+  border: $color-darker 5px outline;
   border-radius: 0.25rem;
   background-color: $color-dark;
   color: $color-lightest;
