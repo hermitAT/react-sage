@@ -95,7 +95,7 @@ export default function SearchPage(props) {
                 {Object.keys(chosenIngredients).map(id => {
                   return (
                     <div key={id} id="selected-name-remove">
-                      <p>{chosenIngredients[id]}</p>
+                      <p className="chosen-ingredient__item">{chosenIngredients[id]}</p>
                       <Button onClick={(e) => onRemove(id)}>Remove</Button>
                     </div>
                   )

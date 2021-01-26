@@ -19,6 +19,7 @@ export default function RecipePage(props) {
     comments: "",
     users_favourited: "",
     parent: "",
+    users_rated: ""
   });
 
   let history = useHistory();
@@ -35,7 +36,7 @@ export default function RecipePage(props) {
   }, [id]);
 
   
-  const { recipe, rating, ingredients, comments, users_favourited, parent } = state;
+  const { recipe, rating, users_rated, ingredients, comments, users_favourited, parent } = state;
   
   const updateComments = function(comment) {
     const newComments = [comment, ...comments]
@@ -70,6 +71,7 @@ export default function RecipePage(props) {
           result_strength={recipe.result_strength}
           instruction={recipe.instruction}
           rating={rating}
+          users_rated={users_rated}
           favorites={users_favourited.length}
         />
         {comments[0] && <CommentsFeed

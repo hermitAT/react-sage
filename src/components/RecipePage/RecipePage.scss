@@ -70,6 +70,10 @@ h1.text-container {
   width: 9.5rem;
   font-size: 1rem;
   padding: 0.5rem;
+
+  svg {
+    padding: 1px 0;
+  }
 }
 
 #strength-flavour {

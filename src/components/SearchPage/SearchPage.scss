@@ -56,12 +56,15 @@
 #drop-menu {
   display: flex;
   flex-direction: row;
-  width: 35rem;
+  //width: 35rem;
+  background-color: $color-dark;
+  border-radius: 0.25rem;
 
   
   .category-element {
     padding: 1rem 0;
-    background-color: salmon;
+    background-color: $color-dark;
+    border-radius: 0.25rem;
     color: white;
     width: 7rem;
     text-align: center;
@@ -75,8 +78,8 @@
     
     &:hover {
   
-      background-color: antiquewhite;
-      color: darkred;
+      //background-color: antiquewhite;
+      //color: darkred;
       
 
       #ingredients button.ingredient-element {
@@ -85,19 +88,22 @@
     }
 
     #ingredients button.ingredient-element {
-      font-size: 1.2rem;
+      font-size: 1.5rem;
+      font-weight: bold;
       margin: 0;
-      padding: 1rem 0;
+      padding: 0.5rem 1rem;
       width: 28rem;
-      height: 1.8rem;
-      border-radius: 0;
+      height: 2.5rem;
       border: none;
-      padding: 0;
       display: none;
+      background-color: $color-light;
+      color: $color-dark;
+      border-radius: 0.25rem;
+
   
       &:hover {
-        background-color: white;
-        color: black;
+        background-color: $color-dark;
+        color: $color-light;
       }
   }
     
@@ -145,14 +151,17 @@
   &__ingredient__menu {
     float: left;
     position: absolute;
-    top: 370px;
-    left: 450px;
+    top: 355px;
+    right: 285px;
   
     &__section {
       float: left;
       position: absolute;
       top: 57px;
-      left: 0px
+      left: 0px;
+      border-radius: 0.25rem;
+      background-color: $color-light;
+
     }
   }
 
@@ -165,4 +174,9 @@
     }
   }
 
+}
+
+.chosen-ingredient__item {
+  padding: 1.3rem 0;
+  margin-left: 1rem;
 }

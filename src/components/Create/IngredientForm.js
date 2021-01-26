@@ -45,7 +45,7 @@ export default function IngredientForm(props) {
       {category === "" && <div></div>}
       {category && (
         <IngredientList
-          category={category}
+          category={Number(category)}
           ingredient_list={props.ingredient_list}
           ingredient={ingredient}
           setIngredient={(e) => setIngredient(e.target.value)}

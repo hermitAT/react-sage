@@ -1,11 +1,12 @@
 import React from "react";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { strengthWordize, likeness, TemporaryHelperForFlavourIDS } from 'helpers/recipeHelpers';
 
 
 export default function StatsInstruction(props) {
 
-  const { flavour_id, result_strength, instruction, rating, favorites } = props;
+  const { flavour_id, result_strength, instruction, rating, users_rated, favorites } = props;
   
   const instructionSet = instruction.split(". ")
 
@@ -13,7 +14,7 @@ export default function StatsInstruction(props) {
     <div id="instruct-strength-flavour" className="row-group">
       <div id="strength-flavour">
         <div id="flavor-result-str">
-          <mark id="flavour" className="text-container"><strong>Rating: {parseFloat(rating).toFixed(2)}</strong></mark>
+          <mark id="flavour" className="text-container"><strong>Rating: {!isNaN(parseFloat(rating).toFixed(2)) ? parseFloat(rating).toFixed(2) : 'Not rated!'} <FontAwesomeIcon icon="star-half-alt" size="sm"/> ({users_rated})</strong></mark> 
           <mark id="result-strength" className="text-container"><strong>Favorited {favorites} times!</strong></mark>
         </div>
         <div id="flavor-result-str">
