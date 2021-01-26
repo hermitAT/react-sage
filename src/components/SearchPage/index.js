@@ -1,8 +1,8 @@
 import Button from 'components/Button';
+import SearchDropMenu from './SearchDropMenu';
 import RecipeList from 'components/RecipeList';
 import axios from 'axios';
 import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
 import './SearchPage.scss';
 
 import useSearchData from "hooks/useSearchData";
@@ -17,6 +17,7 @@ export default function SearchPage(props) {
   const [name, setName] = useState('');
   const [chosenIngredients, setIngredient] = useState({});
   const [searchResults, setSearchResults] = useState('');
+  const [revealMenu, setRevealMenu] = useState(false);
 
   const getSearchResults = function(name, ingredients) {
     if (ingredients.length === 0 && name === '') return false
@@ -30,46 +31,29 @@ export default function SearchPage(props) {
 
     axios.get(`/api/recipes/search?${query}`)
     .then(all => {
-      setSearchResults(prev => null)
-      setSearchResults(prev => all.data.result)
+      setSearchResults(prev => null);
+      setSearchResults(prev => all.data.result);
     })
-      .catch(e => console.error(e))
+      .catch(e => console.error(e));
   };
 
   const onRemove = function(id){
-    console.log(id)
-    let newChosen = {...chosenIngredients}
-    delete newChosen[id]
-    setIngredient(newChosen)
-  }
-
-  const DropM = function () {
-    const style = { float: 'left', position: 'absolute', top: 370 + 'px', left: 250 + 'px' }
-    const ingredientsStyle = { float: 'left', position: 'absolute', top: 57 + 'px', left: 0 + 'px' }
-    return (
-      <div id="drop-menu" style={style}>
-        {categories.map((category, index) => (
-          <div key={index} className="category-element">
-            {category.name}
-            <div id="ingredients" style={ingredientsStyle}>{category.ingredients.map((ingredient, index) =>
-              (!Object.keys(chosenIngredients).map(key => Number(key)).includes(ingredient.id)) && (
-                <button key={index} className="ingredient-element" onClick={() =>
-                  clickIngredient(ingredient.id, ingredient.name)}>{ingredient.name}</button>
-              ))}</div>
-          </div>))}
-
-      </div>
-    )
+    let newChosen = {...chosenIngredients};
+    delete newChosen[id];
+    setIngredient(newChosen);
   }
 
   const clickIngredient = function (id, name) {
     setIngredient({ ...chosenIngredients, [id]: name })
-    ReactDOM.unmountComponentAtNode(document.getElementById('drop-menu-container'))
   }
 
-  const showMenu = function (e) {
-    const { pageX, pageY } = e
-    ReactDOM.render(<DropM x={pageX} y={pageY}></DropM>, document.getElementById('drop-menu-container'))
+  const flipMenu = function() {
+    setRevealMenu(prev => !revealMenu);
+  }
+
+  const clearIngredients = function() {
+    const clearObject = {};
+    setIngredient(prev => clearObject);
   }
 
   return (
@@ -96,8 +80,17 @@ export default function SearchPage(props) {
           <div id="with-ingredients">
             <h3 className="text-container">. . . with . . .</h3>
             <div id="ingredients-list" className="text-container">
-              <div id="add-button-container">
-                <Button id="add-ingredient" onClick={(e) => showMenu(e)}>+ Add ingredient</Button>
+              <div id="add-button-container" className="search__button__container">
+                <Button id="add-ingredient" onClick={() => flipMenu()}>{!revealMenu && '+ Add ingredient'} {revealMenu && 'Cancel'}</Button>
+                {revealMenu && <SearchDropMenu
+                  onClick={clickIngredient}
+                  categories={categories}
+                  chosenIngredients={chosenIngredients}
+                />}
+                {<Button className="search__button__reset"
+                onClick={() => clearIngredients()}>
+                  Reset
+                </Button>}
               </div>
               <div id="selected-ingredients">
                 {Object.keys(chosenIngredients).map(id => {

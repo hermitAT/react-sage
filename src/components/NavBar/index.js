@@ -13,9 +13,10 @@ export default function NavBar(props) {
   return (
     <nav className="navbar">
       <div className="navbar--centered">
-        <h1 className="navbar__title">
-          CocktailSage
-        </h1>
+        <Link to='/'>
+          <h1 className="navbar__title">CocktailSage</h1>
+        </Link>
+
         <Link to='/'>
           <img className="navbar__logo" src={logo} alt="Logo" />
         </Link>
