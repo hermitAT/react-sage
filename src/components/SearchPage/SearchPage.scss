@@ -41,7 +41,7 @@
   }
 
   #ingredients-list {
-    width: 20rem;
+    width: 23rem;
 
     button {
       width: 10rem;
@@ -126,26 +126,43 @@
   color: $color-lightest;
   box-shadow: 0px 4px 8px rgba($color-dark, 0.5);
 
+  &__reset {
+    margin-left: 1rem;
+  }
+
   &:hover {
     box-shadow: 2px 6px 12px rgba($color-dark, 0.5);
   }
 }
 
-.search__results__header {
-  text-align: center;
-  margin: 4rem 0;
-}
+.search {
 
-.search__ingredient__menu {
-  float: left;
-  position: absolute;
-  top: 370px;
-  left: 450px;
+  &__results__header {
+    text-align: center;
+    margin: 4rem 0;
+  }
 
-  &__section {
+  &__ingredient__menu {
     float: left;
     position: absolute;
-    top: 57px;
-    left: 0px
+    top: 370px;
+    left: 450px;
+  
+    &__section {
+      float: left;
+      position: absolute;
+      top: 57px;
+      left: 0px
+    }
   }
+
+  &__button {
+
+    &__container {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
 }

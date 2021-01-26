@@ -31,17 +31,16 @@ export default function SearchPage(props) {
 
     axios.get(`/api/recipes/search?${query}`)
     .then(all => {
-      setSearchResults(prev => null)
-      setSearchResults(prev => all.data.result)
+      setSearchResults(prev => null);
+      setSearchResults(prev => all.data.result);
     })
-      .catch(e => console.error(e))
+      .catch(e => console.error(e));
   };
 
   const onRemove = function(id){
-    console.log(id)
-    let newChosen = {...chosenIngredients}
-    delete newChosen[id]
-    setIngredient(newChosen)
+    let newChosen = {...chosenIngredients};
+    delete newChosen[id];
+    setIngredient(newChosen);
   }
 
   const clickIngredient = function (id, name) {
@@ -49,7 +48,12 @@ export default function SearchPage(props) {
   }
 
   const flipMenu = function() {
-    setRevealMenu(prev => !revealMenu)
+    setRevealMenu(prev => !revealMenu);
+  }
+
+  const clearIngredients = function() {
+    const clearObject = {};
+    setIngredient(prev => clearObject);
   }
 
   return (
@@ -76,13 +80,17 @@ export default function SearchPage(props) {
           <div id="with-ingredients">
             <h3 className="text-container">. . . with . . .</h3>
             <div id="ingredients-list" className="text-container">
-              <div id="add-button-container">
+              <div id="add-button-container" className="search__button__container">
                 <Button id="add-ingredient" onClick={() => flipMenu()}>{!revealMenu && '+ Add ingredient'} {revealMenu && 'Cancel'}</Button>
                 {revealMenu && <SearchDropMenu
                   onClick={clickIngredient}
                   categories={categories}
                   chosenIngredients={chosenIngredients}
                 />}
+                {<Button className="search__button__reset"
+                onClick={() => clearIngredients()}>
+                  Reset
+                </Button>}
               </div>
               <div id="selected-ingredients">
                 {Object.keys(chosenIngredients).map(id => {
