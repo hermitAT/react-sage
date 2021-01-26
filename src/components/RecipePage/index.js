@@ -18,6 +18,7 @@ export default function RecipePage(props) {
     ingredients: "",
     comments: "",
     users_favourited: "",
+    parent: "",
   });
 
   let history = useHistory();
@@ -34,7 +35,7 @@ export default function RecipePage(props) {
   }, [id]);
 
   
-  const { recipe, rating, ingredients, comments, users_favourited } = state;
+  const { recipe, rating, ingredients, comments, users_favourited, parent } = state;
   
   const updateComments = function(comment) {
     const newComments = [comment, ...comments]
@@ -60,6 +61,7 @@ export default function RecipePage(props) {
           image_url={recipe.image_url}
           summary={recipe.summary}
           ingredients={ingredients}
+          parent={parent}
           parent_id={recipe.parent_id}
         />
 

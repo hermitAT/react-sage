@@ -1,15 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom";
 const { getNamesAndAmounts } = require('helpers/recipeHelpers');
 
 export default function ImgDescrIngr(props) {
-  const { name, image_url, summary, ingredients, parent_id } = props
+  const { name, image_url, summary, ingredients, parent, parent_id } = props
+  const URL = `/recipes/${parent_id}`;
+
   return (
     <div id="img-desc-ingred" className="row-group">
       <img id="img" src={image_url} alt={name}></img>
       <div id="description-ingredients">
         {parent_id && (
         <div id="description" className="text-container m1rem-tb">
-          <h3>ReMixed from recipe #{parent_id}</h3>
+          <h3>ReMixed from <Link to={URL}>{parent}</Link></h3>
         </div>
         )}
         <div id="description" className="text-container m1rem-tb">
