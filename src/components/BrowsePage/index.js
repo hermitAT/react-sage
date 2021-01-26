@@ -45,7 +45,7 @@ export default function BrowsePage(props) {
       <h1 className="text-container" id="browse__page-head">Browse by {`${cat.slice(0, 1).toUpperCase()}${cat.slice(1)}`}</h1>
     {searchResults && (searchResults !== "No results found") && (
       <>
-      <RecipeList user={props.user} pages={searchResults.relevance}/>
+      <RecipeList user={props.user.user} pages={searchResults.relevance}/>
       </>
     )}
     {searchResults === "No results found" && <h2 className="search__results__header">There are no recipes of this type to browse</h2>}
