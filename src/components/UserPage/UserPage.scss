@@ -1,7 +1,7 @@
 @import "styles/variables.scss";
 
 .user__page {
-  margin-top: 7rem;
+  margin-top: 9rem;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -11,9 +11,12 @@
   &-top {
     display: flex;
     flex-direction: row;
-    width: 80%;
+    width: 62.7%;
     justify-content: center;
     align-items: center;
+    background-color: $color-light;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
   }
 
   &-title {
@@ -48,12 +51,12 @@
   }
 
   &-avatar {
-    height: 200px;
-    width: 200px;
+    height: 250px;
+    width: 250px;
+    padding: 1rem;
     margin-left: 3rem;
     border-radius: 100%;
     background-color: whitesmoke;
-    padding: 1rem;
   }
 
   &-details {
@@ -81,7 +84,7 @@
     width: 100%;
 
     button {
-      width: 240px;
+      width: 245px;
       height: 60px;
       font-size: 1.2rem;
     }

@@ -35,7 +35,6 @@ export default function BrowsePage(props) {
     }
     return axios.get(`/api/recipes/search?${query}`)
     .then(all => {
-      setSearchResults(prev => null)
       setSearchResults(prev => all.data.result)
     })
       .catch(e => console.error(e))
