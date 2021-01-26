@@ -9,7 +9,8 @@ export default function reducer(state, action) {
         rating: action.recipe[0].rating,
         ingredients: action.recipe[0].ingredients,
         comments: action.recipe[0].comments,
-        users_favourited: action.recipe[0].users_favourited
+        users_favourited: action.recipe[0].users_favourited,
+        parent: action.recipe[0].parent
       };
 
     default:

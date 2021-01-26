@@ -8,7 +8,7 @@ export default function RecipeList(props) {
     const [currentPage, setCurrentPage] = useState(props.pages.current_page || "");
 
     const getRecipes = function(arr) {
-        axios.get('/api/recipes/fetch', { 'headers': { 'ids': arr } })
+        return axios.get('/api/recipes/fetch', { 'headers': { 'ids': arr } })
           .then(all => {
           setCurrentPage(prev => all.data.recipes)
         })
@@ -38,8 +38,7 @@ export default function RecipeList(props) {
     }
 ];
 
-    
-    //const recipes = currentPage //|| props.pages.current_page
+
     const recipe_list = currentPage.map(recipe => {
         return (
             <li className="recipe__list-item">
@@ -48,9 +47,9 @@ export default function RecipeList(props) {
         );
     });
     return (
-      <section>
+      <section id="recipe_list">
         <ul className="recipe__list">
-          {recipe_list}
+          {recipe_list && recipe_list}
         </ul>
         {props.pages['2'] && (<mark className="pagination__buttons">
           {Object.keys(props.pages).map(key => 

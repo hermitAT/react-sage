@@ -1,69 +1,65 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { useParams } from "react-router-dom";
+import React from "react";
+import ReactDOM from 'react-dom';
 
 import RecipeList from "components/RecipeList";
 import Button from "components/Button";
 import { timeAgo } from "helpers/timeAgo";
+import useUserRecipes from "hooks/useUserRecipes";
 
 import "./UserPage.scss";
 
 export default function User(props) {
-  const [user, setUser] = useState("");
-  const [pages, setPages] = useState("");
+  
+  const { state, getMyRecipes, getMyFavorites } = useUserRecipes();
 
-  let { id } = useParams();
+  const getCreated = function() {
+    ReactDOM.unmountComponentAtNode(document.getElementById('recipe_list'));
 
-  useEffect(() => {
-    Promise.all([
-    axios.get(`/api/users/${id}`),
-    axios.get(`/api/recipes/search?user_id=${id}`)
-    ])
-      .then((all) => {
-        setUser(prev => all[0].data);
-        setPages(prev => all[0].data.my_recipes);
-        console.log('---')
-        })
-        .catch((e) => console.error(e));
-    }, [id]);
-
-  const emptyPages = function() {
-    return setPages(prev => null)
+    getMyRecipes();
   }
 
-  const switchRecipes = function(recipesSet) {
-    setPages(prev => (recipesSet === 'favorites') ? user.my_favorites : user.my_recipes)
+  const getFavs = function() {
+    ReactDOM.unmountComponentAtNode(document.getElementById('recipe_list'));
+
+    getMyFavorites();
   }
  
   return (
     <>
-    {user &&  (
+    {state.user &&  (
       <div className="user__page">
         <div className="user__page-top">
-          <img className="user__page-avatar" src={user.user.user_avatar} alt="user avatar" />
+          <img className="user__page-avatar" src={state.user.user.user_avatar} alt="user avatar" />
           <div class="user__page-controls">
-            <div className="user__page-title">
-              <h2 className="user__page-h2">Welcome back, {user.user.name}!</h2>
-            </div>
+            {props.user.user.id === state.user.user.id && (
+              <div className="user__page-title">
+                <h2 className="user__page-h2">Welcome back, {state.user.user.name}!</h2>
+              </div>
+            )}
+            {props.user.user.id !== state.user.user.id && (
+              <div className="user__page-title">
+                <h2 className="user__page-h2">Welcome to {state.user.user.name}'s page!</h2>
+              </div>
+            )}
             <div className="user__page--content">
             <article className='user__page-details'>
-              <p>Joined CocktailSage {timeAgo(user.user.created_at)}.</p>
-              <p>Created {user.recipes_id.length} recipe{user.recipes_id.length > 1 ? 's' : ''}!</p>
-              <p>{user.favorites_id.length} favourite recipe{user.favorites_id.length > 1 ? 's' : ''}!</p>
+              <p>Joined CocktailSage {timeAgo(state.user.created_at)}.</p>
+              <p>Created {state.user.recipes_id.length} recipe{state.user.recipes_id.length > 1 ? 's' : ''}!</p>
+              <p>{state.user.favorites_id.length} favourite recipe{state.user.favorites_id.length > 1 ? 's' : ''}!</p>
             </article>
             <div className="user__page-buttons">
-              <Button className="user__page-button" onClick={() => switchRecipes('my')}>
+              <Button className="user__page-button" onClick={() => getCreated()}>
                 My Recipes
               </Button>
-              <Button className="user__page-button" onClick={() => switchRecipes('favorites')}>
+              <Button className="user__page-button" onClick={() => getFavs()}>
                 My Favorite Recipes
               </Button>
               </div>
             </div>  
           </div>
         </div>
-        {pages && (
-          <RecipeList pages={pages} user={props.user.user} />
+        {state.pages && (
+          <RecipeList pages={state.pages} user={props.user.user} />
         )}
       </div>
     )}
