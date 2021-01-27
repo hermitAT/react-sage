@@ -76,6 +76,7 @@ export const formatIngredients = function(ingredients) {
   for (const ingredient of ingredients) {
     for (const key in ingredient) {
       result.push({
+        id: ingredient,
         name: Object.keys(ingredient[key])[0],
         amount: Object.values(ingredient[key])[0]
       });
