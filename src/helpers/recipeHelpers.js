@@ -56,7 +56,6 @@ const strengthWordize = function(strength, reverse = false) {
 
   if (reverse) {
     for (const key in map) {
-      console.log(key, strength)
       if (strength.replace(/_/,'').toLowerCase() === key.replace(/!| /g,'').toLowerCase()) return map[key];
     }
     return 0;

@@ -54,6 +54,9 @@ export default function RecipeList(props) {
   //        </li>
   //    );
   //});}
+  const pagesNum = Object.keys(props.pages).length - 1;
+  const adjustMargin = `32px ${32 - (pagesNum - 11) * 4.3}px`
+  const buttonStyle = { margin: ( pagesNum > 11) ? adjustMargin : `32px` }
 
   return (
     <section id="recipe_list">
@@ -67,7 +70,7 @@ export default function RecipeList(props) {
       {props.pages['2'] && (<mark className="pagination__buttons">
         {Object.keys(props.pages).map(key =>
           (key !== "current_page") &&
-          (<button className="pagination__buttons-single" key={Number(key)} onClick={() => getRecipes(props.pages[key])}>
+          (<button style={buttonStyle} className="pagination__buttons-single" key={Number(key)} onClick={() => getRecipes(props.pages[key])}>
             {key}
           </button>))}
       </mark>)}
