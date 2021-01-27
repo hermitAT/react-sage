@@ -12,14 +12,7 @@ import useVisualMode from "hooks/useVisualMode";
 import "./index.scss";
 
 export default function Create(props) {
-
   let history = useHistory();
-
-  const SHOW = "SHOW";
-  const ADD = "ADD";
-  const EMPTY = "EMPTY";
-
-  const { mode, transition, back } = useVisualMode(EMPTY);
 
   const {
     state,
@@ -27,6 +20,7 @@ export default function Create(props) {
     onIngredient,
     resetIngredients,
     createRecipe,
+    removeIngredient
   } = useCreateForm();
 
   const {
@@ -37,23 +31,35 @@ export default function Create(props) {
     summary,
     instruction,
     ingredients,
-    ingredient_list
+    ingredient_list,
   } = state;
 
-  const newIngredient = function (ingredient, amount) {
-    let recipe_ingredient = {};
+  const SHOW = "SHOW";
+  const ADD = "ADD";
+  const EMPTY = "EMPTY";
 
-    recipe_ingredient.name = ingredient;
-    recipe_ingredient.amount = amount;
-  
+  const { mode, transition, back } = useVisualMode(ingredients ? SHOW : EMPTY);
+
+  const newIngredient = function (id, name, amount) {
+    let recipe_ingredient = {
+      id,
+      name,
+      amount
+    };
+
     onIngredient(recipe_ingredient);
     transition(SHOW);
   };
 
-
   const reset = function () {
     resetIngredients();
     transition(EMPTY);
+  };
+
+  const lastRemove = function(ingredients, id) {
+    ingredients.length === 1 ? transition(EMPTY) : transition(SHOW);
+
+    removeIngredient(id)
   };
 
   const save = function () {
@@ -67,13 +73,13 @@ export default function Create(props) {
       instruction,
     };
 
-    const ingredient_list = ingredients;
+    const ingredients_new = ingredients;
 
-    createRecipe(recipe, ingredient_list)
-      .then(data => {
+    createRecipe(recipe, ingredients_new)
+      .then((data) => {
         history.replace(`/recipes/${data.recipe[0].recipe.id}`);
       })
-      .catch(e => console.error(e));
+      .catch((e) => console.error(e));
   };
 
   return (
@@ -156,10 +162,14 @@ export default function Create(props) {
             ingredients={ingredients}
             onAdd={() => transition(ADD)}
             onReset={() => reset()}
+            onRemove={lastRemove}
           />
         )}
         {mode === ADD && (
-          <IngredientForm ingredient_list={ingredient_list} onCancel={() => back()} onConfirm={newIngredient} />
+          <IngredientForm
+            onCancel={() => back()}
+            onConfirm={newIngredient}
+          />
         )}
       </form>
     </main>

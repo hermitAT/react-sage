@@ -6,22 +6,18 @@ import Button from "components/Button";
 
 import "./index.scss";
 
-
 export default function Show(props) {
-
-  const ingredient_list = props.ingredients.map((i) => {
-      return (
-        <li>
-          <div className='amount'>{formatAmount(i.amount)}</div>
-          <div className='ingredient'>{i.name}</div>
-        </li>
-      )
-  });
 
   return (
     <div>
       <ul className="recipe__form--ingredients">
-        {ingredient_list}
+        {props.ingredients && props.ingredients.map((i) => (
+        <li key={i.id} className="recipe__form--ingredients-single">
+          <div className='amount'>{formatAmount(i.amount)}</div>
+          <div className='ingredient'>{i.name}</div>
+          <Button onClick={() => props.onRemove(props.ingredients, i.id)}>Remove</Button>
+        </li>
+      ))}
       </ul>
       <div className="recipe__form--footer">
       <Button onClick={props.onAdd}>

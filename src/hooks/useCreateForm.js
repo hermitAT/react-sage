@@ -1,11 +1,11 @@
-import { useReducer, useEffect } from 'react';
-import axios from 'axios';
+import { useReducer } from "react";
+import axios from "axios";
 import reducer, {
   ADD_TEXT_FIELD,
   ADD_INGREDIENT,
   RESET_INGREDIENTS,
-  SET_INGREDIENT_LIST
-} from 'reducers/create';
+  REMOVE_INGREDIENT
+} from "reducers/create";
 
 export default function useCreateForm() {
   const [state, dispatch] = useReducer(reducer, {
@@ -15,25 +15,23 @@ export default function useCreateForm() {
     flavour_id: "",
     summary: "",
     instruction: "",
-    ingredients: "",
-    ingredient_list: ""
+    ingredients: ""
   });
 
-  useEffect(() => {
-    return axios.get("/api")
-      .then(all => {
-        dispatch({ type: SET_INGREDIENT_LIST, ingredient_list: all.data.ingredient_list});
-      })
-      .catch(e => console.error(e));
-  }, []);
-
-
   const onChangeValue = (e) => {
-    dispatch({ type: ADD_TEXT_FIELD, field: e.target.name, value: e.target.value })
+    dispatch({
+      type: ADD_TEXT_FIELD,
+      field: e.target.name,
+      value: e.target.value
+    });
   };
 
   const onIngredient = (ingredient) => {
     dispatch({ type: ADD_INGREDIENT, ingredient: ingredient });
+  };
+
+  const removeIngredient = (ingredient) => {
+    dispatch({ type: REMOVE_INGREDIENT, ingredient: ingredient });
   };
 
   const resetIngredients = () => {
@@ -41,17 +39,24 @@ export default function useCreateForm() {
   };
 
   const createRecipe = (recipe_fields, ingredients) => {
-
     const recipe = {
       ...recipe_fields
     };
 
-    return axios.post("/api/recipes", { recipe, ingredients })
-      .then(all => {
+    return axios
+      .post("/api/recipes", { recipe, ingredients })
+      .then((all) => {
         return all.data;
       })
-      .catch(e => console.error(e));
+      .catch((e) => console.error(e));
   };
 
-  return { state, onChangeValue, onIngredient, resetIngredients, createRecipe };
-};
+  return {
+    state,
+    onChangeValue,
+    onIngredient,
+    resetIngredients,
+    createRecipe,
+    removeIngredient
+  };
+}

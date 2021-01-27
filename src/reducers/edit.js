@@ -1,7 +1,8 @@
 export const EDIT_TEXT_FIELD = "ADD_TEXT_FIELD";
 export const ADD_INGREDIENT = "ADD_INGREDIENT";
 export const RESET_INGREDIENTS = "RESET_INGREDIENTS";
-export const SET_STATIC_DATA = "SET_INGREDIENT_LIST";
+export const SET_INGREDIENTS = "SET_INGREDIENTS";
+export const REMOVE_INGREDIENT = "REMOVE_INGREDIENT";
 
 export default function reducer(state, action) {
   switch(action.type) {
@@ -24,11 +25,13 @@ export default function reducer(state, action) {
         ingredients_new: ""
       };
 
-    case SET_STATIC_DATA:
-      return {
-        ...state,
-        ingredient_list: action.data.ingredient_list
-      };
+      case REMOVE_INGREDIENT:
+        const new_ingredients = state.ingredients_new.filter(i => i.id !== action.id);
+  
+        return {
+          ...state,
+          ingredients_new: new_ingredients
+        }
     
     default:
       throw new Error(

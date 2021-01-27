@@ -1,16 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Button from "components/Button";
-import IngredientList from "./IngredientList";
 
 import "./index.scss";
+import IngredientList from "./IngredientList";
 
 export default function IngredientForm(props) {
   const [category, setCategory] = useState("");
   const [ingredient, setIngredient] = useState("");
   const [amount, setAmount] = useState("");
   const [error, setError] = useState("");
+  const [ingredients, setIngredients] = useState("");
+
+  useEffect(() => {
+    return axios.get("/api")
+      .then(all => {
+        setIngredients(prev => all.data.ingredient_list);
+      })
+      .catch(e => console.error(e));
+  }, [props])
 
   const validate = function () {
     if (ingredient === "") {
@@ -20,8 +30,10 @@ export default function IngredientForm(props) {
       setError("You must input an amount!");
       return;
     }
+    const id = ingredients.find(i => i.name === ingredient).id;
+
     setError("");
-    props.onConfirm(ingredient, amount);
+    props.onConfirm(id, ingredient, amount);
   };
 
   return (
@@ -46,7 +58,7 @@ export default function IngredientForm(props) {
       {category && (
         <IngredientList
           category={Number(category)}
-          ingredient_list={props.ingredient_list}
+          ingredients={ingredients}
           ingredient={ingredient}
           setIngredient={(e) => setIngredient(e.target.value)}
         />
