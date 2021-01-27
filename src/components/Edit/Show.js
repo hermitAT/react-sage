@@ -15,7 +15,7 @@ export default function Show(props) {
         <li key={i.id} className="recipe__form--ingredients-single">
           <div className='amount'>{formatAmount(i.amount)}</div>
           <div className='ingredient'>{i.name}</div>
-          <Button onClick={() => props.onRemove(props.ingredients, i.id)}>Remove</Button>
+          <Button>Remove</Button>
         </li>
       ))}
       </ul>
