@@ -178,7 +178,6 @@ export default function Edit(props) {
               className="recipe__form--text"
               type="text"
               name="name"
-              maxlength="20"
               placeholder="..."
               value={name}
               onChange={onChangeValue}

@@ -40,6 +40,7 @@ export default function CommentsFeed(props) {
       <form 
         className="comments-feed__new-comment"
         onSubmit={event => event.preventDefault()}
+        autoComplete='off'
       >
         <input
           className="comments-feed__new-comment__input"

@@ -83,13 +83,12 @@
       height: 2.5em;
       font-size: 1.2rem;
       border-color: $color-dark;
+      padding-left: 10px;
       //word-wrap: break-word;
       //word-break: break-all;
 
       &:focus {
         outline: none;
-        border: 1px solid $color-dark;
-        box-shadow: 0 0 10px $color-medium;
       }
     }
   }

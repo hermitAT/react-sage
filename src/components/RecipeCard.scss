@@ -53,6 +53,11 @@
     color: $color-lightest;
     padding: 10px;
     border-radius: 0.25rem;
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: 0 4px 8px $color-darker, 0 2px 4px $color-darker;
+    }
   }
 
   &--flavour {
@@ -60,6 +65,11 @@
     color: $color-lightest;
     padding: 10px;
     border-radius: 0.25rem;
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: 0 4px 8px $color-darker, 0 2px 4px $color-darker;
+    }
   }
 
   &--list {
