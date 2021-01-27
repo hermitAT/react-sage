@@ -90,8 +90,11 @@
     & li .amount {
       margin-left: 1rem;
       margin-right: 1.5rem;
-      width: auto;
       color: $black;
+    }
+
+    & li .ingredient {
+      min-width: 150px;
     }
   }
 

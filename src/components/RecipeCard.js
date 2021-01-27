@@ -81,7 +81,7 @@ export default function RecipeCard(props) {
 
         <div className='recipe__card--details' onClick={() => transition(RATING)}>
           <FontAwesomeIcon icon="star-half-alt" size='lg' />
-          <p>{parseFloat(state.avg_rating).toFixed(2)}</p>
+          <p>{!isNaN(parseFloat(state.avg_rating).toFixed(2)) ? parseFloat(state.avg_rating).toFixed(2) : 'Unrated'}</p>
         </div>
 
         <div className='recipe__card--details' onClick={() => handleClick(recipe.id)}>

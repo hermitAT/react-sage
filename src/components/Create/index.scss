@@ -97,6 +97,10 @@
       margin-right: 1.5rem;
     }
 
+    & li .ingredient {
+      min-width: 150px;
+    }
+
     & li button {
       margin-left: 1.5rem;
       width: 6rem;
