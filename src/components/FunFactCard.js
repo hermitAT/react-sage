@@ -27,13 +27,13 @@ export default function FunFactCard(props) {
       <header>
         <div className='recipe__card--header' style={background} ></div>
         <div className='recipe__card--title did-you-know'>
-          <h2 className='recipe__card--title-h2 did-you-know__h2'>Did you know? . . .</h2>
+          <h2 className='recipe__card--title-h2 did-you-know__h2'>Did you know . . .</h2>
         </div>
 
       </header>
-      <article className='recipe__card--list'>
-        <div className='recipe__card--summary funfact-text' >
-            <div>. . . that {funfact.text || props.text}</div>
+      <article className='recipe__card--list funfact__text__section'>
+        <div className='recipe__card--summary funfact__text' >
+            <div>. . . that {funfact.text || props.text}?</div>
         </div>
       </article>
         

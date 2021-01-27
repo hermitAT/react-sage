@@ -83,3 +83,32 @@ export const formatIngredients = function(ingredients) {
   };
   return result;
 };
+
+export const formatStrengthLink = function(strength) {
+  let result = '';
+
+  switch(true) {
+    case strength === 0:
+      result = 'non';
+      break;
+    case 49 >= strength && strength >= 1:
+      result = `weak`;
+      break;
+    case 124 >= strength && strength >= 50:
+      result = `mild`;
+      break;
+    case 249 >= strength && strength >= 125:
+      result = `medium`;
+      break;
+    case 399 >= strength && strength >= 250:
+      result = `strong`;
+      break;
+    case 1000 >= strength && strength >= 400:
+      result = `very_strong`;
+      break;
+    default:
+      result = '';
+      break;
+  }
+  return result;
+};

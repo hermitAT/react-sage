@@ -2,12 +2,12 @@
 
 .button-know-more {
   width: 20rem;
-  margin-top: 1rem;
+  margin-top: 0.3rem;
 }
 
 .did-you-know {
 
-  padding-bottom: 8px;
+  padding: 10px 0;
   border-bottom: 3px solid $color-dark;
 
   &__h2 {
@@ -17,6 +17,15 @@
   }
 }
 
-.funfact-text {
+.funfact {
+
+&__text {
   font-size: 18pt;
+  font-family: $secondary;
+  font-weight: bold;
+
+  &__section {
+    margin-bottom: 14px;
+  }
+}
 }

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import useRatingFav from "hooks/useRatingFav";
 import useVisualMode from "hooks/useVisualMode";
-import { formatStrength, formatFlavour } from 'helpers/recipeFormatters';
+import { formatStrength, formatFlavour, formatStrengthLink } from 'helpers/recipeFormatters';
 import IngredientList from "./IngredientsList";
 import Button from "components/Button";
 
@@ -55,8 +55,12 @@ export default function RecipeCard(props) {
         <div className='recipe__card--header' style={background} onClick={() => handleClick(recipe.id)} ></div>
         <div className='recipe__card--title'><h2 className='recipe__card--title-h2'>{recipe.name}</h2></div>
         <div className='recipe__card--tags'>
-          <div class='recipe__card--strength'>{formatStrength(recipe.result_strength)}</div>
-          <div class='recipe__card--flavour'>{formatFlavour(recipe.flavour_id, props.flavours)}</div>
+          <Link to={`/browse/strength/${formatStrengthLink(recipe.result_strength)}`}>
+            <div class='recipe__card--strength'>{formatStrength(recipe.result_strength)}</div>
+          </Link>
+          <Link to={`/browse/flavour/${recipe.flavour_id}`}>
+            <div class='recipe__card--flavour'>{formatFlavour(recipe.flavour_id, props.flavours)}</div>
+          </Link>
         </div>
       </header>
       <article className='recipe__card--list'>
@@ -64,7 +68,7 @@ export default function RecipeCard(props) {
           <IngredientList ingredients={ingredients} />
         </ul>
         <div className='recipe__card--summary'>
-            <div>{recipe.summary}.</div>
+            <div>{recipe.summary}</div>
         </div>
       </article>
         {mode === NORMAL && (
@@ -74,20 +78,18 @@ export default function RecipeCard(props) {
           <FontAwesomeIcon icon={favorited ? 'bookmark': ['far', 'bookmark']} size='lg' />
           <p>{state.favorites}</p>
         </div>)}
-        {/*!favorited && (<div className='recipe__card--details' onClick={() => clickFavorite(props.user.id, recipe.id)}>
-          <FontAwesomeIcon icon={['far', 'bookmark']} size='lg' />
-          <p>{state.favorites}</p>
-        </div>)*/}
 
         <div className='recipe__card--details' onClick={() => transition(RATING)}>
           <FontAwesomeIcon icon="star-half-alt" size='lg' />
           <p>{parseFloat(state.avg_rating).toFixed(2)}</p>
         </div>
+
         <div className='recipe__card--details' onClick={() => handleClick(recipe.id)}>
           <FontAwesomeIcon icon='comments' size='lg' />
           <p>{comments.length}</p>
         </div>
-        </div>
+
+      </div>
         )}
         {mode === RATING && (
           <div className="rating">

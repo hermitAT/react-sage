@@ -35,6 +35,10 @@
   border-radius: 4px;
   width: 35rem;
   padding: 0 1rem;
+
+  p, li, mark {
+    font-family: $secondary;
+  }
 }
 
 .row-group {
@@ -46,3 +50,4 @@
   margin: 1em 0.5em;
   justify-content: space-between;
 }
+

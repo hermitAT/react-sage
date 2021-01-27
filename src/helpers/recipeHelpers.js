@@ -64,7 +64,7 @@ const strengthWordize = function(strength, reverse = false) {
 
   for (const type in map) {
     if (strength === 0) return "Non-alcohol";
-    if ((strength => map[type][0]) && (strength < map[type][1])) return type;
+    if ((strength >= map[type][0]) && (strength < map[type][1])) return type;
   }
   return 'Out of range!'
 }
