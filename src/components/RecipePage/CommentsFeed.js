@@ -54,7 +54,7 @@ export default function CommentsFeed(props) {
           >Submit</button>
       </form>
       )}
-      {props.comments.map((element, index) => {
+      {props.comments[0] && props.comments.map((element, index) => {
         const { text, created_at } = element.comment;
         const { name, user_avatar, id } = element.user;
 

@@ -74,7 +74,7 @@ export default function RecipePage(props) {
           users_rated={users_rated}
           favorites={users_favourited.length}
         />
-        {comments[0] && <CommentsFeed
+        {<CommentsFeed
           comments={comments}
           user={props.user}
           recipe_id={id}
