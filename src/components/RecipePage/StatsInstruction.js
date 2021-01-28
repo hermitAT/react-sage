@@ -17,7 +17,7 @@ export default function StatsInstruction(props) {
     <div id="instruct-strength-flavour" className="row-group">
       <div id="strength-flavour">
         <div id="flavor-result-str">
-          <mark id="flavour" className="text-container"><strong>Rating: {!isNaN(parseFloat(rating).toFixed(2)) ? parseFloat(rating).toFixed(2) : 'Not rated!'} <FontAwesomeIcon icon="star-half-alt" size="sm"/> ({users_rated})</strong></mark> 
+          <mark id="flavour" className="text-container"><strong>{!isNaN(parseFloat(rating).toFixed(2)) ? 'Rating: ' + parseFloat(rating).toFixed(2) : 'Unrated!'} <FontAwesomeIcon icon="star-half-alt" size="sm"/>  ({users_rated})</strong></mark> 
           <mark id="result-strength" className="text-container"><strong>Favorited {favorites} times!</strong></mark>
         </div>
         <div id="flavor-result-str">
