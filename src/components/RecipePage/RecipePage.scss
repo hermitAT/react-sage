@@ -69,9 +69,10 @@ h1.text-container {
 }
 
 #flavour {
-  width: 9.5rem;
-  font-size: 1rem;
+  width: 10rem;
+  font-size: 1.2rem;
   padding: 0.5rem;
+  margin: 0.25rem;
 
   svg {
     padding: 1px 0;
@@ -79,18 +80,20 @@ h1.text-container {
 }
 
 #strength-flavour {
-  margin-left: 4rem;
-  margin-bottom: 3rem;
+  margin-left: 2.25rem;
+  margin-bottom: 1rem;
 }
 
 #result-strength {
-  width: 9.5rem;
+  margin: 0.25rem;
+  width: 10rem;
   padding: 0.5rem;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
 }
 
 #common-drink {
-  width: 20rem;
+  width: 22rem;
+  margin: 0.25rem;
 }
 
 #ingredients li {
