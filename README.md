@@ -18,7 +18,9 @@ Cocktail Sage is a website where you can browse or search existing recipes, add 
 ### Editing and reMixing Recipes
 - Users can edit their existing recipes and change any number of details about them, adding new ingredients or changing the image or text-based descriptors. In addition, a user can use an existing recipe as a template when creating a new recipe.
 !["CocktailSage - edit recipe"](https://github.com/hermitAT/react-sage/blob/master/docs/edit_page.png)
+
 - The user can then make any number of changes to their 'reMix', and they are able to navigate back to the recipe they used as a template directly on the page for their new recipe, allowing users to see the inspiration for this new creation and view the changes over time with each new 'reMix'.
+
 !["CocktailSage - reMix"](https://github.com/hermitAT/react-sage/blob/master/docs/reMix.png)
 
 #
@@ -44,7 +46,7 @@ Cocktail Sage is a website where you can browse or search existing recipes, add 
 - When recipes are displayed outside of their specific pages, they are displayed on a smaller card style. This card displays the brief summary, ingredients and the cocktail image but also details on number of favorites, rating, number of comments and what flavour or strength category this recipe falls into.
 - Users can navigate to the individual recipe page from this card by using the comments badge or clicking the recipe image, or they can navigate to filter all recipes by the same flavour or strength as the card in question by clickin on those badges.
 - Users can add or remove a recipe from their favorites by hitting the favorite badge on the card, and can also give the recipe a rating from 1 to 5 by hitting the rating badge.
-
+!["CocktailSage - recipe card"](https://github.com/hermitAT/react-sage/blob/master/docs/recipe_card.png)
 #
 ### Recipe Page
 - As with each ingredient, each recipe page has a page containing more detailed information for this recipe, with instructions and comments being shown as well a breakdown of the rating it has and the number of users who have rated this recipe. The strength is also compared to a common alcoholic drink ('It's like drinking beer!') as well as links to view all recipes with the same flavour or strength as the current recipe you are viewing.
