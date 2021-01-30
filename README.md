@@ -4,6 +4,8 @@
 
 Cocktail Sage is a website where you can browse or search existing recipes, add their own twist to them or create a new recipe from scratch!
 
+Cocktail Sage uses a data recieved from an API built with Ruby on Rails. Take a look at the [API here!](https://github.com/hermitAT/cocktail-sage-api)
+
 !["CocktailSage - logo"](https://github.com/hermitAT/react-sage/blob/master/docs/logo.png)
 
 #
