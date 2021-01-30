@@ -75,7 +75,7 @@ Cocktail Sage is a website where you can browse or search existing recipes, add 
 
 #
 ### Search Page
-- On the search page user can enter a part of the recipe name and find all recipes containing that query string. Also specific recipes can be added to the search query with the "+ Add ingredient" button.
+- On the search page user can enter a part of the recipe name and find all recipes containing that query string. Also specific ingredients can be added to the search query with the "+ Add ingredient" button.
 
 !["CocktailSage - search_page_barthender1"](https://github.com/hermitAT/react-sage/blob/master/docs/search_page_barthender1.png)
 
