@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# LHL Final Project - Cocktail Sage
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+Cocktail Sage is a website where you can browse or search existing recipes, add their own twist to them or create a new recipe from scratch!
 
-In the project directory, you can run:
+#
+# Main Features
 
-### `yarn start`
+### Ingredients List
+- Cocktail Sage uses a database full of the most popular and widely used ingredients for cocktail recipes. Each ingredient has characteristics regarding alcoholic content, flavour and are sorted into categories to allow users to navigate through these lists with ease.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#
+### Creating Recipes
+- Users can create recipes from the available ingredients, making sure to include an image, brief description and instructions for how they are to be made. When a new recipe is created, the expected strength of the cocktail is calculated, given the volumes and characteristics of the ingredients used.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+#
+### Editing and reMixing Recipes
+- Users can edit their existing recipes and change any number of details about them, adding new ingredients or changing the image or text-based descriptors. In addition, a user can use an existing recipe as a template when creating a new recipe.
+- The user can then make any number of changes to their 'reMix', and they are able to navigate back to the recipe they used as a template directly on the page for their new recipe, allowing users to see the inspiration for this new creation and view the changes over time with each new 'reMix'.
 
-### `yarn test`
+#
+### Home Page
+- Guests are greeted with a randomly selected Cocktail of the Day as well as some randomly selected trivia regarding alcohol or cocktails.
+- Guests are also shown the best rated alcoholic cocktail and non-alcoholic cocktail.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#
+### NavBar
+- The NavBar contains buttons to navigate back home, to go the create page, or to go to the search page. Active user information and a link to view their page or logout exist in the far right of the navbar.
+- There is also a dropdown menu that will allow users to browse recipes by their chosen method of filtration (ex. by flavour, by strength or by a given ingredient).
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
