@@ -75,10 +75,18 @@ Cocktail Sage is a website where you can browse or search existing recipes, add 
 
 #
 ### Search Page
+- On the search page user can enter a part of the recipe name and find all recipes containing that query string. Also specific recipes can be added to the search query with the "+ Add ingredient button".
 
 !["CocktailSage - search_page_barthender1"](https://github.com/hermitAT/react-sage/blob/master/docs/search_page_barthender1.png)
-!["CocktailSage - search_page_barthender2"](https://github.com/hermitAT/react-sage/blob/master/docs/search_page_barthender1.png)
+
+- Search results are ordered by relevance and recipe with the most matches with the query appears first.
+
+!["CocktailSage - search_page_barthender2"](https://github.com/hermitAT/react-sage/blob/master/docs/search_page_barthender2.png)
+
+- Search results are paginated and contents of different pages can be shown by clicking the pages buttons on the bottom.
+
 !["CocktailSage - search_page_pagination"](https://github.com/hermitAT/react-sage/blob/master/docs/search_page_pagination.png)
+
 #
 ### Browse Page
 - A page that displays a large number of recipes in sets of 4, paginated with buttons for each page of recipes populating at the bottom of the page. This page is dynamic and will display all recipes by the given filtration choice, whether it is by flavour, strength or a specific ingredient.
