@@ -3,7 +3,7 @@
 ## Overview
 
 Cocktail Sage is a website where you can browse or search existing recipes, add their own twist to them or create a new recipe from scratch!
-!["CocktailSage logo"](https://github.com/hermitAT/react-sage/blob/master/docs/logo.png)
+!["CocktailSage - logo"](https://github.com/hermitAT/react-sage/blob/master/docs/logo.png)
 #
 # Main Features
 
@@ -13,25 +13,32 @@ Cocktail Sage is a website where you can browse or search existing recipes, add 
 #
 ### Creating Recipes
 - Users can create recipes from the available ingredients, making sure to include an image, brief description and instructions for how they are to be made. When a new recipe is created, the expected strength of the cocktail is calculated, given the volumes and characteristics of the ingredients used.
-
+!["CocktailSage - create recipe"](https://github.com/hermitAT/react-sage/blob/master/docs/create_page.png)
 #
 ### Editing and reMixing Recipes
 - Users can edit their existing recipes and change any number of details about them, adding new ingredients or changing the image or text-based descriptors. In addition, a user can use an existing recipe as a template when creating a new recipe.
+!["CocktailSage - edit recipe"](https://github.com/hermitAT/react-sage/blob/master/docs/edit_page.png)
 - The user can then make any number of changes to their 'reMix', and they are able to navigate back to the recipe they used as a template directly on the page for their new recipe, allowing users to see the inspiration for this new creation and view the changes over time with each new 'reMix'.
+!["CocktailSage - reMix"](https://github.com/hermitAT/react-sage/blob/master/docs/reMix.png)
 
 #
 ### Home Page
 - Guests are greeted with a randomly selected Cocktail of the Day as well as some randomly selected trivia regarding alcohol or cocktails.
+!["CocktailSage - home page random and fact"](https://github.com/hermitAT/react-sage/blob/master/docs/home_page_top.png)
 - Guests are also shown the best rated alcoholic cocktail and non-alcoholic cocktail.
+!["CocktailSage - home page best"](https://github.com/hermitAT/react-sage/blob/master/docs/home_page_bottom.png)
 
 ### NavBar
 - The NavBar contains buttons to navigate back home, to go the create page, or to go to the search page. Active user information and a link to view their page or logout exist in the far right of the navbar.
+!["CocktailSage - navbar"](https://github.com/hermitAT/react-sage/blob/master/docs/navbar.png)
 - There is also a dropdown menu that will allow users to browse recipes by their chosen method of filtration (ex. by flavour, by strength or by a given ingredient).
-
+!["CocktailSage - dropmenu flavor"](https://github.com/hermitAT/react-sage/blob/master/docs/dropmenu_flavor.png)
+!["CocktailSage - dropmenu ingredient"](https://github.com/hermitAT/react-sage/blob/master/docs/dropmenu_ingredient.png)
+!["CocktailSage - dropmenu strength"](https://github.com/hermitAT/react-sage/blob/master/docs/dropmenu_strength.png)
 #
 ### Ingredient Page
 - Each ingredient has it's own page, in which a guest can view details and information about a given ingredient as well as have access to a list of links to each of the 5 top rated cocktails containing this ingredient. The 'See More...' button allows users to then view all recipes containing this ingredient, sorted by date created.
-
+!["CocktailSage - ingredient_page"](https://github.com/hermitAT/react-sage/blob/master/docs/ingredient_page.png)
 #
 ### Recipe Card
 - When recipes are displayed outside of their specific pages, they are displayed on a smaller card style. This card displays the brief summary, ingredients and the cocktail image but also details on number of favorites, rating, number of comments and what flavour or strength category this recipe falls into.
