@@ -56,3 +56,19 @@ Cocktail Sage is a website where you can browse or search existing recipes, add 
 - Each user has access to their own page, in which they can view their specific details and all recipes they have created or favorited. Recipes are displayed in same sets of 4 with pagination that is used on the search and browse pages.
 
 #
+## Getting Started
+1. Install dependencies with: `npm install`
+2. Run the server! `npm start`
+3. View the page at `http://localhost:8000/`
+4. It's that easy! Now you can dive into the free-flowing navigation of CocktailSage!
+
+#
+## Dependencies
+- axios: ^0.21.0
+- classnames: ^2.2.6
+- react: ^17.0.1
+- react-dom: ^17.0.1
+- react-router-dom: ^5.2.0
+- react-scripts: ^4.0.1
+- babel-loader: ^8.0.5
+- node-sass: ^4.12.0
