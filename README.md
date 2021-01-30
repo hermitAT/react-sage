@@ -3,7 +3,7 @@
 ## Overview
 
 Cocktail Sage is a website where you can browse or search existing recipes, add their own twist to them or create a new recipe from scratch!
-
+!["CocktailSage logo"](https://github.com/hermitAT/react-sage/blob/master/docs/logo.png)
 #
 # Main Features
 
